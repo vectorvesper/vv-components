@@ -1,0 +1,42 @@
+{
+  "slug": "magnetic-cursor",
+  "name": "Magnetic Cursor",
+  "title": "Magnetic Cursor",
+  "description": "A custom cursor element that follows the mouse with inertia.",
+  "version": "1.0.0",
+  "tier": "free",
+  "category": "pointer",
+  "type": "vv:component",
+  "frameworks": [
+    "next",
+    "vite"
+  ],
+  "files": [
+    {
+      "path": "packages/components/magnetic-cursor/MagneticCursor.tsx",
+      "target": "magnetic-cursor/MagneticCursor.tsx",
+      "type": "component",
+      "content": "\"use client\";\n\nimport React, { useRef, useEffect } from \"react\";\nimport gsap from \"gsap\";\nimport { MagneticCursorProps } from \"./types\";\n\nexport function MagneticCursor({\n  children,\n  range = 100,\n  strength = 0.5,\n  className = \"\",\n  ...props\n}: MagneticCursorProps) {\n  const cursorRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    const cursor = cursorRef.current;\n    if (!cursor) return;\n\n    // Center the custom cursor element on the mouse pointer\n    gsap.set(cursor, { xPercent: -50, yPercent: -50 });\n\n    const onMouseMove = (event: MouseEvent) => {\n      const { clientX, clientY } = event;\n      \n      // Move custom cursor to mouse position smoothly\n      gsap.to(cursor, {\n        x: clientX,\n        y: clientY,\n        duration: 0.2,\n        ease: \"power2.out\",\n      });\n    };\n\n    window.addEventListener(\"mousemove\", onMouseMove);\n\n    return () => {\n      window.removeEventListener(\"mousemove\", onMouseMove);\n    };\n  }, []);\n\n  return (\n    <div\n      ref={cursorRef}\n      className={`fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-indigo-600 pointer-events-none z-50 ${className}`}\n      {...props}\n    >\n      {children}\n    </div>\n  );\n}\n"
+    },
+    {
+      "path": "packages/components/magnetic-cursor/types.ts",
+      "target": "magnetic-cursor/types.ts",
+      "type": "types",
+      "content": "import { HTMLAttributes, ReactNode } from \"react\";\n\nexport interface MagneticCursorProps extends HTMLAttributes<HTMLDivElement> {\n  children?: ReactNode;\n  range?: number;\n  strength?: number;\n}\n"
+    }
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "requiresClient": true,
+  "supportsReducedMotion": true,
+  "usesWebGL": false,
+  "usesPointer": true,
+  "usesScroll": false,
+  "fallbacks": [],
+  "recipes": [],
+  "docsUrl": "https://vectorvesper.dev/components/magnetic-cursor",
+  "previewUrl": "https://vectorvesper.dev/components/magnetic-cursor"
+}
