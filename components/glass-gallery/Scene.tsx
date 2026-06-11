@@ -290,10 +290,17 @@ export default function Scene({
   unfoldEnd,
 }: SceneProps) {
 
+  const { gl } = useThree();
   const groupRef = useRef<THREE.Group>(null);
   const glassRef = useRef<THREE.Mesh>(null);
   const glassMaterialRef = useRef<THREE.MeshPhysicalMaterial>(null);
   const coreLightRef = useRef<THREE.PointLight>(null);
+
+  useEffect(() => {
+    if (gl && gl.domElement) {
+      gl.domElement.style.touchAction = "pan-y";
+    }
+  }, [gl]);
 
   const gridHeight = useMemo(() => {
     const rows = mode === "quad" ? 3 : 2;

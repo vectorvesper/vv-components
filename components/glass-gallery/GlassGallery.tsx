@@ -180,7 +180,7 @@ export default function GlassGallery({
     <div
       ref={pinRef}
       className={`w-full ${staticPreview ? "h-full" : "h-screen"} select-none relative overflow-hidden ${className}`}
-      style={{ backgroundColor, ...style }}
+      style={{ backgroundColor, touchAction: "pan-y", ...style }}
     >
       {active && (
         <div 
@@ -203,7 +203,7 @@ export default function GlassGallery({
           }
         }}
         dpr={[1, 2]}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", outline: "none" }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", outline: "none", touchAction: "pan-y" }}
       >
         <Suspense fallback={null}>
           <Environment preset="studio" />
