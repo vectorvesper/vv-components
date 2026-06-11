@@ -3,7 +3,7 @@
   "name": "Magnetic Button",
   "title": "Magnetic Button",
   "description": "A button that pulls toward the mouse cursor when within range.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "tier": "free",
   "category": "interaction",
   "type": "vv:component",
