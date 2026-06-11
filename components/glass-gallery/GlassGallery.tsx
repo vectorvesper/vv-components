@@ -31,12 +31,12 @@ export interface GlassGalleryProps {
 }
 
 const DEFAULT_IMAGES = [
-  "/images/nature_1.png",
-  "/images/nature_2.png",
-  "/images/nature_3.png",
-  "/images/nature_4.png",
-  "/images/nature_5.png",
-  "/images/nature_6.png",
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80",
 ];
 
 export default function GlassGallery({
