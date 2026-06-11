@@ -75,6 +75,16 @@ export default function GlassGallery({
     setMounted(true);
   }, []);
 
+  // Force ScrollTrigger to refresh its markers after the 3D textures finish loading
+  useEffect(() => {
+    if (!active && mounted) {
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [active, mounted]);
+
   const { scrollDepth, unfoldEnd } = useMemo(() => {
     const rows = mode === "quad" ? 3 : 2;
     const itemH = galleryItemHeight ?? (mode === "square" ? 2.8 : 1.37) * cubeSize;
