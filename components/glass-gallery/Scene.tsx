@@ -148,7 +148,7 @@ function PhotoCollage({
   unfoldEnd,
 }: any) {
   const { gl } = useThree();
-  const textures = useTexture(imageUrls);
+  const textures = useTexture(imageUrls) as THREE.Texture[];
 
   useEffect(() => {
     const maxAniso = Math.min(4, gl.capabilities.getMaxAnisotropy());
