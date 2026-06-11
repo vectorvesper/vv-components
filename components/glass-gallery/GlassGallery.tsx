@@ -20,6 +20,10 @@ export interface GlassGalleryProps {
   backgroundColor?: string;
   hoverTransparency?: boolean;
   photoOpacity?: number;
+  glassThickness?: number;
+  glassRoughness?: number;
+  glassOpacity?: number;
+  glassColor?: string;
   galleryItemWidth?: number;
   galleryItemHeight?: number;
   gridGapX?: number;
@@ -49,6 +53,10 @@ export default function GlassGallery({
   backgroundColor = "#000000",
   hoverTransparency = false,
   photoOpacity = 1.0,
+  glassThickness = 1.3,
+  glassRoughness = 0.12,
+  glassOpacity = 0.16,
+  glassColor = "#ffffff",
   galleryItemWidth,
   galleryItemHeight,
   gridGapX,
@@ -74,6 +82,15 @@ export default function GlassGallery({
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Forward wheel events through R3F canvas so ScrollTrigger works
+  useEffect(() => {
+    const el = pinRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => e.stopPropagation();
+    el.addEventListener("wheel", handler, { capture: true });
+    return () => el.removeEventListener("wheel", handler, { capture: true });
+  }, [mounted]);
 
   // Force ScrollTrigger to refresh its markers after the 3D textures finish loading
   useEffect(() => {
@@ -160,8 +177,8 @@ export default function GlassGallery({
   if (!mounted) {
     return (
       <div 
-        className="w-full h-screen flex items-center justify-center bg-(--gallery-bg)" 
-        style={{ "--gallery-bg": backgroundColor } as any}
+        className="w-full h-screen flex items-center justify-center" 
+        style={{ backgroundColor }}
       >
         <div className="w-8 h-8 rounded-full border border-neutral-800 border-t-neutral-400 animate-spin" />
       </div>
@@ -171,16 +188,16 @@ export default function GlassGallery({
   return (
     <div
       ref={pinRef}
-      className={`w-full ${staticPreview ? "h-full" : "h-screen"} select-none relative overflow-hidden bg-(--gallery-bg) ${className}`}
-      style={{ "--gallery-bg": backgroundColor, ...style } as any}
+      className={`w-full ${staticPreview ? "h-full" : "h-screen"} select-none relative overflow-hidden ${className}`}
+      style={{ backgroundColor, ...style }}
     >
       {active && (
         <div 
-          className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-50 bg-(--gallery-bg)" 
-          style={{ "--gallery-bg": backgroundColor } as any}
+          className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-50" 
+          style={{ backgroundColor }}
         >
-          <div className="w-12 h-12 border-3 border-[#7EACB5]/10 border-t-[#7EACB5] rounded-full animate-spin shadow-[0_0_20px_rgba(126,172,181,0.2)]" />
-          <p className="text-[#7EACB5] text-[10px] font-bold uppercase tracking-[0.3em] animate-pulse">
+          <div className="w-12 h-12 border border-neutral-800 border-t-neutral-400 rounded-full animate-spin" />
+          <p className="text-neutral-400 text-[10px] font-bold uppercase tracking-[0.3em] animate-pulse">
             Configuring 3D Engine...
           </p>
         </div>
@@ -195,7 +212,7 @@ export default function GlassGallery({
           }
         }}
         dpr={[1, 2]}
-        className="absolute! inset-0 w-full h-full outline-none"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", outline: "none" }}
       >
         <Suspense fallback={null}>
           <Environment preset="studio" />
@@ -205,6 +222,10 @@ export default function GlassGallery({
             scrollProgressRef={scrollProgressRef}
             mode={mode}
             cubeSize={cubeSize}
+            glassThickness={glassThickness}
+            glassRoughness={glassRoughness}
+            glassOpacity={glassOpacity}
+            glassColor={glassColor}
             autoSpinSpeed={autoSpinSpeed}
             scrollSpins={scrollSpins}
             mouseTiltIntensity={mouseTiltIntensity}

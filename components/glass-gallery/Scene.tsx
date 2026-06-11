@@ -10,6 +10,10 @@ interface SceneProps {
   scrollProgressRef: React.RefObject<number>;
   mode: "square" | "rect" | "quad";
   cubeSize: number;
+  glassThickness: number;
+  glassRoughness: number;
+  glassOpacity: number;
+  glassColor: string;
   autoSpinSpeed: number;
   scrollSpins: number;
   mouseTiltIntensity: number;
@@ -267,6 +271,10 @@ export default function Scene({
   scrollProgressRef,
   mode,
   cubeSize,
+  glassThickness,
+  glassRoughness,
+  glassOpacity,
+  glassColor,
   autoSpinSpeed,
   scrollSpins,
   mouseTiltIntensity,
@@ -281,10 +289,6 @@ export default function Scene({
   gridGapY,
   unfoldEnd,
 }: SceneProps) {
-  const glassThickness = 1.3;
-  const glassRoughness = 0.12;
-  const glassOpacity = 0.16;
-  const glassColor = "#ffffff";
 
   const groupRef = useRef<THREE.Group>(null);
   const glassRef = useRef<THREE.Mesh>(null);
@@ -371,7 +375,18 @@ export default function Scene({
     }
     if (glassMaterialRef.current) {
       const glassTargetOpacity = scrollProgressRef.current === 0.0 ? glassOpacity : 0.0;
+      
+      // Smoothly animate opacity
       glassMaterialRef.current.opacity += (glassTargetOpacity - glassMaterialRef.current.opacity) * (1.0 - Math.exp(-0.15 * delta * 60));
+      
+      // Directly sync physical uniforms on the active WebGL instance to bypass caching
+      glassMaterialRef.current.thickness = glassThickness;
+      glassMaterialRef.current.roughness = glassRoughness;
+      
+      // Dynamically update reflective tint color
+      if (glassColor) {
+        glassMaterialRef.current.color.set(glassColor);
+      }
     }
 
     if (coreLightRef.current) coreLightRef.current.intensity = 5 * u;
