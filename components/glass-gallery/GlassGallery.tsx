@@ -10,8 +10,18 @@ import Scene from "./Scene";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+/**
+ * WARNING: The GlassGallery component requires the 'images' prop with an array of at least 6 image URLs.
+ * Please place your images in your project's public folder (e.g., /public/images/1.jpg) and pass their
+ * relative paths (e.g., ["/images/1.jpg", "/images/2.jpg", ...]).
+ */
+
 export interface GlassGalleryProps {
-  images?: string[];
+  /** 
+   * Array of image URLs. Minimum 6 required. 
+   * Add your images to your project's /public folder and pass their relative paths.
+   */
+  images: string[];
   mode?: "square" | "rect" | "quad";
   cubeSize?: number;
   autoSpinSpeed?: number;
@@ -33,15 +43,6 @@ export interface GlassGalleryProps {
   children?: React.ReactNode;
   staticPreview?: boolean;
 }
-
-const DEFAULT_IMAGES = [
-  "/images/nature_1.png",
-  "/images/nature_2.png",
-  "/images/nature_3.png",
-  "/images/nature_4.png",
-  "/images/nature_5.png",
-  "/images/nature_6.png",
-];
 
 export default function GlassGallery({
   images,
@@ -74,7 +75,8 @@ export default function GlassGallery({
   // Stabilize the images array reference by using JSON.stringify for deep comparison
   const serializedImages = JSON.stringify(images);
   const imageUrls = useMemo(() => {
-    const src = images && images.length > 0 ? images : DEFAULT_IMAGES;
+    const src = images;
+    if (!src || src.length === 0) return [];
     const faceCount = mode === "square" ? 6 : mode === "rect" ? 12 : 24;
     return Array.from({ length: faceCount }, (_, i) => src[i % src.length]);
   }, [serializedImages, mode]);
@@ -172,6 +174,23 @@ export default function GlassGallery({
         style={{ backgroundColor }}
       >
         <div className="w-8 h-8 rounded-full border border-neutral-800 border-t-neutral-400 animate-spin" />
+      </div>
+    );
+  }
+
+  if (!images || images.length === 0) {
+    return (
+      <div 
+        className="w-full h-screen flex items-center justify-center p-6" 
+        style={{ backgroundColor }}
+      >
+        <div className="max-w-md border border-neutral-800 bg-neutral-950 p-6 rounded-lg font-sans text-center">
+          <p className="text-red-500 font-bold mb-2 text-sm uppercase tracking-wider">Glass Gallery Configuration</p>
+          <p className="text-neutral-400 text-xs leading-relaxed">
+            The <code>images</code> prop is required with a minimum of 6 image URLs.
+            Please add your images to your project's <code>/public</code> directory and pass their paths as an array.
+          </p>
+        </div>
       </div>
     );
   }
