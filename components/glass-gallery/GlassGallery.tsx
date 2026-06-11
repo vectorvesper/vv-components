@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState, Suspense } from "react";
+import { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, useProgress } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -31,12 +31,12 @@ export interface GlassGalleryProps {
 }
 
 const DEFAULT_IMAGES = [
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80",
+  "/images/nature_1.png",
+  "/images/nature_2.png",
+  "/images/nature_3.png",
+  "/images/nature_4.png",
+  "/images/nature_5.png",
+  "/images/nature_6.png",
 ];
 
 export default function GlassGallery({
@@ -61,7 +61,6 @@ export default function GlassGallery({
   const [mounted, setMounted] = useState(false);
   const pinRef = useRef<HTMLDivElement>(null);
   const scrollProgressRef = useRef(0.0);
-  const { active } = useProgress();
 
   const imageUrls = useMemo(() => {
     const src = images && images.length > 0 ? images : DEFAULT_IMAGES;
@@ -69,9 +68,7 @@ export default function GlassGallery({
     return Array.from({ length: faceCount }, (_, i) => src[i % src.length]);
   }, [images, mode]);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const el = pinRef.current;
@@ -156,8 +153,8 @@ export default function GlassGallery({
   if (!mounted) {
     return (
       <div 
-        className="w-full h-screen flex items-center justify-center" 
-        style={{ background: backgroundColor }}
+        className="w-full h-screen flex items-center justify-center bg-(--gallery-bg)" 
+        style={{ "--gallery-bg": backgroundColor } as any}
       >
         <div className="w-8 h-8 rounded-full border border-neutral-800 border-t-neutral-400 animate-spin" />
       </div>
@@ -167,33 +164,31 @@ export default function GlassGallery({
   return (
     <div
       ref={pinRef}
-      className={`w-full ${staticPreview ? "h-full" : "h-screen"} select-none relative overflow-hidden ${className}`}
-      style={{ backgroundColor, ...style }}
+      className={`w-full ${staticPreview ? "h-full" : "h-screen"} select-none relative overflow-hidden bg-(--gallery-bg) ${className}`}
+      style={{ "--gallery-bg": backgroundColor, ...style } as any}
     >
-      {active && (
+      <Suspense fallback={
         <div 
-          className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-50" 
-          style={{ backgroundColor }}
+          className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-50 bg-(--gallery-bg)" 
+          style={{ "--gallery-bg": backgroundColor } as any}
         >
-          <div className="w-12 h-12 border-4 border-neutral-800 border-t-neutral-400 rounded-full animate-spin" />
-          <p className="text-neutral-400 text-[10px] font-bold uppercase tracking-[0.3em] animate-pulse">
+          <div className="w-12 h-12 border-3 border-[#7EACB5]/10 border-t-[#7EACB5] rounded-full animate-spin shadow-[0_0_20px_rgba(126,172,181,0.2)]" />
+          <p className="text-[#7EACB5] text-[10px] font-bold uppercase tracking-[0.3em] animate-pulse">
             Configuring 3D Engine...
           </p>
         </div>
-      )}
-
-      <Canvas
-        camera={{ position: [0, 0, 6.6], fov: 45 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-        onCreated={({ gl }) => {
-          if (process.env.NODE_ENV === "production") {
-            gl.debug.checkShaderErrors = false;
-          }
-        }}
-        dpr={[1, 2]}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", outline: "none" }}
-      >
-        <Suspense fallback={null}>
+      }>
+        <Canvas
+          camera={{ position: [0, 0, 6.6], fov: 45 }}
+          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+          onCreated={({ gl }) => {
+            if (process.env.NODE_ENV === "production") {
+              gl.debug.checkShaderErrors = false;
+            }
+          }}
+          dpr={[1, 2]}
+          className="absolute! inset-0 w-full h-full outline-none"
+        >
           <Environment preset="studio" />
           <ambientLight intensity={0.35} />
           <Scene
@@ -215,8 +210,8 @@ export default function GlassGallery({
             gridGapY={gridGapY}
             unfoldEnd={unfoldEnd}
           />
-        </Suspense>
-      </Canvas>
+        </Canvas>
+      </Suspense>
 
       <div className="absolute inset-0 z-10 pointer-events-none">
         {children}
