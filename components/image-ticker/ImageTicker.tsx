@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import LightboxOverlay from "./LightboxOverlay.js";
-import SmoothTicker from "./SmoothTicker.js";
+import LightboxOverlay from "./LightboxOverlay";
+import SmoothTicker from "./SmoothTicker";
 
-import type { LightboxOverlayProps } from "./LightboxOverlay.js";
-import type { SmoothTickerProps } from "./SmoothTicker.js";
+import type { LightboxOverlayProps } from "./LightboxOverlay";
+import type { SmoothTickerProps } from "./SmoothTicker";
 
 export type ImageTickerProps = {
   topImages: string[];
