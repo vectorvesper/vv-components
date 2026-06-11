@@ -83,15 +83,6 @@ export default function GlassGallery({
     setMounted(true);
   }, []);
 
-  // Forward wheel events through R3F canvas so ScrollTrigger works
-  useEffect(() => {
-    const el = pinRef.current;
-    if (!el) return;
-    const handler = (e: WheelEvent) => e.stopPropagation();
-    el.addEventListener("wheel", handler, { capture: true });
-    return () => el.removeEventListener("wheel", handler, { capture: true });
-  }, [mounted]);
-
   // Force ScrollTrigger to refresh its markers after the 3D textures finish loading
   useEffect(() => {
     if (!active && mounted) {
