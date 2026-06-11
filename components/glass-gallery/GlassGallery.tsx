@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, Suspense } from "react";
+import React, { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+import { Environment, useProgress } from "@react-three/drei";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -61,14 +61,19 @@ export default function GlassGallery({
   const [mounted, setMounted] = useState(false);
   const pinRef = useRef<HTMLDivElement>(null);
   const scrollProgressRef = useRef(0.0);
+  const { active } = useProgress();
 
+  // Stabilize the images array reference by using JSON.stringify for deep comparison
+  const serializedImages = JSON.stringify(images);
   const imageUrls = useMemo(() => {
     const src = images && images.length > 0 ? images : DEFAULT_IMAGES;
     const faceCount = mode === "square" ? 6 : mode === "rect" ? 12 : 24;
     return Array.from({ length: faceCount }, (_, i) => src[i % src.length]);
-  }, [images, mode]);
+  }, [serializedImages, mode]);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const el = pinRef.current;
@@ -167,7 +172,7 @@ export default function GlassGallery({
       className={`w-full ${staticPreview ? "h-full" : "h-screen"} select-none relative overflow-hidden bg-(--gallery-bg) ${className}`}
       style={{ "--gallery-bg": backgroundColor, ...style } as any}
     >
-      <Suspense fallback={
+      {active && (
         <div 
           className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-50 bg-(--gallery-bg)" 
           style={{ "--gallery-bg": backgroundColor } as any}
@@ -177,18 +182,20 @@ export default function GlassGallery({
             Configuring 3D Engine...
           </p>
         </div>
-      }>
-        <Canvas
-          camera={{ position: [0, 0, 6.6], fov: 45 }}
-          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-          onCreated={({ gl }) => {
-            if (process.env.NODE_ENV === "production") {
-              gl.debug.checkShaderErrors = false;
-            }
-          }}
-          dpr={[1, 2]}
-          className="absolute! inset-0 w-full h-full outline-none"
-        >
+      )}
+
+      <Canvas
+        camera={{ position: [0, 0, 6.6], fov: 45 }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        onCreated={({ gl }) => {
+          if (process.env.NODE_ENV === "production") {
+            gl.debug.checkShaderErrors = false;
+          }
+        }}
+        dpr={[1, 2]}
+        className="absolute! inset-0 w-full h-full outline-none"
+      >
+        <Suspense fallback={null}>
           <Environment preset="studio" />
           <ambientLight intensity={0.35} />
           <Scene
@@ -210,8 +217,8 @@ export default function GlassGallery({
             gridGapY={gridGapY}
             unfoldEnd={unfoldEnd}
           />
-        </Canvas>
-      </Suspense>
+        </Suspense>
+      </Canvas>
 
       <div className="absolute inset-0 z-10 pointer-events-none">
         {children}
