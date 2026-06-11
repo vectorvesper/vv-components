@@ -75,14 +75,6 @@ export default function GlassGallery({
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const el = pinRef.current;
-    if (!el) return;
-    const handler = (e: WheelEvent) => e.stopPropagation();
-    el.addEventListener("wheel", handler, { capture: true });
-    return () => el.removeEventListener("wheel", handler, { capture: true });
-  }, [mounted]);
-
   const { scrollDepth, unfoldEnd } = useMemo(() => {
     const rows = mode === "quad" ? 3 : 2;
     const itemH = galleryItemHeight ?? (mode === "square" ? 2.8 : 1.37) * cubeSize;
