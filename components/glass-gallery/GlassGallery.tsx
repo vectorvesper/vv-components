@@ -126,7 +126,7 @@ export default function GlassGallery({
       scrub: 0.8,
       onUpdate: (self) => {
         if ((ScrollTrigger as any).isRefreshing) return;
-        const progress = (typeof window !== "undefined" && window.scrollY === 0) ? 0.0 : self.progress;
+        const progress = self.progress;
         scrollProgressRef.current = progress;
         
         if (scrollHintEl) scrollHintEl.style.opacity = Math.max(0, 1 - progress * 4.5).toString();
