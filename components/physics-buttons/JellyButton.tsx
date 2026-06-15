@@ -9,8 +9,8 @@ gsap.registerPlugin(useGSAP);
 export type JellyButtonProps = {
   /** Label text or React element */
   children: React.ReactNode;
-  /** Predefined style preset: 'jelly' | 'stiff' | 'viscous' */
-  variant?: "jelly" | "stiff" | "viscous";
+  /** Predefined style preset: 'jelly' | 'viscous' */
+  variant?: "jelly" | "viscous";
   /** Width of the button body in pixels (default: 200) */
   width?: number;
   /** Height of the button body in pixels (default: 56) */
@@ -59,9 +59,8 @@ interface JellyPreset {
   rippleForce?: number;
 }
 
-const PRESETS: Record<"jelly" | "stiff" | "viscous", JellyPreset> = {
+const PRESETS: Record<"jelly" | "viscous", JellyPreset> = {
   jelly: { buttonColor: "#8B5CF6", stiffness: 0.12, damping: 0.82, maxStretch: 26, rippleForce: 35 },
-  stiff: { buttonColor: "#8B5CF6", stiffness: 0.35, damping: 0.75, rippleForce: 50 },
   viscous: { buttonColor: "#10B981", stiffness: 0.04, damping: 0.94, maxStretch: 45, rippleForce: 20 },
 };
 
@@ -100,10 +99,7 @@ export default function JellyButton({
 
   let resolvedEase = "elastic.out(1.0, 0.4)";
   let resolvedDuration = 0.8;
-  if (variant === "stiff") {
-    resolvedEase = "elastic.out(1.4, 0.55)";
-    resolvedDuration = 0.45;
-  } else if (variant === "viscous") {
+  if (variant === "viscous") {
     resolvedEase = "elastic.out(0.65, 0.35)";
     resolvedDuration = 1.6;
   }

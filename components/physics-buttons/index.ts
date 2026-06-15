@@ -4,9 +4,6 @@ export type { SlimeButtonProps } from "./SlimeButton";
 export { default as ElasticButton } from "./ElasticButton";
 export type { ElasticButtonProps } from "./ElasticButton";
 
-export { default as SplashButton } from "./SplashButton";
-export type { SplashButtonProps } from "./SplashButton";
-
 export { default as ImpactButton } from "./ImpactButton";
 export type { ImpactButtonProps } from "./ImpactButton";
 

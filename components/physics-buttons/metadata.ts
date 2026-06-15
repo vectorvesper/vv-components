@@ -3,7 +3,7 @@ export const physicsButtonsMetadata = {
   name: "Physics Buttons",
   title: "Physics Buttons",
   description:
-    "A suite of five physics-driven action buttons — gooey magnetic (slime), elastic bezier, jelly, splash, and impact — built on GSAP spring physics with style presets and deep prop customization.",
+    "A suite of four physics-driven action buttons — gooey magnetic (slime), elastic bezier, jelly, and impact — built on GSAP spring physics with style presets and deep prop customization.",
   version: "1.0.0",
   tier: "free",
   category: "button",
@@ -31,11 +31,6 @@ export const physicsButtonsMetadata = {
       type: "component",
     },
     {
-      path: "packages/components/physics-buttons/SplashButton.tsx",
-      target: "physics-buttons/SplashButton.tsx",
-      type: "component",
-    },
-    {
       path: "packages/components/physics-buttons/ImpactButton.tsx",
       target: "physics-buttons/ImpactButton.tsx",
       type: "component",
@@ -50,7 +45,7 @@ export const physicsButtonsMetadata = {
   usesPointer: true,
   usesScroll: false,
   entry: "physics-buttons/index.ts",
-  exportName: "SplashButton",
+  exportName: "JellyButton",
   usesTailwind: true,
   fallbacks: [],
   recipes: [],
