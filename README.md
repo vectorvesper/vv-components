@@ -1,137 +1,200 @@
-<p align="center">
-  <img src="https://vectorvesper.dev/logo.svg" width="80" alt="Vector Vesper" />
-</p>
+<div align="center">
 
-<h1 align="center">Vector Vesper</h1>
+<img src="https://www.vectorvesper.dev/icon.svg" width="84" alt="Vector Vesper" />
 
-<p align="center">
-  <strong>Premium WebGL & React visual components — delivered via CLI.</strong>
-</p>
+# Vector Vesper
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/vectorvesper"><img src="https://img.shields.io/npm/v/vectorvesper?style=flat-square&color=7EACB5" alt="npm version" /></a>
-  <a href="https://github.com/vectorvesper/vv-components/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" /></a>
-  <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square" alt="Node.js >=18" />
-</p>
+### Motion, Engineered.
 
-<p align="center">
-  <a href="https://vectorvesper.dev">Website</a> ·
-  <a href="https://vectorvesper.dev/components">Components</a> ·
-  <a href="#quick-start">Quick Start</a> ·
-  <a href="#available-components">Browse Components</a>
-</p>
+**WebGL, React Three Fiber & advanced motion components — installed with one command, copied straight into your codebase.**
+
+[![npm](https://img.shields.io/npm/v/vectorvesper?style=flat-square&color=7EACB5&label=vectorvesper)](https://www.npmjs.com/package/vectorvesper)
+[![downloads](https://img.shields.io/npm/dm/vectorvesper?style=flat-square&color=7EACB5)](https://www.npmjs.com/package/vectorvesper)
+[![stars](https://img.shields.io/github/stars/vectorvesper/vv-components?style=flat-square&color=7EACB5)](https://github.com/vectorvesper/vv-components/stargazers)
+[![license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
+[![node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square)](https://nodejs.org)
+
+[**Website**](https://vectorvesper.dev) · [**Live Previews**](https://vectorvesper.dev/components) · [**Quick Start**](#-quick-start) · [**Components**](#-components) · [**Pro Releases**](https://vectorvesper.dev/pricing)
+
+</div>
 
 ---
 
-## What is Vector Vesper?
+## Why Vector Vesper
 
-Vector Vesper is a curated collection of **production-ready visual components** for React. Think magnetic cursors, WebGL particle effects, 3D galleries, and scroll-driven animations — all installable with a single CLI command.
+Most motion and WebGL effects ship as heavyweight npm packages you can't touch. Vector Vesper takes the **shadcn/ui approach**: the CLI copies clean, typed source **into your project**, so you own every line and can adapt it to your brand, stack, and performance budget.
 
-**No bloated npm packages.** Components are copied directly into your project (like shadcn/ui), so you own the code and can customize everything.
+It's built for the part everyone gets wrong — **getting GPU-driven components to actually run in production**:
+
+- 🧩 **You own the code.** Components land in your repo as readable TypeScript. No black-box dependency, no lock-in.
+- ⚡ **SSR-safe by default.** Add a WebGL component to a Next.js app and the CLI prints the exact `dynamic(..., { ssr: false })` wrapper it needs — no hydration crashes.
+- 📦 **Dependencies handled.** Missing `three`, `@react-three/fiber`, `gsap`? The CLI detects your package manager and offers to install them.
+- ♿ **Accessibility built in.** Components that honor `prefers-reduced-motion` say so, and the CLI tells you.
+- 🎯 **Framework-aware.** Detects Next.js vs Vite, TypeScript, `src/` layout, and your import alias automatically.
+
+> This repository is the **public registry** — the static JSON + free component source the [`vectorvesper`](https://www.npmjs.com/package/vectorvesper) CLI reads from. ⭐ **Star it to follow new drops.**
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
-# Initialize Vector Vesper in your project
-npx vectorvesper init
+# 1. Initialize Vector Vesper in your React / Next.js / Vite project
+npx vectorvesper@latest init
 
-# Add a component
+# 2. Add a component (you'll be prompted to install any missing deps)
 npx vectorvesper add magnetic-button
+```
 
-# That's it — import and use!
+Prefer a short command? Install once and use the `vv` binary:
+
+```bash
+npm i -g vectorvesper
+vv add glass-gallery
+```
+
+### Use it
+
+```tsx
+// Plain interactive component — import and go.
+import { MagneticButton } from "@/components/vv/magnetic-button/MagneticButton";
+
+export default function CTA() {
+  return <MagneticButton>Get started</MagneticButton>;
+}
 ```
 
 ```tsx
-import { MagneticButton } from "@/components/vv/magnetic-button/MagneticButton";
+// WebGL component on Next.js — the CLI prints this exact snippet for you.
+"use client";
+import dynamic from "next/dynamic";
 
-export default function App() {
-  return <MagneticButton>Hover me</MagneticButton>;
+const GlassGallery = dynamic(
+  () => import("@/components/vv/glass-gallery"),
+  { ssr: false }
+);
+
+export default function Hero() {
+  return <GlassGallery /* props documented at vectorvesper.dev */ />;
 }
 ```
 
 ---
 
-## Available Components
+## 🧱 Components
 
-| Component | Category | Description | WebGL |
-|-----------|----------|-------------|:-----:|
-| [`magnetic-button`](components/magnetic-button) | Interaction | A button that pulls toward the cursor on hover | — |
-| [`magnetic-cursor`](components/magnetic-cursor) | Interaction | Custom magnetic cursor follower | — |
-| [`glass-gallery`](components/glass-gallery) | 3D Gallery | Frosted-glass 3D image gallery | ✦ |
-| [`scroll-highlighter`](components/scroll-highlighter) | Typography | Word-by-word scroll text highlighter | — |
-| [`code-rain`](components/code-rain) | Canvas | Interactive matrix code-rain effect | ✦ |
-| [`image-ticker`](components/image-ticker) | Visual | Infinite dual image ticker with lightbox | — |
-| [`magnetic-sand`](components/magnetic-sand) | Canvas | Magnetic sand particle field | ✦ |
+| Component | Category | Stack | Description |
+|-----------|----------|-------|-------------|
+| [`magnetic-button`](components/magnetic-button) | Interaction | GSAP | Button that pulls toward the cursor within range |
+| [`magnetic-cursor`](components/magnetic-cursor) | Pointer | GSAP | Custom cursor that follows the mouse with inertia |
+| [`glass-gallery`](components/glass-gallery) | 3D Gallery | R3F · WebGL | Frosted-glass 3D gallery that disassembles into a collage on scroll |
+| [`scroll-highlighter`](components/scroll-highlighter) | Typography | Framer Motion | Word-by-word scroll-driven text highlighter |
+| [`code-rain`](components/code-rain) | Canvas | R3F · WebGL | Interactive matrix code-rain that reacts to clicks and typing |
+| [`image-ticker`](components/image-ticker) | Visual | Framer Motion | Infinite dual image ticker with built-in lightbox |
+| [`magnetic-sand`](components/magnetic-sand) | Canvas | R3F · WebGL | Magnetic sand particle field that deforms on pointer move |
 
-> **✦ WebGL** — These components use Three.js / React Three Fiber for GPU-accelerated rendering.
-
----
-
-## CLI Commands
-
-```
-vv init                Initialize VV config in your project
-vv list                Browse all available components
-vv add <slug>          Add a component to your project
-vv add <slug> --dry-run  Preview what will be installed
-vv update [slug]       Update installed components to the latest version
-vv remove <slug>       Remove an installed component and its files
-vv info                Show project diagnostics
-vv diff [slug]         Check for component updates
-vv login <key>         Authenticate for pro components
-vv logout              Clear saved credentials
-vv whoami              Show current auth status
-```
+> Browse interactive previews at **[vectorvesper.dev/components](https://vectorvesper.dev/components)** · run `npx vectorvesper list` for the latest set.
 
 ---
 
-## How It Works
+## 🛠️ CLI Reference
 
 ```
-┌─────────────┐      fetch JSON       ┌──────────────────┐
-│   vv CLI    │ ───────────────────▶  │  This repository  │
-│ (your shell)│                       │  (static registry) │
-└─────┬───────┘                       └──────────────────┘
-      │
-      ▼ writes files
-┌─────────────────┐
-│  Your Project   │
-│  src/components/ │
-│  vv/magnetic-*   │
-└─────────────────┘
+npx vectorvesper init                Initialize VV config in your project
+npx vectorvesper list                Browse all available components
+npx vectorvesper add <slug>          Add a component (prompts to install deps)
+npx vectorvesper add <slug> --dry-run  Preview what will be written
+npx vectorvesper update [slug]       Update components to the latest version
+npx vectorvesper remove <slug>       Remove a component and its files
+npx vectorvesper info                Show project diagnostics
+npx vectorvesper diff [slug]         Check for component updates
+npx vectorvesper login <key>         Authenticate for pro releases
+npx vectorvesper logout              Clear saved credentials
+npx vectorvesper whoami              Show current access status
 ```
 
-No server. No runtime dependency. The CLI reads static JSON files from this repository and writes component source code directly into your project.
+Useful flags: `--overwrite` / `-o`, `--yes` / `-y`, `--no-install`, `--force` / `-f`.
 
 ---
 
-## Project Structure
+## ⚙️ How It Works
+
+```
+  ┌──────────────────────┐     fetch JSON over HTTPS    ┌────────────────────────┐
+  │  vectorvesper CLI    │ ───────────────────────────▶ │   This repository      │
+  │  (npx, your shell)   │                              │   (static registry)    │
+  └──────────┬───────────┘                              └────────────────────────┘
+             │ writes typed source + tracks versions
+             ▼
+  ┌────────────────────────────────┐
+  │  Your project                  │
+  │  src/components/vv/<component>  │
+  └────────────────────────────────┘
+```
+
+No server, no runtime SDK. The CLI fetches versioned JSON from this repo, writes the source into your project, and records what it installed in `vv-manifest.json` so `update` and `diff` work later.
+
+---
+
+## 📋 Requirements
+
+- **Node.js** ≥ 18
+- **React** 18 or 19
+- **Next.js** (App or Pages Router) or **Vite**
+- For WebGL components: **three**, **@react-three/fiber** (the CLI installs these for you)
+
+---
+
+## 🗺️ Roadmap & Pro Releases
+
+The free components here are the on-ramp. Paid releases ship as **one-time, lifetime-license** drops:
+
+- **Shader Collection** — five GLSL shader systems + production React implementations
+- **Pixel Patterns** — 50+ GPU pixel effects (patterns, text, image modes) with a typed prop API
+- **VV Toolkit (July 2026)** — the full kit: page transitions, GSAP motion, SVG animation, and helper resources
+
+Explore them at **[vectorvesper.dev/pricing](https://vectorvesper.dev/pricing)**. Existing buyers get an upgrade path to the full toolkit.
+
+---
+
+## 📁 Repository Structure
 
 ```
 vv-components/
-├── components/          # Raw component source files
+├── components/          # Free component source (TypeScript / TSX / shaders)
 │   ├── magnetic-button/
 │   ├── glass-gallery/
-│   ├── code-rain/
 │   └── ...
-├── r/                   # Compiled registry (JSON)
-│   ├── registry.json    # Component index
-│   ├── magnetic-button.json
-│   └── ...
+├── r/                   # Compiled static registry
+│   ├── registry.json    #   component index
+│   └── <slug>.json      #   per-component payloads (inlined source)
 ├── LICENSE
 └── README.md
 ```
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-We welcome contributions! Please see the [Contributing Guide](https://github.com/vectorvesper/vector-vesper/blob/main/CONTRIBUTING.md) in the main repository.
+Contributions are welcome. Component development, the registry builder, and the CLI live in the main monorepo — see the [Contributing Guide](https://github.com/vectorvesper/vector-vesper/blob/main/CONTRIBUTING.md).
+
+Found a bug or have a request? [Open an issue](https://github.com/vectorvesper/vv-components/issues).
 
 ---
 
-## License
+## 💬 Support
 
-[MIT](./LICENSE) © Vector Vesper
+- **Docs & previews:** [vectorvesper.dev](https://vectorvesper.dev)
+- **X / Twitter:** [@Shivanidas0910](https://x.com/Shivanidas0910)
+- **Email:** [support@vectorvesper.dev](mailto:support@vectorvesper.dev)
+- **Issues:** [github.com/vectorvesper/vv-components/issues](https://github.com/vectorvesper/vv-components/issues)
+
+---
+
+<div align="center">
+
+If Vector Vesper saves you time, **[⭐ star the repo](https://github.com/vectorvesper/vv-components)** — it genuinely helps.
+
+**[MIT](./LICENSE)** © Vector Vesper · *Motion, Engineered.*
+
+</div>
