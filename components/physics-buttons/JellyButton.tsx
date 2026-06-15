@@ -15,7 +15,7 @@ export type JellyButtonProps = {
   width?: number;
   /** Height of the button body in pixels (default: 56) */
   height?: number;
-  /** Radius parameter (deprecated, kept for compatibility) */
+  /** Corner radius of the rounded-rect blob (default: 14) */
   radius?: number;
   /** Range of mouse proximity tracking (default: 130) */
   range?: number;
@@ -84,13 +84,19 @@ export default function JellyButton({
   const pathRef = useRef<SVGPathElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  const [currentFlashColor, setCurrentFlashColor] = useState("transparent");
-  const [isFlashing, setIsFlashing] = useState(false);
-
   const preset = PRESETS[variant] || PRESETS.jelly;
   const resolvedButtonColor = buttonColor ?? preset.buttonColor ?? "#8B5CF6";
   const resolvedMaxStretch = maxStretch ?? preset.maxStretch ?? 26;
   const resolvedRippleForce = rippleForce ?? preset.rippleForce ?? 35;
+
+  // Background flash + a short window where the click ripple takes priority
+  // over hover deformation (otherwise the next mousemove overwrites the ripple).
+  const [currentBgColor, setCurrentBgColor] = useState(resolvedButtonColor);
+  const rippleTimeRef = useRef(0);
+
+  useEffect(() => {
+    setCurrentBgColor(resolvedButtonColor);
+  }, [resolvedButtonColor]);
 
   let resolvedEase = "elastic.out(1.0, 0.4)";
   let resolvedDuration = 0.8;
@@ -182,16 +188,19 @@ export default function JellyButton({
         const mx = dx + padX + width / 2, my = dy + padY + height / 2;
         const mDist = Math.sqrt(dx * dx + dy * dy) || 1, dirX = dx / mDist, dirY = dy / mDist;
 
-        pts.forEach((p) => {
-          const dot = Math.cos(p.angle) * dirX + Math.sin(p.angle) * dirY;
-          const pdx = mx - p.restX, pdy = my - p.restY;
-          const pDist = Math.sqrt(pdx * pdx + pdy * pdy);
-          const pull = Math.max(0, dot) * Math.max(0, 1 - pDist / range) * resolvedMaxStretch;
-          const targetX = p.restX + Math.cos(p.angle) * pull;
-          const targetY = p.restY + Math.sin(p.angle) * pull;
+        // Skip hover deformation briefly after a click so the ripple stays visible.
+        if (performance.now() >= rippleTimeRef.current) {
+          pts.forEach((p) => {
+            const dot = Math.cos(p.angle) * dirX + Math.sin(p.angle) * dirY;
+            const pdx = mx - p.restX, pdy = my - p.restY;
+            const pDist = Math.sqrt(pdx * pdx + pdy * pdy);
+            const pull = Math.max(0, dot) * Math.max(0, 1 - pDist / range) * resolvedMaxStretch;
+            const targetX = p.restX + Math.cos(p.angle) * pull;
+            const targetY = p.restY + Math.sin(p.angle) * pull;
 
-          gsap.to(p, { x: targetX, y: targetY, duration: 0.15, overwrite: "auto", onUpdate: drawPath });
-        });
+            gsap.to(p, { x: targetX, y: targetY, duration: 0.15, overwrite: "auto", onUpdate: drawPath });
+          });
+        }
 
         if (textRef.current) {
           gsap.to(textRef.current, { x: dx * 0.12, y: dy * 0.12, duration: 0.15, overwrite: "auto" });
@@ -228,30 +237,30 @@ export default function JellyButton({
     const pts = pointsRef.current;
     if (pts.length === 0) return;
 
+    // Give the ripple priority over hover deformation for its duration.
+    rippleTimeRef.current = performance.now() + resolvedDuration * 700;
+
     pts.forEach((p, idx) => {
       const direction = idx % 2 === 0 ? 1 : -1;
       const pluckX = p.restX + Math.cos(p.angle) * direction * resolvedRippleForce;
       const pluckY = p.restY + Math.sin(p.angle) * direction * resolvedRippleForce;
 
-      gsap.fromTo(p, 
-        { x: pluckX, y: pluckY }, 
+      gsap.fromTo(
+        p,
+        { x: pluckX, y: pluckY },
         { x: p.restX, y: p.restY, duration: resolvedDuration * 1.5, ease: resolvedEase, overwrite: "auto", onUpdate: drawPath }
       );
     });
 
-    setIsFlashing(true);
-    setCurrentFlashColor(clickColor);
-
-    const flashObj = { progress: 1.0 };
-    gsap.killTweensOf(flashObj);
-    gsap.to(flashObj, {
-      progress: 0.0,
+    // Flash the fill toward clickColor, then ease back.
+    const colorObj = { color: clickColor };
+    gsap.killTweensOf(colorObj);
+    setCurrentBgColor(clickColor);
+    gsap.to(colorObj, {
+      color: resolvedButtonColor,
       duration: 1.0,
       ease: "power2.out",
-      onUpdate: () => {
-        setCurrentFlashColor(`rgba(255, 255, 255, ${flashObj.progress.toFixed(3)})`);
-      },
-      onComplete: () => setIsFlashing(false),
+      onUpdate: () => setCurrentBgColor(colorObj.color),
     });
 
     if (onClick) onClick();
@@ -280,17 +289,9 @@ export default function JellyButton({
       >
         <path
           ref={pathRef}
-          fill={resolvedButtonColor}
+          fill={currentBgColor}
           className="transition-colors duration-300"
         />
-
-        {isFlashing && (
-          <path
-            d={pathRef.current?.getAttribute("d") || ""}
-            fill={currentFlashColor}
-            style={{ mixBlendMode: "overlay" }}
-          />
-        )}
       </svg>
 
       <div

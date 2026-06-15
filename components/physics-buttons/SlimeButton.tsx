@@ -6,6 +6,14 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+// Deterministic pseudo-random in [0,1). Seeding by particle index keeps the
+// server-rendered and client-rendered particle sizes identical, avoiding React
+// hydration mismatches (Math.random() would differ between the two renders).
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 export type SlimeButtonProps = {
   /** Text or element to display inside the button */
   children: React.ReactNode;
@@ -138,7 +146,7 @@ export default function SlimeButton({
     const list: ParticleState[] = [];
     for (let i = 0; i < resolvedParticleCount; i++) {
       const angle = (i / resolvedParticleCount) * Math.PI * 2;
-      const dist = 24 + Math.random() * 14;
+      const dist = 24 + seededRandom(i + 1) * 14;
       
       let sx = 0;
       let sy = 0;
@@ -162,8 +170,8 @@ export default function SlimeButton({
         x: sx, y: sy, vx: 0, vy: 0,
         targetX: sx,
         targetY: sy,
-        radius: 8 + Math.random() * 8,
-        speedFactor: 0.08 + Math.random() * 0.08,
+        radius: 8 + seededRandom(i + 100) * 8,
+        speedFactor: 0.08 + seededRandom(i + 200) * 0.08,
         dist,
         baseAngle: angle,
       });
