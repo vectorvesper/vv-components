@@ -44,5 +44,7 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/image-ticker",
-  "previewUrl": "https://vectorvesper.dev/components/image-ticker"
+  "previewUrl": "https://vectorvesper.dev/components/image-ticker",
+  "entry": "image-ticker/ImageTicker.tsx",
+  "exportName": "default"
 }

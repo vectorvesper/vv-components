@@ -38,5 +38,8 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/magnetic-button",
-  "previewUrl": "https://vectorvesper.dev/components/magnetic-button"
+  "previewUrl": "https://vectorvesper.dev/components/magnetic-button",
+  "entry": "magnetic-button/MagneticButton.tsx",
+  "exportName": "MagneticButton",
+  "usesTailwind": true
 }

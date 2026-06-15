@@ -23,6 +23,8 @@ export const codeRainMetadata = {
   usesWebGL: true,
   usesPointer: true,
   usesScroll: false,
+  entry: "code-rain/CodeRain.tsx",
+  exportName: "default",
   fallbacks: [],
   recipes: [],
   docsUrl: "https://vectorvesper.dev/components/code-rain",

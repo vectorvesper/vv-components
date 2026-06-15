@@ -28,6 +28,8 @@ export const scrollHighlighterMetadata = {
   usesWebGL: false,
   usesPointer: true,
   usesScroll: true,
+  entry: "scroll-highlighter/index.ts",
+  exportName: "default",
   fallbacks: [],
   recipes: [],
   docsUrl: "https://vectorvesper.dev/components/scroll-highlighter",

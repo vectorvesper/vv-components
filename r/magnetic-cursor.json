@@ -38,5 +38,8 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/magnetic-cursor",
-  "previewUrl": "https://vectorvesper.dev/components/magnetic-cursor"
+  "previewUrl": "https://vectorvesper.dev/components/magnetic-cursor",
+  "entry": "magnetic-cursor/MagneticCursor.tsx",
+  "exportName": "MagneticCursor",
+  "usesTailwind": true
 }

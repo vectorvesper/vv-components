@@ -33,5 +33,7 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/code-rain",
-  "previewUrl": "https://vectorvesper.dev/components/code-rain"
+  "previewUrl": "https://vectorvesper.dev/components/code-rain",
+  "entry": "code-rain/CodeRain.tsx",
+  "exportName": "default"
 }

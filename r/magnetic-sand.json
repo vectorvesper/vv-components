@@ -33,5 +33,7 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/magnetic-sand",
-  "previewUrl": "https://vectorvesper.dev/components/magnetic-sand"
+  "previewUrl": "https://vectorvesper.dev/components/magnetic-sand",
+  "entry": "magnetic-sand/MagneticSand.tsx",
+  "exportName": "default"
 }

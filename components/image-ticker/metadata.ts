@@ -33,6 +33,8 @@ export const imageTickerMetadata = {
   usesWebGL: false,
   usesPointer: true,
   usesScroll: false,
+  entry: "image-ticker/ImageTicker.tsx",
+  exportName: "default",
   fallbacks: [],
   recipes: [],
   docsUrl: "https://vectorvesper.dev/components/image-ticker",

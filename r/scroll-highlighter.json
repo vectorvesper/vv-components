@@ -38,5 +38,7 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/scroll-highlighter",
-  "previewUrl": "https://vectorvesper.dev/components/scroll-highlighter"
+  "previewUrl": "https://vectorvesper.dev/components/scroll-highlighter",
+  "entry": "scroll-highlighter/index.ts",
+  "exportName": "default"
 }

@@ -35,7 +35,9 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/code-rain",
-      "previewUrl": "https://vectorvesper.dev/components/code-rain"
+      "previewUrl": "https://vectorvesper.dev/components/code-rain",
+      "entry": "code-rain/CodeRain.tsx",
+      "exportName": "default"
     },
     {
       "slug": "glass-gallery",
@@ -89,7 +91,10 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/glass-gallery",
-      "previewUrl": "https://vectorvesper.dev/components/glass-gallery"
+      "previewUrl": "https://vectorvesper.dev/components/glass-gallery",
+      "entry": "glass-gallery/index.ts",
+      "exportName": "default",
+      "usesTailwind": true
     },
     {
       "slug": "image-ticker",
@@ -134,7 +139,9 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/image-ticker",
-      "previewUrl": "https://vectorvesper.dev/components/image-ticker"
+      "previewUrl": "https://vectorvesper.dev/components/image-ticker",
+      "entry": "image-ticker/ImageTicker.tsx",
+      "exportName": "default"
     },
     {
       "slug": "magnetic-button",
@@ -174,7 +181,10 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/magnetic-button",
-      "previewUrl": "https://vectorvesper.dev/components/magnetic-button"
+      "previewUrl": "https://vectorvesper.dev/components/magnetic-button",
+      "entry": "magnetic-button/MagneticButton.tsx",
+      "exportName": "MagneticButton",
+      "usesTailwind": true
     },
     {
       "slug": "magnetic-cursor",
@@ -214,7 +224,10 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/magnetic-cursor",
-      "previewUrl": "https://vectorvesper.dev/components/magnetic-cursor"
+      "previewUrl": "https://vectorvesper.dev/components/magnetic-cursor",
+      "entry": "magnetic-cursor/MagneticCursor.tsx",
+      "exportName": "MagneticCursor",
+      "usesTailwind": true
     },
     {
       "slug": "magnetic-sand",
@@ -250,7 +263,9 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/magnetic-sand",
-      "previewUrl": "https://vectorvesper.dev/components/magnetic-sand"
+      "previewUrl": "https://vectorvesper.dev/components/magnetic-sand",
+      "entry": "magnetic-sand/MagneticSand.tsx",
+      "exportName": "default"
     },
     {
       "slug": "scroll-highlighter",
@@ -290,7 +305,9 @@
       "fallbacks": [],
       "recipes": [],
       "docsUrl": "https://vectorvesper.dev/components/scroll-highlighter",
-      "previewUrl": "https://vectorvesper.dev/components/scroll-highlighter"
+      "previewUrl": "https://vectorvesper.dev/components/scroll-highlighter",
+      "entry": "scroll-highlighter/index.ts",
+      "exportName": "default"
     }
   ]
 }

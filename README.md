@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/vectorvesper"><img src="https://img.shields.io/npm/v/vectorvesper?style=flat-square&color=7c3aed" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/vectorvesper"><img src="https://img.shields.io/npm/v/vectorvesper?style=flat-square&color=7EACB5" alt="npm version" /></a>
   <a href="https://github.com/vectorvesper/vv-components/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" /></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square" alt="Node.js >=18" />
 </p>
@@ -60,10 +60,10 @@ export default function App() {
 | [`magnetic-button`](components/magnetic-button) | Interaction | A button that pulls toward the cursor on hover | — |
 | [`magnetic-cursor`](components/magnetic-cursor) | Interaction | Custom magnetic cursor follower | — |
 | [`glass-gallery`](components/glass-gallery) | 3D Gallery | Frosted-glass 3D image gallery | ✦ |
-| [`scroll-highlighter`](components/scroll-highlighter) | Typography | Physics-based scroll text animation | ✦ |
-| [`code-rain`](components/code-rain) | Visual | Matrix-style code rain effect | ✦ |
-| [`image-ticker`](components/image-ticker) | Visual | Smooth infinite image ticker | — |
-| [`magnetic-sand`](components/magnetic-sand) | Visual | Magnetic sand particle effect | ✦ |
+| [`scroll-highlighter`](components/scroll-highlighter) | Typography | Word-by-word scroll text highlighter | — |
+| [`code-rain`](components/code-rain) | Canvas | Interactive matrix code-rain effect | ✦ |
+| [`image-ticker`](components/image-ticker) | Visual | Infinite dual image ticker with lightbox | — |
+| [`magnetic-sand`](components/magnetic-sand) | Canvas | Magnetic sand particle field | ✦ |
 
 > **✦ WebGL** — These components use Three.js / React Three Fiber for GPU-accelerated rendering.
 
@@ -76,6 +76,8 @@ vv init                Initialize VV config in your project
 vv list                Browse all available components
 vv add <slug>          Add a component to your project
 vv add <slug> --dry-run  Preview what will be installed
+vv update [slug]       Update installed components to the latest version
+vv remove <slug>       Remove an installed component and its files
 vv info                Show project diagnostics
 vv diff [slug]         Check for component updates
 vv login <key>         Authenticate for pro components

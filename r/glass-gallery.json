@@ -54,5 +54,8 @@
   "fallbacks": [],
   "recipes": [],
   "docsUrl": "https://vectorvesper.dev/components/glass-gallery",
-  "previewUrl": "https://vectorvesper.dev/components/glass-gallery"
+  "previewUrl": "https://vectorvesper.dev/components/glass-gallery",
+  "entry": "glass-gallery/index.ts",
+  "exportName": "default",
+  "usesTailwind": true
 }

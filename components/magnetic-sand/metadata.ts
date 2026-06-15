@@ -23,6 +23,8 @@ export const magneticSandMetadata = {
   usesWebGL: true,
   usesPointer: true,
   usesScroll: false,
+  entry: "magnetic-sand/MagneticSand.tsx",
+  exportName: "default",
   fallbacks: [],
   recipes: [],
   docsUrl: "https://vectorvesper.dev/components/magnetic-sand",
