@@ -4,7 +4,7 @@ export const physicsButtonsMetadata = {
   title: "Physics Buttons",
   description:
     "A suite of four physics-driven action buttons — gooey magnetic (slime), elastic bezier, jelly, and impact — built on GSAP spring physics with style presets and deep prop customization.",
-  version: "1.0.0",
+  version: "1.1.0",
   tier: "free",
   category: "button",
   type: "vv:component",
