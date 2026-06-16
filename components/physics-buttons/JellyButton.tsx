@@ -23,10 +23,12 @@ export type JellyButtonProps = {
   buttonColor?: string;
   /** Color flashed on click (default: '#FFFFFF') */
   clickColor?: string;
-  /** Spring stiffness coefficient (default: 0.12) */
-  stiffness?: number;
-  /** Damping drag friction (default: 0.82) */
-  damping?: number;
+  /** Disable interaction (no animation, dimmed) */
+  disabled?: boolean;
+  /** Native button type (default: 'button') */
+  type?: "button" | "submit" | "reset";
+  /** Accessible label, useful when children are icon-only */
+  "aria-label"?: string;
   /** Click action callback */
   onClick?: () => void;
   /** Custom CSS classes */
@@ -73,6 +75,9 @@ export default function JellyButton({
   range = 130,
   buttonColor,
   clickColor = "#FFFFFF",
+  disabled = false,
+  type = "button",
+  "aria-label": ariaLabel,
   onClick,
   className = "",
   style = {},
@@ -81,7 +86,7 @@ export default function JellyButton({
 }: JellyButtonProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLButtonElement>(null);
 
   const preset = PRESETS[variant] || PRESETS.jelly;
   const resolvedButtonColor = buttonColor ?? preset.buttonColor ?? "#8B5CF6";
@@ -230,6 +235,7 @@ export default function JellyButton({
   }, { dependencies: [width, height, range, resolvedMaxStretch, radius] });
 
   const handlePointerClick = contextSafe(() => {
+    if (disabled) return;
     const pts = pointsRef.current;
     if (pts.length === 0) return;
 
@@ -271,7 +277,6 @@ export default function JellyButton({
         height: `${height}px`,
         ...style,
       }}
-      onClick={handlePointerClick}
     >
       <svg
         className="absolute overflow-visible pointer-events-none drop-shadow-[0_10px_20px_rgba(139,92,246,0.25)]"
@@ -290,12 +295,16 @@ export default function JellyButton({
         />
       </svg>
 
-      <div
+      <button
         ref={textRef}
-        className="relative z-10 w-full h-full flex items-center justify-center font-sans font-extrabold tracking-wider text-xs transition-transform duration-300 pointer-events-none text-white uppercase"
+        type={type}
+        disabled={disabled}
+        aria-label={ariaLabel}
+        onClick={handlePointerClick}
+        className="relative z-10 w-full h-full flex items-center justify-center bg-transparent border-0 p-0 font-sans font-extrabold tracking-wider text-xs transition-transform duration-300 text-white uppercase cursor-pointer pointer-events-auto outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-current disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {children}
-      </div>
+      </button>
     </div>
   );
 }

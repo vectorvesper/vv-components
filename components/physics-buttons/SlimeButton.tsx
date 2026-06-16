@@ -23,8 +23,6 @@ export type SlimeButtonProps = {
   range?: number;
   /** Strength multiplier for button body translation */
   strength?: number;
-  /** Strength multiplier for text parallax translation */
-  textStrength?: number;
   /** Number of gooey fluid droplets to emit */
   particleCount?: number;
   /** Color of the button background */
@@ -39,6 +37,12 @@ export type SlimeButtonProps = {
   haloSpeed?: number;
   /** Border radius of the button */
   borderRadius?: string;
+  /** Disable interaction (no animation, dimmed, not activatable) */
+  disabled?: boolean;
+  /** Native button type (default: 'button') */
+  type?: "button" | "submit" | "reset";
+  /** Accessible label, useful when children are icon-only */
+  "aria-label"?: string;
   /** Click handler */
   onClick?: () => void;
   /** Custom CSS classes */
@@ -98,6 +102,9 @@ export default function SlimeButton({
   buttonColor,
   particleColor,
   clickColor = "#FFFFFF",
+  disabled = false,
+  type = "button",
+  "aria-label": ariaLabel,
   gravity,
   haloSpeed,
   borderRadius,
@@ -113,7 +120,7 @@ export default function SlimeButton({
 }: SlimeButtonProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLButtonElement>(null);
   const particlesContainerRef = useRef<HTMLDivElement>(null);
 
   const preset = PRESETS[variant] || PRESETS.slime;
@@ -341,6 +348,7 @@ export default function SlimeButton({
   const { contextSafe } = useGSAP({ scope: containerRef });
 
   const handlePointerClick = contextSafe(() => {
+    if (disabled) return;
     // Click squish feedback wobble
     gsap.fromTo(physicsRef.current,
       { squishY: 1 + squishIntensity },
@@ -539,10 +547,13 @@ export default function SlimeButton({
         </div>
       </div>
 
-      <div
+      <button
         ref={textRef}
+        type={type}
+        disabled={disabled}
+        aria-label={ariaLabel}
         onClick={handlePointerClick}
-        className="absolute z-10 pointer-events-auto cursor-pointer font-sans flex items-center justify-center font-bold tracking-wide transition-all duration-300 active:scale-95 text-black"
+        className="absolute z-10 pointer-events-auto cursor-pointer bg-transparent border-0 p-0 font-sans flex items-center justify-center font-bold tracking-wide transition-all duration-300 active:scale-95 text-black outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-current disabled:opacity-50 disabled:cursor-not-allowed"
         style={{
           minWidth,
           height,
@@ -552,7 +563,7 @@ export default function SlimeButton({
         }}
       >
         {children}
-      </div>
+      </button>
     </div>
   );
 }

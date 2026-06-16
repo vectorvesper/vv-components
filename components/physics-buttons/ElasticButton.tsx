@@ -23,12 +23,14 @@ export type ElasticButtonProps = {
   borderColor?: string;
   /** Border stroke width */
   borderWidth?: number;
-  /** Spring stiffness coefficient */
-  stiffness?: number;
-  /** Damping drag friction */
-  damping?: number;
   /** Highlight color flashed when clicked */
   clickColor?: string;
+  /** Disable interaction (no animation, dimmed) */
+  disabled?: boolean;
+  /** Native button type (default: 'button') */
+  type?: "button" | "submit" | "reset";
+  /** Accessible label, useful when children are icon-only */
+  "aria-label"?: string;
   /** Action click callback */
   onClick?: () => void;
   /** Custom CSS classes */
@@ -78,6 +80,9 @@ export default function ElasticButton({
   borderColor,
   borderWidth,
   clickColor = "#FFFFFF",
+  disabled = false,
+  type = "button",
+  "aria-label": ariaLabel,
   onClick,
   className = "",
   style = {},
@@ -86,7 +91,7 @@ export default function ElasticButton({
 }: ElasticButtonProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLButtonElement>(null);
 
   const preset = PRESETS[variant] || PRESETS.elastic;
   const resolvedButtonColor = buttonColor ?? preset.buttonColor ?? "#FF1800";
@@ -210,6 +215,7 @@ export default function ElasticButton({
   }, { dependencies: [width, height, range, maxStretch] });
 
   const handlePointerClick = contextSafe(() => {
+    if (disabled) return;
     const p = pointsRef.current;
     const pluckTopY = p.top.restY + (Math.random() > 0.5 ? 1 : -1) * resolvedPluckForce * 0.5;
     const pluckBottomY = p.bottom.restY + (Math.random() > 0.5 ? 1 : -1) * resolvedPluckForce * 0.5;
@@ -247,7 +253,6 @@ export default function ElasticButton({
         height: `${height}px`,
         ...style,
       }}
-      onClick={handlePointerClick}
     >
       <svg
         className="absolute overflow-visible pointer-events-none drop-shadow-[0_10px_20px_rgba(255,24,0,0.22)]"
@@ -268,13 +273,17 @@ export default function ElasticButton({
         />
       </svg>
 
-      <div
+      <button
         ref={textRef}
-        className={`relative z-10 w-full h-full flex items-center justify-center font-sans font-extrabold tracking-wider text-xs transition-transform duration-300 pointer-events-none uppercase ${textColorClass}`}
+        type={type}
+        disabled={disabled}
+        aria-label={ariaLabel}
+        onClick={handlePointerClick}
+        className={`relative z-10 w-full h-full flex items-center justify-center bg-transparent border-0 p-0 font-sans font-extrabold tracking-wider text-xs transition-transform duration-300 uppercase cursor-pointer pointer-events-auto outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-current disabled:opacity-50 disabled:cursor-not-allowed ${textColorClass}`}
         style={textInlineStyle}
       >
         {children}
-      </div>
+      </button>
     </div>
   );
 }
