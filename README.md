@@ -175,7 +175,7 @@ vv-components/
 
 ## 🤝 Contributing
 
-Contributions are welcome. Component development, the registry builder, and the CLI live in the main monorepo — see the [Contributing Guide](https://github.com/vectorvesper/vector-vesper/blob/main/CONTRIBUTING.md).
+Contributions to the free components are welcome — bug fixes, new-component requests, and doc improvements. See the **[Contributing Guide](./CONTRIBUTING.md)** for how it works (this repo is the published distribution, so accepted changes are ported upstream and re-synced).
 
 Found a bug or have a request? [Open an issue](https://github.com/vectorvesper/vv-components/issues).
 
