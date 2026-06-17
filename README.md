@@ -4,13 +4,9 @@
 
 # Vector Vesper
 
-### Motion, Engineered.
-
-**WebGL, React Three Fiber & advanced motion components — installed with one command, copied straight into your codebase.**
+### The motion toolkit for React.
 
 [![npm](https://img.shields.io/npm/v/vectorvesper?style=flat-square&color=7EACB5&label=vectorvesper)](https://www.npmjs.com/package/vectorvesper)
-[![downloads](https://img.shields.io/npm/dm/vectorvesper?style=flat-square&color=7EACB5)](https://www.npmjs.com/package/vectorvesper)
-[![stars](https://img.shields.io/github/stars/vectorvesper/vv-components?style=flat-square&color=7EACB5)](https://github.com/vectorvesper/vv-components/stargazers)
 [![license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?style=flat-square)](https://nodejs.org)
 
@@ -22,17 +18,12 @@
 
 ## Why Vector Vesper
 
-Most motion and WebGL effects ship as heavyweight npm packages you can't touch. Vector Vesper takes the **shadcn/ui approach**: the CLI copies clean, typed source **into your project**, so you own every line and can adapt it to your brand, stack, and performance budget.
-
-It's built for the part everyone gets wrong — **getting GPU-driven components to actually run in production**:
-
-- 🧩 **You own the code.** Components land in your repo as readable TypeScript. No black-box dependency, no lock-in.
-- ⚡ **SSR-safe by default.** Add a WebGL component to a Next.js app and the CLI prints the exact `dynamic(..., { ssr: false })` wrapper it needs — no hydration crashes.
-- 📦 **Dependencies handled.** Missing `three`, `@react-three/fiber`, `gsap`? The CLI detects your package manager and offers to install them.
-- ♿ **Accessibility built in.** Components that honor `prefers-reduced-motion` say so, and the CLI tells you.
-- 🎯 **Framework-aware.** Detects Next.js vs Vite, TypeScript, `src/` layout, and your import alias automatically.
-
-> This repository is the **public registry** — the static JSON + free component source the [`vectorvesper`](https://www.npmjs.com/package/vectorvesper) CLI reads from. ⭐ **Star it to follow new drops.**
+- **Built to ship — Ready for production.** Every release is built as shipping code with TypeScript props, practical documentation, and APIs developers can work with under deadline.
+- **Time saved — Faster than custom motion work.** Teams usually lose days rebuilding motion systems from scratch. Vector Vesper gives you working foundations that you can adapt in code and ship under your own brand.
+- **React-first — Works with Next.js and Vite.** Built for product teams, agencies, freelancers, and founders shipping React sites.
+- **Full control — Own the source.** You get the source for components, motion logic, and shaders. Adapt it to your brand, your stack, and your performance budget.
+- **Designed to matter — Creative depth with engineering discipline.** Vector Vesper focuses on motion that changes how a page feels and reads. The work goes beyond decoration and stays grounded in usable engineering.
+- **Growing toolkit — July roadmap.** Current releases cover shaders and GPU pixel systems. July expands the toolkit with page transitions, GSAP motion, workflows, and helper resources.
 
 ---
 
@@ -118,19 +109,6 @@ Useful flags: `--overwrite` / `-o`, `--yes` / `-y`, `--no-install`, `--force` / 
 
 ## ⚙️ How It Works
 
-```
-  ┌──────────────────────┐     fetch JSON over HTTPS    ┌────────────────────────┐
-  │  vectorvesper CLI    │ ───────────────────────────▶ │   This repository      │
-  │  (npx, your shell)   │                              │   (static registry)    │
-  └──────────┬───────────┘                              └────────────────────────┘
-             │ writes typed source + tracks versions
-             ▼
-  ┌────────────────────────────────┐
-  │  Your project                  │
-  │  src/components/vv/<component>  │
-  └────────────────────────────────┘
-```
-
 No server, no runtime SDK. The CLI fetches versioned JSON from this repo, writes the source into your project, and records what it installed in `vv-manifest.json` so `update` and `diff` work later.
 
 ---
@@ -152,30 +130,13 @@ The free components here are the on-ramp. Paid releases ship as **one-time, life
 - **Pixel Patterns** — 50+ GPU pixel effects (patterns, text, image modes) with a typed prop API
 - **VV Toolkit (July 2026)** — the full kit: page transitions, GSAP motion, SVG animation, and helper resources
 
-Explore them at **[vectorvesper.dev/pricing](https://vectorvesper.dev/pricing)**. Existing buyers get an upgrade path to the full toolkit.
-
+Explore them at **[vectorvesper.dev/pricing](https://vectorvesper.dev/pricing)**. 
 ---
 
-## 📁 Repository Structure
-
-```
-vv-components/
-├── components/          # Free component source (TypeScript / TSX / shaders)
-│   ├── physics-buttons/
-│   ├── glass-gallery/
-│   └── ...
-├── r/                   # Compiled static registry
-│   ├── registry.json    #   component index
-│   └── <slug>.json      #   per-component payloads (inlined source)
-├── LICENSE
-└── README.md
-```
-
----
 
 ## 🤝 Contributing
 
-Contributions to the free components are welcome — bug fixes, new-component requests, and doc improvements. See the **[Contributing Guide](./CONTRIBUTING.md)** for how it works (this repo is the published distribution, so accepted changes are ported upstream and re-synced).
+Contributions to the free components are welcome. See the **[Contributing Guide](./CONTRIBUTING.md)** for how it works.
 
 Found a bug or have a request? [Open an issue](https://github.com/vectorvesper/vv-components/issues).
 
@@ -191,8 +152,6 @@ Found a bug or have a request? [Open an issue](https://github.com/vectorvesper/v
 ---
 
 <div align="center">
-
-If Vector Vesper saves you time, **[⭐ star the repo](https://github.com/vectorvesper/vv-components)** — it genuinely helps.
 
 **[MIT](./LICENSE)** © Vector Vesper · *Motion, Engineered.*
 
