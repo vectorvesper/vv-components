@@ -43,7 +43,7 @@ It's built for the part everyone gets wrong — **getting GPU-driven components 
 npx vectorvesper@latest init
 
 # 2. Add a component (you'll be prompted to install any missing deps)
-npx vectorvesper add magnetic-button
+npx vectorvesper add physics-buttons
 ```
 
 Prefer a short command? Install once and use the `vv` binary:
@@ -57,10 +57,10 @@ vv add glass-gallery
 
 ```tsx
 // Plain interactive component — import and go.
-import { MagneticButton } from "@/components/vv/magnetic-button/MagneticButton";
+import { JellyButton } from "@/components/vv/physics-buttons";
 
 export default function CTA() {
-  return <MagneticButton>Get started</MagneticButton>;
+  return <JellyButton>Get started</JellyButton>;
 }
 ```
 
@@ -85,13 +85,12 @@ export default function Hero() {
 
 | Component | Category | Stack | Description |
 |-----------|----------|-------|-------------|
-| [`magnetic-button`](components/magnetic-button) | Interaction | GSAP | Button that pulls toward the cursor within range |
-| [`magnetic-cursor`](components/magnetic-cursor) | Pointer | GSAP | Custom cursor that follows the mouse with inertia |
-| [`glass-gallery`](components/glass-gallery) | 3D Gallery | R3F · WebGL | Frosted-glass 3D gallery that disassembles into a collage on scroll |
-| [`scroll-highlighter`](components/scroll-highlighter) | Typography | Framer Motion | Word-by-word scroll-driven text highlighter |
 | [`code-rain`](components/code-rain) | Canvas | R3F · WebGL | Interactive matrix code-rain that reacts to clicks and typing |
+| [`glass-gallery`](components/glass-gallery) | 3D Gallery | R3F · WebGL | Frosted-glass 3D gallery that disassembles into a collage on scroll |
 | [`image-ticker`](components/image-ticker) | Visual | Framer Motion | Infinite dual image ticker with built-in lightbox |
 | [`magnetic-sand`](components/magnetic-sand) | Canvas | R3F · WebGL | Magnetic sand particle field that deforms on pointer move |
+| [`physics-buttons`](components/physics-buttons) | Button | GSAP | Four spring-physics action buttons — slime, elastic, jelly, impact |
+| [`scroll-highlighter`](components/scroll-highlighter) | Typography | Framer Motion | Word-by-word scroll-driven text highlighter |
 
 > Browse interactive previews at **[vectorvesper.dev/components](https://vectorvesper.dev/components)** · run `npx vectorvesper list` for the latest set.
 
@@ -162,7 +161,7 @@ Explore them at **[vectorvesper.dev/pricing](https://vectorvesper.dev/pricing)**
 ```
 vv-components/
 ├── components/          # Free component source (TypeScript / TSX / shaders)
-│   ├── magnetic-button/
+│   ├── physics-buttons/
 │   ├── glass-gallery/
 │   └── ...
 ├── r/                   # Compiled static registry
