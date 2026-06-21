@@ -81,6 +81,49 @@
       "exportName": "default"
     },
     {
+      "slug": "dispersed-text",
+      "name": "Dispersed Text",
+      "title": "Dispersed Text",
+      "description": "Type that assembles from a cloud of particles streaming in from the left, then melts into a flowing, cursor-swirled field on hover and reforms when the cursor leaves. Renders to a transparent canvas so it reads on any surface — set the particle color to match. Wraps onto multiple lines, samples your own font, and falls back to a calm static word under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "text",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/dispersed-text/index.ts",
+          "target": "dispersed-text/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/dispersed-text/DispersedText.tsx",
+          "target": "dispersed-text/DispersedText.tsx",
+          "type": "component"
+        }
+      ],
+      "dependencies": [
+        "framer-motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/dispersed-text",
+      "previewUrl": "https://vectorvesper.dev/components/dispersed-text",
+      "entry": "dispersed-text/index.ts",
+      "exportName": "DispersedText",
+      "usesTailwind": false
+    },
+    {
       "slug": "glass-gallery",
       "name": "Glass Gallery",
       "title": "Glass Gallery",
