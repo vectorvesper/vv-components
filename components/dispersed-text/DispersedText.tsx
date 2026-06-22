@@ -123,6 +123,8 @@ function drawParticleShape(
 export interface DispersedTextProps {
   /** The word, phrase, or short sentence the particles assemble into (required). */
   text: string;
+  /** Explicit font size in pixels. If provided, disables dynamic fitWidth calculation. */
+  fontSize?: number;
   /** Particle color — any CSS color string (default: "#7EACB5"). */
   color?: string;
   /** Pixel sampling step — smaller = denser text + more particles (default: 6). */
@@ -204,6 +206,7 @@ interface Particle {
 
 export default function DispersedText({
   text,
+  fontSize,
   color = "#7EACB5",
   gap = 6,
   fontWeight = 700,
@@ -359,23 +362,28 @@ export default function DispersedText({
         return lines.length ? lines : [textRef.current];
       };
 
-      let lo = 8;
-      let hi = Math.max(8, Math.floor(off.height * 0.9));
-      let best = 8;
+      let best = fontSize;
       let bestLines: string[] = [textRef.current];
-      while (lo <= hi) {
-        const mid = (lo + hi) >> 1;
-        const lines = wrapAt(mid);
-        octx.font = `${fontWeight} ${mid}px ${fontFamily}`;
-        let widest = 0;
-        for (const ln of lines) widest = Math.max(widest, octx.measureText(ln).width);
-        if (widest <= maxW && lines.length * mid * lh <= maxH) {
-          best = mid;
-          bestLines = lines;
-          lo = mid + 1;
-        } else {
-          hi = mid - 1;
+      if (!best) {
+        let lo = 8;
+        let hi = Math.max(8, Math.floor(off.height * 0.9));
+        best = 8;
+        while (lo <= hi) {
+          const mid = (lo + hi) >> 1;
+          const lines = wrapAt(mid);
+          octx.font = `${fontWeight} ${mid}px ${fontFamily}`;
+          let widest = 0;
+          for (const ln of lines) widest = Math.max(widest, octx.measureText(ln).width);
+          if (widest <= maxW && lines.length * mid * lh <= maxH) {
+            best = mid;
+            bestLines = lines;
+            lo = mid + 1;
+          } else {
+            hi = mid - 1;
+          }
         }
+      } else {
+        bestLines = wrapAt(best);
       }
 
       octx.font = `${fontWeight} ${best}px ${fontFamily}`;
@@ -742,8 +750,9 @@ export default function DispersedText({
           }
         }
 
-        p.vx = (p.vx + ax) * 0.82;
-        p.vy = (p.vy + ay) * 0.82;
+        const friction = 0.82 - (1.0 - dispersion) * 0.08;
+        p.vx = (p.vx + ax) * friction;
+        p.vy = (p.vy + ay) * friction;
         p.x += p.vx;
         p.y += p.vy;
 
@@ -757,7 +766,7 @@ export default function DispersedText({
         }
 
         const sp = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        ctx.globalAlpha = p.alpha * Math.max(0.35, 1 - sp * 0.05);
+        ctx.globalAlpha = p.alpha * Math.max(0.35, 1 - sp * 0.05 * dispersion);
 
         if (c1 && c2) {
           const r = Math.min(1, sp / 5);
@@ -802,12 +811,13 @@ export default function DispersedText({
     maxDpr,
     debug,
     reduceMotion,
+    fontSize,
   ]);
 
   useEffect(() => {
     if (!canvasInitializedRef.current) return;
     triggerResampleRef.current();
-  }, [text, gap, fontWeight, fontFamily, fitWidth, lineHeight]);
+  }, [text, gap, fontWeight, fontFamily, fitWidth, lineHeight, fontSize]);
 
   const glowFilter = glow
     ? `drop-shadow(0 0 ${glowBlur}px ${glowColor || color})`
