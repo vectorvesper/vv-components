@@ -180,7 +180,7 @@ export interface DispersedTextProps {
   /** Blur radius of the neon glow (default: 8). */
   glowBlur?: number;
   /** Action trigger for dispersion (default: "hover"). */
-  trigger?: "hover" | "click" | "scroll" | "manual";
+  trigger?: "hover" | "click" | "manual";
   /** Force dispersion when trigger is "manual" (default: false). */
   isDispersed?: boolean;
   /** Control dispersion progress continuously (0 to 1) when trigger is "manual" (default: 0). */
@@ -241,32 +241,73 @@ export default function DispersedText({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduceMotion = useReducedMotion();
 
-  const textRef = useRef(text); textRef.current = text;
-  const colorRef = useRef(color); colorRef.current = color;
-  const colorModeRef = useRef(colorMode); colorModeRef.current = colorMode;
-  const gradientColorsRef = useRef(gradientColors); gradientColorsRef.current = gradientColors;
-  const gradientDirectionRef = useRef(gradientDirection); gradientDirectionRef.current = gradientDirection;
-  const speedColorRef = useRef(speedColor); speedColorRef.current = speedColor;
-  const interactionModeRef = useRef(interactionMode); interactionModeRef.current = interactionMode;
-  const shapeRef = useRef(shape); shapeRef.current = shape;
-  const triggerRef = useRef(trigger); triggerRef.current = trigger;
-  const isDispersedRef = useRef(isDispersed); isDispersedRef.current = isDispersed;
-  const progressRef = useRef(progress); progressRef.current = progress;
-  const windAngleRef = useRef(windAngle); windAngleRef.current = windAngle;
-  const dotSizeRef = useRef(dotSize); dotSizeRef.current = dotSize;
-  const streakRef = useRef(streak); streakRef.current = streak;
-  const springRef = useRef(spring); springRef.current = spring;
-  const meltSpeedRef = useRef(meltSpeed); meltSpeedRef.current = meltSpeed;
-  const swirlRef = useRef(swirl); swirlRef.current = swirl;
-  const swirlRadiusRef = useRef(swirlRadius); swirlRadiusRef.current = swirlRadius;
-  const turbulenceRef = useRef(turbulence); turbulenceRef.current = turbulence;
+  const textRef = useRef(text);
+  const colorRef = useRef(color);
+  const colorModeRef = useRef(colorMode);
+  const gradientColorsRef = useRef(gradientColors);
+  const gradientDirectionRef = useRef(gradientDirection);
+  const speedColorRef = useRef(speedColor);
+  const interactionModeRef = useRef(interactionMode);
+  const shapeRef = useRef(shape);
+  const triggerRef = useRef(trigger);
+  const isDispersedRef = useRef(isDispersed);
+  const progressRef = useRef(progress);
+  const windAngleRef = useRef(windAngle);
+  const dotSizeRef = useRef(dotSize);
+  const streakRef = useRef(streak);
+  const springRef = useRef(spring);
+  const meltSpeedRef = useRef(meltSpeed);
+  const swirlRef = useRef(swirl);
+  const swirlRadiusRef = useRef(swirlRadius);
+  const turbulenceRef = useRef(turbulence);
+
+  React.useEffect(() => {
+    textRef.current = text;
+    colorRef.current = color;
+    colorModeRef.current = colorMode;
+    gradientColorsRef.current = gradientColors;
+    gradientDirectionRef.current = gradientDirection;
+    speedColorRef.current = speedColor;
+    interactionModeRef.current = interactionMode;
+    shapeRef.current = shape;
+    triggerRef.current = trigger;
+    isDispersedRef.current = isDispersed;
+    progressRef.current = progress;
+    windAngleRef.current = windAngle;
+    dotSizeRef.current = dotSize;
+    streakRef.current = streak;
+    springRef.current = spring;
+    meltSpeedRef.current = meltSpeed;
+    swirlRef.current = swirl;
+    swirlRadiusRef.current = swirlRadius;
+    turbulenceRef.current = turbulence;
+  }, [
+    text,
+    color,
+    colorMode,
+    gradientColors,
+    gradientDirection,
+    speedColor,
+    interactionMode,
+    shape,
+    trigger,
+    isDispersed,
+    progress,
+    windAngle,
+    dotSize,
+    streak,
+    spring,
+    meltSpeed,
+    swirl,
+    swirlRadius,
+    turbulence,
+  ]);
 
   const particlesRef = useRef<Particle[]>([]);
   const bboxRef = useRef({ minX: 0, minY: 0, maxX: 0, maxY: 0 });
   const canvasInitializedRef = useRef(false);
   const triggerResampleRef = useRef<() => void>(() => {});
   const clickDispersedRef = useRef(false);
-  const scrollDispersionRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -498,28 +539,7 @@ export default function DispersedText({
       canvas.addEventListener("click", onClick);
     }
 
-    const onScroll = () => {
-      if (triggerRef.current !== "scroll") return;
-      const rect = canvas.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const elementCenter = rect.top + rect.height / 2;
-      const viewportCenter = viewportHeight / 2;
-      const dist = Math.abs(elementCenter - viewportCenter);
-      const activeRange = viewportHeight * 0.12;
-      const maxRange = viewportHeight * 0.48;
 
-      if (dist <= activeRange) {
-        scrollDispersionRef.current = 0;
-      } else {
-        const fraction = (dist - activeRange) / (maxRange - activeRange);
-        scrollDispersionRef.current = Math.min(1, Math.max(0, fraction));
-      }
-    };
-
-    if (!reduce) {
-      window.addEventListener("scroll", onScroll);
-      onScroll();
-    }
 
     const ro =
       typeof ResizeObserver !== "undefined"
@@ -583,8 +603,6 @@ export default function DispersedText({
         targetDispersion = over ? 1 : 0;
       } else if (trig === "click") {
         targetDispersion = clickDispersedRef.current ? 1 : 0;
-      } else if (trig === "scroll") {
-        targetDispersion = scrollDispersionRef.current;
       } else if (trig === "manual") {
         targetDispersion = progressRef.current !== undefined ? progressRef.current : (isDispersedRef.current ? 1 : 0);
       }
@@ -774,7 +792,6 @@ export default function DispersedText({
       canvas.removeEventListener("pointermove", onMove);
       canvas.removeEventListener("pointerleave", onLeave);
       canvas.removeEventListener("click", onClick);
-      window.removeEventListener("scroll", onScroll);
     };
   }, [
     fontWeight,

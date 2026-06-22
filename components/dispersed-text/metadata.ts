@@ -3,7 +3,7 @@ export const dispersedTextMetadata = {
   name: "Dispersed Text",
   title: "Dispersed Text",
   description:
-    "An advanced interactive typography component where text morphs liquidly on content change and disperses into custom particle fields (flow, explode, attract, wind, gravity, vortex) on interaction. Supports solid or gradient colors, speed-based color mapping, neon glow, custom shapes, and scroll or manual animation triggers.",
+    "An advanced interactive typography component where text morphs liquidly on content change and disperses into custom particle fields (flow, explode, attract, wind, gravity, vortex) on interaction. Supports solid or gradient colors, speed-based color mapping, neon glow, custom shapes, and manual animation triggers.",
   version: "1.1.0",
   tier: "free",
   category: "text",
