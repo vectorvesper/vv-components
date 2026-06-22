@@ -21,9 +21,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/cinematic-text/index.d.ts",
+          "target": "cinematic-text/index.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/cinematic-text/WarpedVideoText.tsx",
           "target": "cinematic-text/WarpedVideoText.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/cinematic-text/WarpedVideoText.d.ts",
+          "target": "cinematic-text/WarpedVideoText.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [],
@@ -60,6 +70,11 @@
           "path": "packages/components/code-rain/CodeRain.tsx",
           "target": "code-rain/CodeRain.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/code-rain/CodeRain.d.ts",
+          "target": "code-rain/CodeRain.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -100,9 +115,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/dispersed-text/index.d.ts",
+          "target": "dispersed-text/index.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/dispersed-text/DispersedText.tsx",
           "target": "dispersed-text/DispersedText.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/dispersed-text/DispersedText.d.ts",
+          "target": "dispersed-text/DispersedText.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -143,9 +168,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/glass-gallery/index.d.ts",
+          "target": "glass-gallery/index.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/glass-gallery/GlassGallery.tsx",
           "target": "glass-gallery/GlassGallery.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/glass-gallery/GlassGallery.d.ts",
+          "target": "glass-gallery/GlassGallery.d.ts",
+          "type": "types"
         },
         {
           "path": "packages/components/glass-gallery/GlassGalleryOverlay.tsx",
@@ -153,9 +188,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/glass-gallery/GlassGalleryOverlay.d.ts",
+          "target": "glass-gallery/GlassGalleryOverlay.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/glass-gallery/Scene.tsx",
           "target": "glass-gallery/Scene.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/glass-gallery/Scene.d.ts",
+          "target": "glass-gallery/Scene.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -200,14 +245,29 @@
           "type": "component"
         },
         {
+          "path": "packages/components/image-ticker/ImageTicker.d.ts",
+          "target": "image-ticker/ImageTicker.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/image-ticker/SmoothTicker.tsx",
           "target": "image-ticker/SmoothTicker.tsx",
           "type": "component"
         },
         {
+          "path": "packages/components/image-ticker/SmoothTicker.d.ts",
+          "target": "image-ticker/SmoothTicker.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/image-ticker/LightboxOverlay.tsx",
           "target": "image-ticker/LightboxOverlay.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/image-ticker/LightboxOverlay.d.ts",
+          "target": "image-ticker/LightboxOverlay.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -245,6 +305,11 @@
           "path": "packages/components/magnetic-sand/MagneticSand.tsx",
           "target": "magnetic-sand/MagneticSand.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/magnetic-sand/MagneticSand.d.ts",
+          "target": "magnetic-sand/MagneticSand.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -285,9 +350,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/physics-buttons/index.d.ts",
+          "target": "physics-buttons/index.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/physics-buttons/SlimeButton.tsx",
           "target": "physics-buttons/SlimeButton.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/physics-buttons/SlimeButton.d.ts",
+          "target": "physics-buttons/SlimeButton.d.ts",
+          "type": "types"
         },
         {
           "path": "packages/components/physics-buttons/ElasticButton.tsx",
@@ -295,14 +370,29 @@
           "type": "component"
         },
         {
+          "path": "packages/components/physics-buttons/ElasticButton.d.ts",
+          "target": "physics-buttons/ElasticButton.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/physics-buttons/JellyButton.tsx",
           "target": "physics-buttons/JellyButton.tsx",
           "type": "component"
         },
         {
+          "path": "packages/components/physics-buttons/JellyButton.d.ts",
+          "target": "physics-buttons/JellyButton.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/physics-buttons/ImpactButton.tsx",
           "target": "physics-buttons/ImpactButton.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/physics-buttons/ImpactButton.d.ts",
+          "target": "physics-buttons/ImpactButton.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -344,9 +434,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/scroll-highlighter/index.d.ts",
+          "target": "scroll-highlighter/index.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/scroll-highlighter/ScrollHighlighter.tsx",
           "target": "scroll-highlighter/ScrollHighlighter.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/scroll-highlighter/ScrollHighlighter.d.ts",
+          "target": "scroll-highlighter/ScrollHighlighter.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
@@ -386,9 +486,19 @@
           "type": "component"
         },
         {
+          "path": "packages/components/video-card/index.d.ts",
+          "target": "video-card/index.d.ts",
+          "type": "types"
+        },
+        {
           "path": "packages/components/video-card/VideoCard.tsx",
           "target": "video-card/VideoCard.tsx",
           "type": "component"
+        },
+        {
+          "path": "packages/components/video-card/VideoCard.d.ts",
+          "target": "video-card/VideoCard.d.ts",
+          "type": "types"
         }
       ],
       "dependencies": [
