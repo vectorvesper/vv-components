@@ -88,7 +88,7 @@ export default function ElasticButton({
   style = {},
   maxStretch = 28,
   pluckForce,
-}: ElasticButtonProps) {
+}: ElasticButtonProps): React.JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const textRef = useRef<HTMLButtonElement>(null);

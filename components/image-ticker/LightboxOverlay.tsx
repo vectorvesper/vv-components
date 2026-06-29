@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 export type LightboxOverlayProps = {
@@ -29,7 +29,7 @@ const LightboxOverlay = ({
   showCloseHint = true,
   showAmbientGlow = true,
   className,
-}: LightboxOverlayProps) => {
+}: LightboxOverlayProps): React.ReactNode => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

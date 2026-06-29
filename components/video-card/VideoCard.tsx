@@ -58,7 +58,7 @@ export default function VideoCard({
   "aria-label": ariaLabel = "Video player",
   accentColor = "#7EACB5",
   cardBgColor = "rgba(0, 0, 0, 0.4)",
-}: VideoCardProps) {
+}: VideoCardProps): React.JSX.Element {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [isMuted, setIsMuted] = useState(muted);

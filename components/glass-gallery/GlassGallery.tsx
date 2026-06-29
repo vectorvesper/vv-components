@@ -66,7 +66,7 @@ export default function GlassGallery({
   style,
   children,
   staticPreview = false,
-}: GlassGalleryProps) {
+}: GlassGalleryProps): React.JSX.Element {
   const [mounted, setMounted] = useState(false);
   const pinRef = useRef<HTMLDivElement>(null);
   const scrollProgressRef = useRef(0.0);

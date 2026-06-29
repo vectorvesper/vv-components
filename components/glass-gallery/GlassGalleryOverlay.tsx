@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function GlassGalleryOverlay() {
+export default function GlassGalleryOverlay(): React.JSX.Element {
   return (
     <div className="absolute mt-2 inset-0 flex flex-col items-center justify-between p-8 md:p-12 text-white pointer-events-none">
       <div className="w-full flex justify-between items-center mt-2"/>

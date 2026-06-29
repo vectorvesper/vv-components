@@ -209,7 +209,7 @@ const CodeRainScene: React.FC<CodeRainProps> = ({
   );
 };
 
-export default function CodeRainVisualizer(props: CodeRainProps) {
+export default function CodeRainVisualizer(props: CodeRainProps): React.JSX.Element {
   return (
     <div className={props.className} style={{ width: "100%", height: "100%", position: "relative", ...props.style }}>
       <Canvas

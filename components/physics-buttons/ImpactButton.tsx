@@ -93,7 +93,7 @@ export default function ImpactButton({
   minRadius,
   maxRadius,
   borderRadius,
-}: ImpactButtonProps) {
+}: ImpactButtonProps): React.JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const gooeyContainerRef = useRef<HTMLDivElement>(null);

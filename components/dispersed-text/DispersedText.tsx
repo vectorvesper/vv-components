@@ -240,7 +240,7 @@ export default function DispersedText({
   isDispersed = false,
   progress = 0,
   windAngle = 0,
-}: DispersedTextProps) {
+}: DispersedTextProps): React.JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduceMotion = useReducedMotion();
 

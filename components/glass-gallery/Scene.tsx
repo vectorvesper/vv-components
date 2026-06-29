@@ -288,7 +288,7 @@ export default function Scene({
   gridGapX,
   gridGapY,
   unfoldEnd,
-}: SceneProps) {
+}: SceneProps): React.JSX.Element {
 
   const { gl } = useThree();
   const groupRef = useRef<THREE.Group>(null);

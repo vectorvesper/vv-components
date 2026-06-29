@@ -5,7 +5,7 @@ import {
   useMotionValue,
   useReducedMotion,
 } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 export type SmoothTickerProps = {
   direction?: 1 | -1;
@@ -66,7 +66,7 @@ const SmoothTicker = ({
   showGradientBorder = true,
   cardBackground = "#0a0a0e",
   className,
-}: SmoothTickerProps) => {
+}: SmoothTickerProps): React.JSX.Element => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const pausedRef = useRef(false);
   const documentVisibleRef = useRef(true);

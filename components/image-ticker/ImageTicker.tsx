@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import React, { useState } from "react";
 import LightboxOverlay from "./LightboxOverlay";
 import SmoothTicker from "./SmoothTicker";
 
@@ -55,7 +55,7 @@ const ImageTicker = ({
   tickerProps = {},
   lightboxProps = {},
   className,
-}: ImageTickerProps) => {
+}: ImageTickerProps): React.JSX.Element => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleCardClick = (src: string) => {

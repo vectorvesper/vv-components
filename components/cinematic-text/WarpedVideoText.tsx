@@ -94,7 +94,7 @@ export default function WarpedVideoText({
   className = "",
   style,
   "aria-label": ariaLabel,
-}: WarpedVideoTextProps) {
+}: WarpedVideoTextProps): React.JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Element refs for direct DOM mutation (avoids React overhead at 120fps+).

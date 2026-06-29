@@ -117,7 +117,7 @@ export default function SlimeButton({
   squishIntensity = -0.35,
   minWidth = "160px",
   height = "56px",
-}: SlimeButtonProps) {
+}: SlimeButtonProps): React.JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLButtonElement>(null);

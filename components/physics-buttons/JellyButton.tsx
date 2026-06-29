@@ -83,7 +83,7 @@ export default function JellyButton({
   style = {},
   maxStretch,
   rippleForce,
-}: JellyButtonProps) {
+}: JellyButtonProps): React.JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const textRef = useRef<HTMLButtonElement>(null);

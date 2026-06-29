@@ -350,7 +350,7 @@ export default function ScrollHighlighter({
   springConfig,
   hoverGlow = true,
   className = "",
-}: ScrollHighlighterProps) {
+}: ScrollHighlighterProps): React.ReactNode {
   const [textElement, setTextElement] = useState<HTMLParagraphElement | null>(null);
   const [containerElement, setContainerElement] = useState<HTMLElement | null>(null);
   const instanceId = useId();

@@ -171,7 +171,7 @@ export default function MagneticSandVisualizer({
   trailSpeed = 0.05,
   className = "",
   style = {},
-}: MagneticSandProps) {
+}: MagneticSandProps): React.JSX.Element {
   return (
     <div className={className} style={{ width: "100%", height: "100%", position: "relative", ...style }}>
       <Canvas
