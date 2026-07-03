@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, type RefObject, type ComponentPropsWithoutRef } from "react";
+import React, { useEffect, useRef, type ComponentPropsWithoutRef } from "react";
 
 // ─── 1. TYPES ────────────────────────────────────────────────────────
 
@@ -782,9 +782,10 @@ export function registerMediaShader(
   }
 }
 
-// ─── 6. REACT HOOK ───────────────────────────────────────────────────
+// ─── 6. REACT COMPONENT ───────────────────────────────────────────────
 
-export interface UseMediaShaderOptions {
+export interface ShaderImageProps
+  extends ComponentPropsWithoutRef<"img"> {
   /** Built-in preset name or a custom preset object. */
   preset?: PresetName | MediaShaderPreset;
   /** Strength multiplier. */
@@ -797,41 +798,6 @@ export interface UseMediaShaderOptions {
   params?: readonly number[];
 }
 
-export function useMediaShader<T extends MediaElement = HTMLImageElement>(
-  options: UseMediaShaderOptions = {},
-): { ref: RefObject<T | null>; active: boolean } {
-  const ref = useRef<T>(null);
-  const [active, setActive] = useState(false);
-  const handleRef = useRef<MediaShaderHandle | null>(null);
-  const [initialOptions] = useState(options);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const handle = registerMediaShader(el, initialOptions);
-    handleRef.current = handle;
-    setActive(handle.active);
-    return () => {
-      handle.destroy();
-      handleRef.current = null;
-      setActive(false);
-    };
-  }, [initialOptions]);
-
-  const { intensity, noiseScale, idle, preset, params } = options;
-  useEffect(() => {
-    handleRef.current?.setOptions({ intensity, noiseScale, idle, preset, params });
-  }, [intensity, noiseScale, idle, preset, params]);
-
-  return { ref, active };
-}
-
-// ─── 7. REACT COMPONENT ───────────────────────────────────────────────
-
-export interface ShaderImageProps
-  extends ComponentPropsWithoutRef<"img">,
-    UseMediaShaderOptions {}
-
 export function ShaderImage({
   preset,
   intensity,
@@ -841,7 +807,27 @@ export function ShaderImage({
   alt = "",
   ...imgProps
 }: ShaderImageProps) {
-  const { ref } = useMediaShader({ preset, intensity, noiseScale, idle, params });
+  const ref = useRef<HTMLImageElement>(null);
+  const handleRef = useRef<MediaShaderHandle | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const handle = registerMediaShader(el, { preset, intensity, noiseScale, idle, params });
+    handleRef.current = handle;
+    return () => {
+      handle.destroy();
+      handleRef.current = null;
+    };
+    // Only run on mount/unmount — dynamic option changes handled below
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    handleRef.current?.setOptions({ intensity, noiseScale, idle, preset, params });
+  }, [intensity, noiseScale, idle, preset, params]);
+
   // eslint-disable-next-line @next/next/no-img-element
-  return <img ref={ref} alt={alt} {...imgProps} />;
+  return <img ref={ref} alt={alt} crossOrigin="anonymous" {...imgProps} />;
 }
+
