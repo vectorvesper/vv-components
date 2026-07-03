@@ -831,3 +831,62 @@ export function ShaderImage({
   return <img ref={ref} alt={alt} crossOrigin="anonymous" {...imgProps} />;
 }
 
+// ─── 7. SHADER VIDEO COMPONENT ────────────────────────────────────────
+
+export interface ShaderVideoProps
+  extends ComponentPropsWithoutRef<"video"> {
+  /** Built-in preset name or a custom preset object. */
+  preset?: PresetName | MediaShaderPreset;
+  /** Strength multiplier. */
+  intensity?: number;
+  /** Spatial frequency of the effect's field. */
+  noiseScale?: number;
+  /** 0..1 resting motion when not hovered. */
+  idle?: number;
+  /** Free-form parameters. */
+  params?: readonly number[];
+}
+
+export function ShaderVideo({
+  preset,
+  intensity,
+  noiseScale,
+  idle,
+  params,
+  autoPlay = true,
+  loop = true,
+  muted = true,
+  playsInline = true,
+  ...videoProps
+}: ShaderVideoProps) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const handleRef = useRef<MediaShaderHandle | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const handle = registerMediaShader(el, { preset, intensity, noiseScale, idle, params });
+    handleRef.current = handle;
+    return () => {
+      handle.destroy();
+      handleRef.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    handleRef.current?.setOptions({ intensity, noiseScale, idle, preset, params });
+  }, [intensity, noiseScale, idle, preset, params]);
+
+  return (
+    <video
+      ref={ref}
+      autoPlay={autoPlay}
+      loop={loop}
+      muted={muted}
+      playsInline={playsInline}
+      crossOrigin="anonymous"
+      {...videoProps}
+    />
+  );
+}
