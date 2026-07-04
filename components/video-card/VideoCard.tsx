@@ -13,33 +13,33 @@ function hexToRgb(hex: string) {
 }
 
 export interface VideoCardProps {
-  /** Video source URL (required) */
+  /** Video source URL (required). */
   src: string;
-  /** Poster image shown before the video loads */
+  /** Poster image shown before the video loads. */
   poster?: string;
-  /** Autoplay the video — muted autoplay is allowed by browsers (default: true) */
+  /** Autoplay the video — muted autoplay is allowed by browsers (default: true). */
   autoPlay?: boolean;
-  /** Loop the video (default: true) */
+  /** Loop the video (default: true). */
   loop?: boolean;
-  /** Start muted (default: true) */
+  /** Start muted (default: true). */
   muted?: boolean;
-  /** 3D perspective tilt on hover (default: true) */
+  /** 3D perspective tilt on hover (default: true). */
   enableTilt?: boolean;
-  /** Max tilt in degrees (default: 12) */
+  /** Max tilt in degrees (default: 12). */
   tiltMax?: number;
-  /** Show the bottom control dock — play / mute / volume / seek (default: true) */
+  /** Show the bottom control dock — play / mute / volume / seek (default: true). */
   showControls?: boolean;
-  /** Number of segments in the seek bar (default: 24) */
+  /** Number of segments in the seek bar (default: 24). */
   segments?: number;
-  /** Extra classes for the card container */
+  /** Extra classes for the card container. */
   className?: string;
-  /** Inline style overrides for the card container */
+  /** Inline style overrides for the card container. */
   style?: React.CSSProperties;
-  /** Accessible label for the player (default: "Video player") */
+  /** Accessible label for the player (default: "Video player"). */
   "aria-label"?: string;
-  /** Accent color for UI HUD markers, glow, seek, and volume control highlights (default: "#7EACB5") */
+  /** Accent color for HUD markers, glow, seek and volume highlights (default: "#7EACB5"). */
   accentColor?: string;
-  /** Background color of the card container (default: "rgba(0,0,0,0.4)") */
+  /** Background color of the card container (default: "rgba(0,0,0,0.4)"). */
   cardBgColor?: string;
 }
 
@@ -70,7 +70,6 @@ export default function VideoCard({
   const reduceMotion = useReducedMotion();
   const tiltOn = enableTilt && !reduceMotion;
 
-  // Smooth spring-driven 3D tilt.
   const localMouseX = useMotionValue(0);
   const localMouseY = useMotionValue(0);
   const tiltX = useSpring(localMouseY, { stiffness: 200, damping: 30, mass: 0.5 });
@@ -110,7 +109,8 @@ export default function VideoCard({
       video.removeEventListener("pause", handlePause);
       video.removeEventListener("volumechange", handleVolume);
     };
-  }, [volume]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const togglePlay = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -211,19 +211,16 @@ export default function VideoCard({
       onClick={() => togglePlay()}
       className={`relative w-full max-w-md rounded-3xl p-2.5 flex flex-col gap-2.5 cursor-pointer group shadow-[0_45px_95px_rgba(0,0,0,0.7)] backdrop-blur-3xl border border-white/10 hover:border-[rgba(var(--accent-rgb),0.3)] transition-[border-color,background-color,box-shadow] duration-300 ${className}`}
     >
-      {/* Corner HUD brackets */}
       <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-[var(--accent-color)] rounded-tl-lg transition-transform duration-300 group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 pointer-events-none z-30" />
       <div className="absolute top-0 right-0 w-5 h-5 border-t border-r border-[var(--accent-color)] rounded-tr-lg transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5 pointer-events-none z-30" />
       <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-[var(--accent-color)] rounded-bl-lg transition-transform duration-300 group-hover:-translate-x-1.5 group-hover:translate-y-1.5 pointer-events-none z-30" />
       <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-[var(--accent-color)] rounded-br-lg transition-transform duration-300 group-hover:translate-x-1.5 group-hover:translate-y-1.5 pointer-events-none z-30" />
 
-      {/* Holographic outer glow */}
       <div
         className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[rgba(var(--accent-rgb),0.2)] via-white/5 to-purple-500/10 opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0"
         style={{ boxShadow: "inset 0 0 25px rgba(var(--accent-rgb), 0.08)" }}
       />
 
-      {/* Video viewport */}
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-[#050505] shadow-[inset_0_0_40px_rgba(0,0,0,1)] border border-white/5 z-10 flex-shrink-0">
         <video
           ref={videoRef}
@@ -237,27 +234,22 @@ export default function VideoCard({
           className="w-full h-full object-cover opacity-75 group-hover:opacity-95 transition-opacity duration-500 scale-105"
         />
 
-        {/* Cinematic vignette */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.65)_100%)] z-10" />
 
-        {/* Top-left: stream status */}
         <div className="absolute top-3 left-4 flex items-center gap-1.5 z-20 font-mono text-[8px] tracking-[0.15em] text-white/70 bg-black/60 backdrop-blur-md py-0.5 px-2 rounded-md border border-white/5">
           <span className={`w-1.5 h-1.5 rounded-none ${isPlaying ? "bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" : "bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"}`} />
           <span>{isPlaying ? "ACTIVE" : "PAUSED"}</span>
         </div>
 
-        {/* Bottom-right: timecode */}
         <div className="absolute bottom-3 right-4 flex items-center gap-1.5 z-20 font-mono text-[8px] tracking-[0.1em] text-[var(--accent-color)] bg-black/70 backdrop-blur-md py-0.5 px-2 rounded-md border border-[rgba(var(--accent-rgb),0.2)] shadow-md">
           <span className="w-1 h-1 rounded-none bg-[var(--accent-color)] animate-pulse" />
           <span>{formatTime(currentTime)} / {formatTime(duration)}</span>
         </div>
       </div>
 
-      {/* Bottom control dock */}
       {showControls && (
         <div className="relative w-full z-20 bg-gradient-to-r from-black/90 via-[#0c0c0d]/95 to-black/90 border border-white/10 hover:border-[rgba(var(--accent-rgb),0.3)] backdrop-blur-2xl rounded-xl p-2 flex items-center justify-between shadow-[0_20px_45px_rgba(0,0,0,0.8)] transition-all duration-300">
           <div className="flex items-center gap-1.5">
-            {/* Play / Pause */}
             <button
               type="button"
               onClick={togglePlay}
@@ -278,7 +270,6 @@ export default function VideoCard({
               )}
             </button>
 
-            {/* Mute / Unmute */}
             <button
               type="button"
               onClick={toggleMute}
@@ -302,7 +293,6 @@ export default function VideoCard({
               )}
             </button>
 
-            {/* Volume */}
             <div className="flex items-center gap-1 ml-1 select-none">
               <input
                 type="range"
@@ -318,7 +308,6 @@ export default function VideoCard({
             </div>
           </div>
 
-          {/* Segmented seek bar */}
           <div className="flex-1 ml-3 mr-1 flex items-center justify-end">
             <div
               role="slider"

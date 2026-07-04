@@ -2,16 +2,8 @@
 
 import React, { useEffect, useRef, type ComponentPropsWithoutRef } from "react";
 
-// ─── 1. TYPES ────────────────────────────────────────────────────────
-
-/** A media element the scene can texture. */
 export type MediaElement = HTMLImageElement | HTMLVideoElement;
 
-/**
- * The preset contract every media-shader effect ships against.
- * A preset is a fragment shader + its taste defaults; the scene owns the
- * vertex stage, the uniform plumbing, and cover-fit.
- */
 export interface MediaShaderPreset {
   name: string;
   fragment: string;
@@ -27,38 +19,27 @@ export interface MediaShaderPreset {
 export interface MediaShaderOptions {
   /** Built-in preset name or a custom preset object. */
   preset?: string | MediaShaderPreset;
-  /** Overall effect strength multiplier. Default from the preset. */
+  /** Overall effect strength multiplier. */
   intensity?: number;
-  /** Spatial frequency of the effect's field. Default from the preset. */
+  /** Spatial frequency of the effect's field. */
   noiseScale?: number;
-  /** 0..1 resting motion when not hovered. Default from the preset. */
+  /** Resting motion when not hovered, 0 to 1. */
   idle?: number;
-  /**
-   * Free-form preset parameters, exposed to the shader as `u_params` (vec4).
-   * How each slot is interpreted is the preset's business — this is the
-   * extension slot custom presets use for modes and extra knobs.
-   */
+  /** Free-form preset params, exposed to the shader as `u_params` (vec4). */
   params?: readonly number[];
 }
 
-/**
- * What a register call hands back. `active: false` means the scene chose
- * not to run (SSR, no WebGL2, reduced motion) and the element was left
- * untouched — the fail-open path.
- */
 export interface MediaShaderHandle {
   active: boolean;
   setOptions(options: MediaShaderOptions): void;
   destroy(): void;
 }
 
-// ─── 2. CONDUCTOR (rAF Loop Manager) ──────────────────────────────────
-
 type ConductorLane = "input" | "update" | "render";
 type FrameFn = (dt: number, time: number) => void;
 
 const LANE_ORDER: ConductorLane[] = ["input", "update", "render"];
-const MAX_DT = 0.1; // seconds; anything longer is a tab-sleep artifact
+const MAX_DT = 0.1;
 
 class FrameConductor {
   private subs: Record<ConductorLane, Set<FrameFn>> = {
@@ -115,8 +96,6 @@ function getConductor(): FrameConductor {
   if (conductorInstance === null) conductorInstance = new FrameConductor();
   return conductorInstance;
 }
-
-// ─── 3. WEBGL HELPERS ────────────────────────────────────────────────
 
 function createGL(canvas: HTMLCanvasElement): WebGL2RenderingContext | null {
   return canvas.getContext("webgl2", {
@@ -214,9 +193,6 @@ function createUnitQuad(gl: WebGL2RenderingContext): WebGLVertexArrayObject {
   return vao;
 }
 
-// ─── 4. SHADER PRESETS ───────────────────────────────────────────────
-
-// A. liquid-chromatic: Premium liquid chromatic ripple preset
 export const liquidChromaticPreset: MediaShaderPreset = {
   name: "liquid-chromatic",
   fragment: `#version 300 es
@@ -278,7 +254,6 @@ export const liquidChromaticPreset: MediaShaderPreset = {
   }
 };
 
-// B. curl-distortion: Liquid displacement blooming around the cursor
 export const curlDistortionPreset: MediaShaderPreset = {
   name: "curl-distortion",
   fragment: `#version 300 es
@@ -357,7 +332,6 @@ export const curlDistortionPreset: MediaShaderPreset = {
   },
 };
 
-// C. focus-loupe: Circular region of sharp focus on blur/desaturated media
 export const focusLoupePreset: MediaShaderPreset = {
   name: "focus-loupe",
   fragment: `#version 300 es
@@ -440,9 +414,7 @@ export function resolvePreset(
   return preset;
 }
 
-// ─── 5. SCENE ENGINE ─────────────────────────────────────────────────
-
-const VERTEX_SRC = /* glsl */ `#version 300 es
+const VERTEX_SRC = `#version 300 es
 layout(location = 0) in vec2 a_pos;
 uniform vec4 u_rect;
 uniform vec2 u_view;
@@ -482,6 +454,9 @@ interface Plane {
   el: MediaElement;
   isVideo: boolean;
   tex: WebGLTexture;
+  texAllocated: boolean;
+  texW: number;
+  texH: number;
   ready: boolean;
   naturalW: number;
   naturalH: number;
@@ -527,6 +502,9 @@ class MediaShaderScene {
       el,
       isVideo: el instanceof HTMLVideoElement,
       tex: createMediaTexture(this.gl),
+      texAllocated: false,
+      texW: 0,
+      texH: 0,
       ready: false,
       naturalW: 0,
       naturalH: 0,
@@ -649,6 +627,7 @@ class MediaShaderScene {
     for (const plane of this.planes) {
       this.ensureProgram(plane.preset);
       plane.tex = createMediaTexture(this.gl);
+      plane.texAllocated = false;
       plane.ready = false;
       this.prepareTexture(plane);
       plane.el.style.opacity = "0";
@@ -703,7 +682,17 @@ class MediaShaderScene {
       if (offscreen || rect.width === 0 || rect.height === 0) continue;
 
       if (plane.isVideo) {
-        uploadMediaTexture(gl, plane.tex, plane.el as HTMLVideoElement);
+        const video = plane.el as HTMLVideoElement;
+        gl.bindTexture(gl.TEXTURE_2D, plane.tex);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        if (!plane.texAllocated || plane.texW !== video.videoWidth || plane.texH !== video.videoHeight) {
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
+          plane.texAllocated = true;
+          plane.texW = video.videoWidth;
+          plane.texH = video.videoHeight;
+        } else {
+          gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, video);
+        }
       }
 
       const info = this.programs.get(plane.preset.name);
@@ -782,8 +771,6 @@ export function registerMediaShader(
   }
 }
 
-// ─── 6. REACT COMPONENT ───────────────────────────────────────────────
-
 export interface ShaderImageProps
   extends ComponentPropsWithoutRef<"img"> {
   /** Built-in preset name or a custom preset object. */
@@ -792,9 +779,9 @@ export interface ShaderImageProps
   intensity?: number;
   /** Spatial frequency of the effect's field. */
   noiseScale?: number;
-  /** 0..1 resting motion when not hovered. */
+  /** Resting motion when not hovered, 0 to 1. */
   idle?: number;
-  /** Free-form parameters. */
+  /** Free-form params passed through to the shader. */
   params?: readonly number[];
 }
 
@@ -819,7 +806,6 @@ export function ShaderImage({
       handle.destroy();
       handleRef.current = null;
     };
-    // Only run on mount/unmount — dynamic option changes handled below
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -831,8 +817,6 @@ export function ShaderImage({
   return <img ref={ref} alt={alt} crossOrigin="anonymous" {...imgProps} />;
 }
 
-// ─── 7. SHADER VIDEO COMPONENT ────────────────────────────────────────
-
 export interface ShaderVideoProps
   extends ComponentPropsWithoutRef<"video"> {
   /** Built-in preset name or a custom preset object. */
@@ -841,9 +825,9 @@ export interface ShaderVideoProps
   intensity?: number;
   /** Spatial frequency of the effect's field. */
   noiseScale?: number;
-  /** 0..1 resting motion when not hovered. */
+  /** Resting motion when not hovered, 0 to 1. */
   idle?: number;
-  /** Free-form parameters. */
+  /** Free-form params passed through to the shader. */
   params?: readonly number[];
 }
 
