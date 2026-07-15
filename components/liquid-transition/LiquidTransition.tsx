@@ -8,6 +8,8 @@ export interface PageData {
   subtitle: string;
   bgColor: string;
   textColor: string;
+  /** Optional custom background fill color for the SVG curtain during screen transition. */
+  transitionColor?: string;
 }
 
 export interface LiquidTransitionProps {
@@ -201,6 +203,12 @@ export default function LiquidTransition({ pages }: LiquidTransitionProps) {
     currentDirectionRef.current = dir;
     targetIndexRef.current = nextIdx;
     isMidpointSwappedRef.current = false;
+
+    // Dynamically update the SVG curtain fill color to the target page's transitionColor or default
+    const targetPage = pages[nextIdx];
+    if (pathRef.current && targetPage) {
+      pathRef.current.setAttribute("fill", targetPage.transitionColor || "#0e0e11");
+    }
 
     setIsTransitioning(true);
     isTransitioningRef.current = true;
