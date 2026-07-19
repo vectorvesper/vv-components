@@ -620,51 +620,6 @@
       "entry": "video-card/index.ts",
       "exportName": "VideoCard",
       "usesTailwind": true
-    },
-    {
-      "slug": "glass-orb",
-      "name": "Glass Orb",
-      "title": "Glass Orb",
-      "description": "A refractive glass orb hero with real-time transmission and dispersion. (PRO test fixture for the gated registry — placeholder source until the real component ships.)",
-      "version": "0.0.1",
-      "tier": "pro",
-      "category": "webgl",
-      "type": "vv:component",
-      "frameworks": [
-        "next",
-        "vite"
-      ],
-      "files": [
-        {
-          "path": "packages/components/glass-orb/GlassOrb.tsx",
-          "target": "glass-orb/GlassOrb.tsx",
-          "type": "component"
-        },
-        {
-          "path": "packages/components/glass-orb/GlassOrb.d.ts",
-          "target": "glass-orb/GlassOrb.d.ts",
-          "type": "types"
-        }
-      ],
-      "dependencies": [
-        "three",
-        "@react-three/fiber",
-        "@react-three/drei"
-      ],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "requiresClient": true,
-      "supportsReducedMotion": true,
-      "usesWebGL": true,
-      "usesPointer": true,
-      "usesScroll": false,
-      "fallbacks": [],
-      "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/glass-orb",
-      "previewUrl": "https://vectorvesper.dev/components/glass-orb",
-      "entry": "glass-orb/GlassOrb.tsx",
-      "exportName": "default",
-      "usesTailwind": false
     }
   ]
 }
