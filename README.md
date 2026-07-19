@@ -142,7 +142,7 @@ Found a bug or have a request? [Open an issue](https://github.com/vectorvesper/v
 
 ---
 
-## 💬 Support
+## Support
 
 - **Docs & previews:** [vectorvesper.dev](https://vectorvesper.dev)
 - **X / Twitter:** [@Shivanidas0910](https://x.com/Shivanidas0910)
