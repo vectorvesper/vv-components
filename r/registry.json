@@ -671,6 +671,911 @@
       "entry": "video-card/index.ts",
       "exportName": "VideoCard",
       "usesTailwind": true
+    },
+    {
+      "slug": "blur-transition",
+      "name": "Blur Transition",
+      "title": "Blur Transition",
+      "description": "A scroll-scrubbed transition that blurs and scales through a sequence of items as the page moves. GSAP ScrollTrigger drives the scrub with a configurable lerp, and the scroll binding can be switched off to drive progress yourself.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/blur-transition/BlurTransition.tsx",
+          "target": "blur-transition/BlurTransition.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/blur-transition/BlurTransition.d.ts",
+          "target": "blur-transition/BlurTransition.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@gsap/react",
+        "gsap"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": false,
+      "usesPointer": false,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/blur-transition",
+      "previewUrl": "https://vectorvesper.dev/components/blur-transition",
+      "entry": "blur-transition/BlurTransition.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "card-deck-flip",
+      "name": "Card Deck Flip",
+      "title": "Card Deck Flip",
+      "description": "A stack of cards that flips through on scroll, with configurable perspective and scrub damping plus optional mouse-tilt parallax. Reports the active index as it changes so surrounding UI can follow along.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/card-deck-flip/CardDeckFlip.tsx",
+          "target": "card-deck-flip/CardDeckFlip.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/card-deck-flip/CardDeckFlip.d.ts",
+          "target": "card-deck-flip/CardDeckFlip.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@gsap/react",
+        "@vectorvesper/motion",
+        "gsap"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/card-deck-flip",
+      "previewUrl": "https://vectorvesper.dev/components/card-deck-flip",
+      "entry": "card-deck-flip/CardDeckFlip.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "carousel-3d",
+      "name": "Carousel 3d",
+      "title": "Carousel 3d",
+      "description": "A cylindrical 3D carousel built on React Three Fiber — images arranged around a configurable radius with click-to-focus. Exposes rotation and scroll-progress refs so external UI can read the carousel's state without re-rendering.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/carousel-3d/Carousel3D.tsx",
+          "target": "carousel-3d/Carousel3D.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/carousel-3d/Carousel3D.d.ts",
+          "target": "carousel-3d/Carousel3D.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@gsap/react",
+        "@react-three/drei",
+        "@react-three/fiber",
+        "gsap",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/carousel-3d",
+      "previewUrl": "https://vectorvesper.dev/components/carousel-3d",
+      "entry": "carousel-3d/Carousel3D.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "cube-scroll-menu",
+      "name": "Cube Scroll Menu",
+      "title": "Cube Scroll Menu",
+      "description": "A full-screen cube menu that rotates between sections as you scroll, with framer-motion overlays, configurable CTA and hint copy, and callbacks for both selection and open state. Seventeen props cover colour, labelling and behaviour.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "navigation",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/cube-scroll-menu/CubeScrollMenu.tsx",
+          "target": "cube-scroll-menu/CubeScrollMenu.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/cube-scroll-menu/CubeScrollMenu.d.ts",
+          "target": "cube-scroll-menu/CubeScrollMenu.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "framer-motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/cube-scroll-menu",
+      "previewUrl": "https://vectorvesper.dev/components/cube-scroll-menu",
+      "entry": "cube-scroll-menu/CubeScrollMenu.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "glass-curtain",
+      "name": "Glass Curtain",
+      "title": "Glass Curtain",
+      "description": "A refractive glass curtain overlay that distorts whatever sits behind it. Extends the native div props, so class names, layout and event handlers pass straight through to the underlying element.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "visual",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/glass-curtain/GlassCurtain.tsx",
+          "target": "glass-curtain/GlassCurtain.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/glass-curtain/GlassCurtain.d.ts",
+          "target": "glass-curtain/GlassCurtain.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/glass-curtain",
+      "previewUrl": "https://vectorvesper.dev/components/glass-curtain",
+      "entry": "glass-curtain/GlassCurtain.tsx",
+      "exportName": "GlassCurtain",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "interactive-cursor-shader",
+      "name": "Interactive Cursor Shader",
+      "title": "Interactive Cursor Shader",
+      "description": "A WebGL2 fluid simulation that smears colour through a velocity field as the pointer moves. Four configurable colour stops with tunable speed and sensitivity, and a capability probe that fails closed when WebGL2 is unavailable.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/interactive-cursor-shader/InteractiveCursorShader.tsx",
+          "target": "interactive-cursor-shader/InteractiveCursorShader.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/interactive-cursor-shader/InteractiveCursorShader.d.ts",
+          "target": "interactive-cursor-shader/InteractiveCursorShader.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/interactive-cursor-shader",
+      "previewUrl": "https://vectorvesper.dev/components/interactive-cursor-shader",
+      "entry": "interactive-cursor-shader/InteractiveCursorShader.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "lookbook",
+      "name": "Lookbook",
+      "title": "Lookbook",
+      "description": "A case-study hero built on an unrolling sheet — a single image unfurls from a rolled tube as the section enters, with twist count, roll radius, radius falloff and animation speed exposed per image. Ships a ready-made hero arrangement alongside the underlying primitive.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "visual",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/lookbook/UnrollLookbook.tsx",
+          "target": "lookbook/UnrollLookbook.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/lookbook/UnrollLookbook.d.ts",
+          "target": "lookbook/UnrollLookbook.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@vectorvesper/motion",
+        "gsap",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/lookbook",
+      "previewUrl": "https://vectorvesper.dev/components/lookbook",
+      "entry": "lookbook/UnrollLookbook.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "media-fx-pro",
+      "name": "Media Fx Pro",
+      "title": "Media Fx Pro",
+      "description": "A shader-based effects layer for images and video — a library of named effects with per-effect parameters, a single intensity control, and optional depth-map input for parallax displacement.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/media-fx-pro/MediaFxPro.tsx",
+          "target": "media-fx-pro/MediaFxPro.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/media-fx-pro/MediaFxPro.d.ts",
+          "target": "media-fx-pro/MediaFxPro.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/media-fx-pro",
+      "previewUrl": "https://vectorvesper.dev/components/media-fx-pro",
+      "entry": "media-fx-pro/MediaFxPro.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "particle-morph-gallery",
+      "name": "Particle Morph Gallery",
+      "title": "Particle Morph Gallery",
+      "description": "Images dissolved into particle fields that morph between shots on scroll, rendered through React Three Fiber. Noise strength and a device-pixel-ratio cap are exposed so the effect can be dialled back on weaker hardware.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/particle-morph-gallery/ParticleMorphGallery.tsx",
+          "target": "particle-morph-gallery/ParticleMorphGallery.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/particle-morph-gallery/ParticleMorphGallery.d.ts",
+          "target": "particle-morph-gallery/ParticleMorphGallery.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@gsap/react",
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@vectorvesper/motion",
+        "gsap",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/particle-morph-gallery",
+      "previewUrl": "https://vectorvesper.dev/components/particle-morph-gallery",
+      "entry": "particle-morph-gallery/ParticleMorphGallery.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "pixel-smear-carousel",
+      "name": "Pixel Smear Carousel",
+      "title": "Pixel Smear Carousel",
+      "description": "A carousel whose slides smear into one another through the transition, with autoplay, interval control, and an optional text overlay layer above the imagery.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/pixel-smear-carousel/PixelSmearCarousel.tsx",
+          "target": "pixel-smear-carousel/PixelSmearCarousel.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/pixel-smear-carousel/PixelSmearCarousel.d.ts",
+          "target": "pixel-smear-carousel/PixelSmearCarousel.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/pixel-smear-carousel",
+      "previewUrl": "https://vectorvesper.dev/components/pixel-smear-carousel",
+      "entry": "pixel-smear-carousel/PixelSmearCarousel.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "pixel-stretcher",
+      "name": "Pixel Stretcher",
+      "title": "Pixel Stretcher",
+      "description": "Stretches an image or video into pixel-trail streaks driven by scroll, hover, or both. Nineteen props cover source handling, streak strength, trigger mode, backing colour and sizing.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/pixel-stretcher/PixelStretcher.tsx",
+          "target": "pixel-stretcher/PixelStretcher.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/pixel-stretcher/PixelStretcher.d.ts",
+          "target": "pixel-stretcher/PixelStretcher.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/pixel-stretcher",
+      "previewUrl": "https://vectorvesper.dev/components/pixel-stretcher",
+      "entry": "pixel-stretcher/PixelStretcher.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "portal-peeler",
+      "name": "Portal Peeler",
+      "title": "Portal Peeler",
+      "description": "A peel-away portal that reveals an underlay as the pointer drags across it. Brush size, spacing, heal rate and viscosity control how quickly and how thickly the surface closes back over itself.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/portal-peeler/PortalPeeler.tsx",
+          "target": "portal-peeler/PortalPeeler.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/portal-peeler/PortalPeeler.d.ts",
+          "target": "portal-peeler/PortalPeeler.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/portal-peeler",
+      "previewUrl": "https://vectorvesper.dev/components/portal-peeler",
+      "entry": "portal-peeler/PortalPeeler.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "predictive-media-wall",
+      "name": "Predictive Media Wall",
+      "title": "Predictive Media Wall",
+      "description": "A gallery whose full-resolution media is already decoded by the time you hover it, so the reveal is instant instead of resolving from blur on arrival.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/predictive-media-wall/PredictiveMediaWall.tsx",
+          "target": "predictive-media-wall/PredictiveMediaWall.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/predictive-media-wall/PredictiveMediaWall.d.ts",
+          "target": "predictive-media-wall/PredictiveMediaWall.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/predictive-media-wall",
+      "previewUrl": "https://vectorvesper.dev/components/predictive-media-wall",
+      "entry": "predictive-media-wall/PredictiveMediaWall.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "refractive-gallery",
+      "name": "Refractive Gallery",
+      "title": "Refractive Gallery",
+      "description": "An infinite draggable gallery viewed through a refractive lens, with chromatic aberration, refraction strength, zoom and damping all exposed. Ships a small keyframe stylesheet alongside the component.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/refractive-gallery/RefractiveInfiniteGallery.tsx",
+          "target": "refractive-gallery/RefractiveInfiniteGallery.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/refractive-gallery/RefractiveInfiniteGallery.d.ts",
+          "target": "refractive-gallery/RefractiveInfiniteGallery.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/refractive-gallery/refractive-gallery.css",
+          "target": "refractive-gallery/refractive-gallery.css",
+          "type": "lib"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/refractive-gallery",
+      "previewUrl": "https://vectorvesper.dev/components/refractive-gallery",
+      "entry": "refractive-gallery/RefractiveInfiniteGallery.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "refractive-transition",
+      "name": "Refractive Transition",
+      "title": "Refractive Transition",
+      "description": "A route-transition provider that refracts the outgoing page into the incoming one. Wraps the app, reads Next's router directly, and takes separate entry and exit durations. Next.js only.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next"
+      ],
+      "files": [
+        {
+          "path": "packages/components/refractive-transition/RefractiveTransition.tsx",
+          "target": "refractive-transition/RefractiveTransition.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/refractive-transition/RefractiveTransition.d.ts",
+          "target": "refractive-transition/RefractiveTransition.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "gsap"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/refractive-transition",
+      "previewUrl": "https://vectorvesper.dev/components/refractive-transition",
+      "entry": "refractive-transition/RefractiveTransition.tsx",
+      "exportName": "default",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "shader-cursor",
+      "name": "Shader Cursor",
+      "title": "Shader Cursor",
+      "description": "A GPU cursor trail shipping four presets — aurora, neon, ripple and sparks — alongside a generic component, a React hook, and an imperative mount function for non-React use. Colour, size and trail length are configurable per preset.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/shader-cursor/ShaderCursor.tsx",
+          "target": "shader-cursor/ShaderCursor.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/shader-cursor/ShaderCursor.d.ts",
+          "target": "shader-cursor/ShaderCursor.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/shader-cursor",
+      "previewUrl": "https://vectorvesper.dev/components/shader-cursor",
+      "entry": "shader-cursor/ShaderCursor.tsx",
+      "exportName": "default",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "svg-path-story",
+      "name": "Svg Path Story",
+      "title": "Svg Path Story",
+      "description": "Scroll-scrubbed storytelling along an SVG path — cards attach to positions on the path and reveal as the scroll range passes through them, with the active range configurable at both ends.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/svg-path-story/SVGPathStory.tsx",
+          "target": "svg-path-story/SVGPathStory.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/svg-path-story/SVGPathStory.d.ts",
+          "target": "svg-path-story/SVGPathStory.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@gsap/react",
+        "@vectorvesper/motion",
+        "gsap"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": false,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/svg-path-story",
+      "previewUrl": "https://vectorvesper.dev/components/svg-path-story",
+      "entry": "svg-path-story/SVGPathStory.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "text-trail",
+      "name": "Text Trail",
+      "title": "Text Trail",
+      "description": "Characters from a supplied string spawn along the pointer's path and fade out behind it, with configurable size, spacing, lifetime, colour and glow. Self-contained — the trail hook ships inside the component.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "text",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/text-trail/TextTrail.tsx",
+          "target": "text-trail/TextTrail.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/text-trail/TextTrail.d.ts",
+          "target": "text-trail/TextTrail.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/text-trail",
+      "previewUrl": "https://vectorvesper.dev/components/text-trail",
+      "entry": "text-trail/TextTrail.tsx",
+      "exportName": "default",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "unroll-scroll",
+      "name": "Unroll Scroll",
+      "title": "Unroll Scroll",
+      "description": "A scroll-driven unrolling lookbook — images mapped onto a curling plane in React Three Fiber, with twist count, roll radius, radius falloff and animation speed exposed. The most configurable component in the catalog at twenty-nine props.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/unroll-scroll/UnrollLookbook.tsx",
+          "target": "unroll-scroll/UnrollLookbook.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/unroll-scroll/UnrollLookbook.d.ts",
+          "target": "unroll-scroll/UnrollLookbook.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/unroll-scroll",
+      "previewUrl": "https://vectorvesper.dev/components/unroll-scroll",
+      "entry": "unroll-scroll/UnrollLookbook.tsx",
+      "exportName": "default",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "volumetric-light",
+      "name": "Volumetric Light",
+      "title": "Volumetric Light",
+      "description": "A pointer-following light that casts real directional shadows from the elements beneath it - shadows lengthen, rotate and fade with distance, and text receives a matching text-shadow rather than a box shadow. Self-contained: the shadow-casting hook ships inside the component and is not separately importable.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/volumetric-light/VolumetricLight.tsx",
+          "target": "volumetric-light/VolumetricLight.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/volumetric-light/VolumetricLight.d.ts",
+          "target": "volumetric-light/VolumetricLight.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/volumetric-light",
+      "previewUrl": "https://vectorvesper.dev/components/volumetric-light",
+      "entry": "volumetric-light/VolumetricLight.tsx",
+      "exportName": "default",
+      "usesTailwind": false,
+      "draft": false
     }
   ]
 }
