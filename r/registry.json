@@ -765,8 +765,8 @@
     },
     {
       "slug": "carousel-3d",
-      "name": "Carousel 3d",
-      "title": "Carousel 3d",
+      "name": "Carousel 3D",
+      "title": "Carousel 3D",
       "description": "A cylindrical 3D carousel built on React Three Fiber — images arranged around a configurable radius with click-to-focus. Exposes rotation and scroll-progress refs so external UI can read the carousel's state without re-rendering.",
       "version": "1.0.0",
       "tier": "pro",
@@ -940,54 +940,6 @@
       "docsUrl": "https://vectorvesper.dev/components/interactive-cursor-shader",
       "previewUrl": "https://vectorvesper.dev/components/interactive-cursor-shader",
       "entry": "interactive-cursor-shader/InteractiveCursorShader.tsx",
-      "exportName": "default",
-      "usesTailwind": true,
-      "draft": false
-    },
-    {
-      "slug": "lookbook",
-      "name": "Lookbook",
-      "title": "Lookbook",
-      "description": "A case-study hero built on an unrolling sheet — a single image unfurls from a rolled tube as the section enters, with twist count, roll radius, radius falloff and animation speed exposed per image. Ships a ready-made hero arrangement alongside the underlying primitive.",
-      "version": "1.0.0",
-      "tier": "pro",
-      "category": "visual",
-      "type": "vv:component",
-      "frameworks": [
-        "next",
-        "vite"
-      ],
-      "files": [
-        {
-          "path": "packages/components/lookbook/UnrollLookbook.tsx",
-          "target": "lookbook/UnrollLookbook.tsx",
-          "type": "component"
-        },
-        {
-          "path": "packages/components/lookbook/UnrollLookbook.d.ts",
-          "target": "lookbook/UnrollLookbook.d.ts",
-          "type": "types"
-        }
-      ],
-      "dependencies": [
-        "@react-three/drei",
-        "@react-three/fiber",
-        "@vectorvesper/motion",
-        "gsap",
-        "three"
-      ],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "requiresClient": true,
-      "supportsReducedMotion": false,
-      "usesWebGL": true,
-      "usesPointer": true,
-      "usesScroll": false,
-      "fallbacks": [],
-      "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/lookbook",
-      "previewUrl": "https://vectorvesper.dev/components/lookbook",
-      "entry": "lookbook/UnrollLookbook.tsx",
       "exportName": "default",
       "usesTailwind": true,
       "draft": false
@@ -1218,50 +1170,6 @@
       "draft": false
     },
     {
-      "slug": "predictive-media-wall",
-      "name": "Predictive Media Wall",
-      "title": "Predictive Media Wall",
-      "description": "A gallery whose full-resolution media is already decoded by the time you hover it, so the reveal is instant instead of resolving from blur on arrival.",
-      "version": "1.0.0",
-      "tier": "pro",
-      "category": "gallery",
-      "type": "vv:component",
-      "frameworks": [
-        "next",
-        "vite"
-      ],
-      "files": [
-        {
-          "path": "packages/components/predictive-media-wall/PredictiveMediaWall.tsx",
-          "target": "predictive-media-wall/PredictiveMediaWall.tsx",
-          "type": "component"
-        },
-        {
-          "path": "packages/components/predictive-media-wall/PredictiveMediaWall.d.ts",
-          "target": "predictive-media-wall/PredictiveMediaWall.d.ts",
-          "type": "types"
-        }
-      ],
-      "dependencies": [
-        "@vectorvesper/motion"
-      ],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "requiresClient": true,
-      "supportsReducedMotion": true,
-      "usesWebGL": false,
-      "usesPointer": true,
-      "usesScroll": false,
-      "fallbacks": [],
-      "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/predictive-media-wall",
-      "previewUrl": "https://vectorvesper.dev/components/predictive-media-wall",
-      "entry": "predictive-media-wall/PredictiveMediaWall.tsx",
-      "exportName": "default",
-      "usesTailwind": true,
-      "draft": false
-    },
-    {
       "slug": "refractive-gallery",
       "name": "Refractive Gallery",
       "title": "Refractive Gallery",
@@ -1484,53 +1392,6 @@
       "entry": "text-trail/TextTrail.tsx",
       "exportName": "default",
       "usesTailwind": false,
-      "draft": false
-    },
-    {
-      "slug": "unroll-scroll",
-      "name": "Unroll Scroll",
-      "title": "Unroll Scroll",
-      "description": "A scroll-driven unrolling lookbook — images mapped onto a curling plane in React Three Fiber, with twist count, roll radius, radius falloff and animation speed exposed. The most configurable component in the catalog at twenty-nine props.",
-      "version": "1.0.0",
-      "tier": "pro",
-      "category": "gallery",
-      "type": "vv:component",
-      "frameworks": [
-        "next",
-        "vite"
-      ],
-      "files": [
-        {
-          "path": "packages/components/unroll-scroll/UnrollLookbook.tsx",
-          "target": "unroll-scroll/UnrollLookbook.tsx",
-          "type": "component"
-        },
-        {
-          "path": "packages/components/unroll-scroll/UnrollLookbook.d.ts",
-          "target": "unroll-scroll/UnrollLookbook.d.ts",
-          "type": "types"
-        }
-      ],
-      "dependencies": [
-        "@react-three/drei",
-        "@react-three/fiber",
-        "@vectorvesper/motion",
-        "three"
-      ],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "requiresClient": true,
-      "supportsReducedMotion": true,
-      "usesWebGL": true,
-      "usesPointer": true,
-      "usesScroll": true,
-      "fallbacks": [],
-      "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/unroll-scroll",
-      "previewUrl": "https://vectorvesper.dev/components/unroll-scroll",
-      "entry": "unroll-scroll/UnrollLookbook.tsx",
-      "exportName": "default",
-      "usesTailwind": true,
       "draft": false
     },
     {
