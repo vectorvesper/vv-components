@@ -718,11 +718,65 @@
       "draft": false
     },
     {
-      "slug": "card-deck-flip",
-      "name": "Card Deck Flip",
-      "title": "Card Deck Flip",
+      "slug": "bubble-transition",
+      "name": "Bubble Transition",
+      "title": "Bubble Transition",
+      "description": "A route-transition provider that refracts the outgoing page into the incoming one. Wraps the app, reads Next's router directly, and takes separate entry and exit durations. Next.js only.",
+      "version": "1.1.0",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next"
+      ],
+      "files": [
+        {
+          "path": "packages/components/bubble-transition/index.ts",
+          "target": "bubble-transition/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/bubble-transition/index.d.ts",
+          "target": "bubble-transition/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/bubble-transition/BubbleTransition.tsx",
+          "target": "bubble-transition/BubbleTransition.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/bubble-transition/BubbleTransition.d.ts",
+          "target": "bubble-transition/BubbleTransition.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "gsap"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/bubble-transition",
+      "previewUrl": "https://vectorvesper.dev/components/bubble-transition",
+      "entry": "bubble-transition/index.ts",
+      "exportName": "BubbleTransition",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "card-deck",
+      "name": "Card Deck",
+      "title": "Card Deck",
       "description": "A stack of cards that flips through on scroll, with configurable perspective and scrub damping plus optional mouse-tilt parallax. Reports the active index as it changes so surrounding UI can follow along.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "tier": "pro",
       "category": "scroll",
       "type": "vv:component",
@@ -732,13 +786,23 @@
       ],
       "files": [
         {
-          "path": "packages/components/card-deck-flip/CardDeckFlip.tsx",
-          "target": "card-deck-flip/CardDeckFlip.tsx",
+          "path": "packages/components/card-deck/index.ts",
+          "target": "card-deck/index.ts",
           "type": "component"
         },
         {
-          "path": "packages/components/card-deck-flip/CardDeckFlip.d.ts",
-          "target": "card-deck-flip/CardDeckFlip.d.ts",
+          "path": "packages/components/card-deck/index.d.ts",
+          "target": "card-deck/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/card-deck/CardDeck.tsx",
+          "target": "card-deck/CardDeck.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/card-deck/CardDeck.d.ts",
+          "target": "card-deck/CardDeck.d.ts",
           "type": "types"
         }
       ],
@@ -756,10 +820,10 @@
       "usesScroll": true,
       "fallbacks": [],
       "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/card-deck-flip",
-      "previewUrl": "https://vectorvesper.dev/components/card-deck-flip",
-      "entry": "card-deck-flip/CardDeckFlip.tsx",
-      "exportName": "default",
+      "docsUrl": "https://vectorvesper.dev/components/card-deck",
+      "previewUrl": "https://vectorvesper.dev/components/card-deck",
+      "entry": "card-deck/index.ts",
+      "exportName": "CardDeck",
       "usesTailwind": true,
       "draft": false
     },
@@ -857,6 +921,60 @@
       "draft": false
     },
     {
+      "slug": "follow-cursor",
+      "name": "Follow Cursor",
+      "title": "Follow Cursor",
+      "description": "A WebGL2 fluid simulation that smears colour through a velocity field as the pointer moves. Four configurable colour stops with tunable speed and sensitivity, and a capability probe that fails closed when WebGL2 is unavailable.",
+      "version": "1.1.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/follow-cursor/index.ts",
+          "target": "follow-cursor/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/follow-cursor/index.d.ts",
+          "target": "follow-cursor/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/follow-cursor/FollowCursor.tsx",
+          "target": "follow-cursor/FollowCursor.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/follow-cursor/FollowCursor.d.ts",
+          "target": "follow-cursor/FollowCursor.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/follow-cursor",
+      "previewUrl": "https://vectorvesper.dev/components/follow-cursor",
+      "entry": "follow-cursor/index.ts",
+      "exportName": "FollowCursor",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "glass-curtain",
       "name": "Glass Curtain",
       "title": "Glass Curtain",
@@ -901,11 +1019,11 @@
       "draft": false
     },
     {
-      "slug": "interactive-cursor-shader",
-      "name": "Interactive Cursor Shader",
-      "title": "Interactive Cursor Shader",
-      "description": "A WebGL2 fluid simulation that smears colour through a velocity field as the pointer moves. Four configurable colour stops with tunable speed and sensitivity, and a capability probe that fails closed when WebGL2 is unavailable.",
-      "version": "1.0.0",
+      "slug": "halo-cursor",
+      "name": "Halo Cursor",
+      "title": "Halo Cursor",
+      "description": "A GPU cursor trail shipping four presets — aurora, neon, ripple and sparks — alongside a generic component, a React hook, and an imperative mount function for non-React use. Colour, size and trail length are configurable per preset.",
+      "version": "1.1.0",
       "tier": "pro",
       "category": "interaction",
       "type": "vv:component",
@@ -915,13 +1033,23 @@
       ],
       "files": [
         {
-          "path": "packages/components/interactive-cursor-shader/InteractiveCursorShader.tsx",
-          "target": "interactive-cursor-shader/InteractiveCursorShader.tsx",
+          "path": "packages/components/halo-cursor/index.ts",
+          "target": "halo-cursor/index.ts",
           "type": "component"
         },
         {
-          "path": "packages/components/interactive-cursor-shader/InteractiveCursorShader.d.ts",
-          "target": "interactive-cursor-shader/InteractiveCursorShader.d.ts",
+          "path": "packages/components/halo-cursor/index.d.ts",
+          "target": "halo-cursor/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/halo-cursor/HaloCursor.tsx",
+          "target": "halo-cursor/HaloCursor.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/halo-cursor/HaloCursor.d.ts",
+          "target": "halo-cursor/HaloCursor.d.ts",
           "type": "types"
         }
       ],
@@ -933,15 +1061,15 @@
       "requiresClient": true,
       "supportsReducedMotion": true,
       "usesWebGL": true,
-      "usesPointer": true,
+      "usesPointer": false,
       "usesScroll": false,
       "fallbacks": [],
       "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/interactive-cursor-shader",
-      "previewUrl": "https://vectorvesper.dev/components/interactive-cursor-shader",
-      "entry": "interactive-cursor-shader/InteractiveCursorShader.tsx",
-      "exportName": "default",
-      "usesTailwind": true,
+      "docsUrl": "https://vectorvesper.dev/components/halo-cursor",
+      "previewUrl": "https://vectorvesper.dev/components/halo-cursor",
+      "entry": "halo-cursor/index.ts",
+      "exportName": "HaloCursor",
+      "usesTailwind": false,
       "draft": false
     },
     {
@@ -1216,94 +1344,6 @@
       "entry": "refractive-gallery/RefractiveInfiniteGallery.tsx",
       "exportName": "default",
       "usesTailwind": true,
-      "draft": false
-    },
-    {
-      "slug": "refractive-transition",
-      "name": "Refractive Transition",
-      "title": "Refractive Transition",
-      "description": "A route-transition provider that refracts the outgoing page into the incoming one. Wraps the app, reads Next's router directly, and takes separate entry and exit durations. Next.js only.",
-      "version": "1.0.0",
-      "tier": "pro",
-      "category": "transition",
-      "type": "vv:component",
-      "frameworks": [
-        "next"
-      ],
-      "files": [
-        {
-          "path": "packages/components/refractive-transition/RefractiveTransition.tsx",
-          "target": "refractive-transition/RefractiveTransition.tsx",
-          "type": "component"
-        },
-        {
-          "path": "packages/components/refractive-transition/RefractiveTransition.d.ts",
-          "target": "refractive-transition/RefractiveTransition.d.ts",
-          "type": "types"
-        }
-      ],
-      "dependencies": [
-        "@vectorvesper/motion",
-        "gsap"
-      ],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "requiresClient": true,
-      "supportsReducedMotion": true,
-      "usesWebGL": true,
-      "usesPointer": true,
-      "usesScroll": false,
-      "fallbacks": [],
-      "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/refractive-transition",
-      "previewUrl": "https://vectorvesper.dev/components/refractive-transition",
-      "entry": "refractive-transition/RefractiveTransition.tsx",
-      "exportName": "default",
-      "usesTailwind": false,
-      "draft": false
-    },
-    {
-      "slug": "shader-cursor",
-      "name": "Shader Cursor",
-      "title": "Shader Cursor",
-      "description": "A GPU cursor trail shipping four presets — aurora, neon, ripple and sparks — alongside a generic component, a React hook, and an imperative mount function for non-React use. Colour, size and trail length are configurable per preset.",
-      "version": "1.0.0",
-      "tier": "pro",
-      "category": "interaction",
-      "type": "vv:component",
-      "frameworks": [
-        "next",
-        "vite"
-      ],
-      "files": [
-        {
-          "path": "packages/components/shader-cursor/ShaderCursor.tsx",
-          "target": "shader-cursor/ShaderCursor.tsx",
-          "type": "component"
-        },
-        {
-          "path": "packages/components/shader-cursor/ShaderCursor.d.ts",
-          "target": "shader-cursor/ShaderCursor.d.ts",
-          "type": "types"
-        }
-      ],
-      "dependencies": [
-        "@vectorvesper/motion"
-      ],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "requiresClient": true,
-      "supportsReducedMotion": true,
-      "usesWebGL": true,
-      "usesPointer": false,
-      "usesScroll": false,
-      "fallbacks": [],
-      "recipes": [],
-      "docsUrl": "https://vectorvesper.dev/components/shader-cursor",
-      "previewUrl": "https://vectorvesper.dev/components/shader-cursor",
-      "entry": "shader-cursor/ShaderCursor.tsx",
-      "exportName": "default",
-      "usesTailwind": false,
       "draft": false
     },
     {
