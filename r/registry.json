@@ -677,7 +677,7 @@
       "name": "Blur Transition",
       "title": "Blur Transition",
       "description": "A scroll-scrubbed transition that blurs and scales through a sequence of items as the page moves. GSAP ScrollTrigger drives the scrub with a configurable lerp, and the scroll binding can be switched off to drive progress yourself.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "tier": "pro",
       "category": "scroll",
       "type": "vv:component",
@@ -732,7 +732,7 @@
       "name": "Bubble Transition",
       "title": "Bubble Transition",
       "description": "A route-transition provider that refracts the outgoing page into the incoming one. Wraps the app, reads Next's router directly, and takes separate entry and exit durations. Next.js only.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "tier": "pro",
       "category": "transition",
       "type": "vv:component",
@@ -951,11 +951,65 @@
       "draft": false
     },
     {
+      "slug": "field-web",
+      "name": "Field Web",
+      "title": "Field Web",
+      "description": "A background of contour lines that deform around the pointer like a magnetic field bending a topographic map. Ships a companion node component that pulls the nearest contours toward any element you mark, so buttons and cards sit in their own dent in the terrain.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/field-web/index.ts",
+          "target": "field-web/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/field-web/index.d.ts",
+          "target": "field-web/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/field-web/FieldWeb.tsx",
+          "target": "field-web/FieldWeb.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/field-web/FieldWeb.d.ts",
+          "target": "field-web/FieldWeb.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/field-web",
+      "previewUrl": "https://vectorvesper.dev/components/field-web",
+      "entry": "field-web/index.ts",
+      "exportName": "FieldWeb",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "follow-cursor",
       "name": "Follow Cursor",
       "title": "Follow Cursor",
       "description": "A WebGL2 fluid simulation that smears colour through a velocity field as the pointer moves. Colour is injected where a damped follower trails the cursor, so the flow keeps easing out after the pointer stops. Four configurable colour stops with tunable speed and sensitivity, and a capability probe that fails closed when WebGL2 is unavailable.",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "tier": "pro",
       "category": "interaction",
       "type": "vv:component",
@@ -1005,11 +1059,66 @@
       "draft": false
     },
     {
+      "slug": "ghost-typewriter",
+      "name": "Ghost Typewriter",
+      "title": "Ghost Typewriter",
+      "description": "A keyboard broken into six fragments, hanging in the air around a headline that types itself. Each keycap presses as its letter lands. Drag a fragment anywhere, spin it with the right button, roll it with the wheel — then read the arrangement back out as coordinates. Type on your own keyboard and the caps answer.",
+      "version": "1.0.1",
+      "tier": "pro",
+      "category": "text",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/ghost-typewriter/index.ts",
+          "target": "ghost-typewriter/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/ghost-typewriter/index.d.ts",
+          "target": "ghost-typewriter/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/ghost-typewriter/GhostTypewriter.tsx",
+          "target": "ghost-typewriter/GhostTypewriter.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/ghost-typewriter/GhostTypewriter.d.ts",
+          "target": "ghost-typewriter/GhostTypewriter.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/ghost-typewriter",
+      "previewUrl": "https://vectorvesper.dev/components/ghost-typewriter",
+      "entry": "ghost-typewriter/index.ts",
+      "exportName": "GhostTypewriter",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "glass-curtain",
       "name": "Glass Curtain",
       "title": "Glass Curtain",
       "description": "A refractive glass curtain overlay that distorts whatever sits behind it. Extends the native div props, so class names, layout and event handlers pass straight through to the underlying element.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "tier": "pro",
       "category": "visual",
       "type": "vv:component",
@@ -1059,11 +1168,66 @@
       "draft": false
     },
     {
+      "slug": "glow-tile",
+      "name": "Glow Tile",
+      "title": "Glow Tile",
+      "description": "A wall of bevelled tiles clustered around the edges of the frame, lit so the rim colour catches as they move. The pointer pushes them on a spring — a rolling wave, a flip, or a press inward. The whole wall is one draw call, and the frame loop drops off entirely once the tiles settle.",
+      "version": "1.1.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/glow-tile/index.ts",
+          "target": "glow-tile/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/glow-tile/index.d.ts",
+          "target": "glow-tile/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/glow-tile/GlowTile.tsx",
+          "target": "glow-tile/GlowTile.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/glow-tile/GlowTile.d.ts",
+          "target": "glow-tile/GlowTile.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/glow-tile",
+      "previewUrl": "https://vectorvesper.dev/components/glow-tile",
+      "entry": "glow-tile/index.ts",
+      "exportName": "GlowTile",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "halo-cursor",
       "name": "Halo Cursor",
       "title": "Halo Cursor",
       "description": "A GPU cursor trail shipping four presets — aurora, neon, ripple and sparks — alongside a generic component, a React hook, and an imperative mount function for non-React use. Colour, size and trail length are configurable per preset.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "tier": "pro",
       "category": "interaction",
       "type": "vv:component",
@@ -1110,6 +1274,172 @@
       "entry": "halo-cursor/index.ts",
       "exportName": "HaloCursor",
       "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "heart-stream",
+      "name": "Heart Stream",
+      "title": "Heart Stream",
+      "description": "Testimonials ride toward you on procedural 3D shapes — pebbles, sparkles, speech bubbles, hex tokens or hearts — turning to face you as they reach reading distance. Hover one and it flies to the front, flips, and holds still while you read it. Five shape styles, switchable from a dock or driven from your own UI.",
+      "version": "1.0.1",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/heart-stream/index.ts",
+          "target": "heart-stream/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/heart-stream/index.d.ts",
+          "target": "heart-stream/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/heart-stream/HeartStreamTestimonial.tsx",
+          "target": "heart-stream/HeartStreamTestimonial.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/heart-stream/HeartStreamTestimonial.d.ts",
+          "target": "heart-stream/HeartStreamTestimonial.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/heart-stream",
+      "previewUrl": "https://vectorvesper.dev/components/heart-stream",
+      "entry": "heart-stream/index.ts",
+      "exportName": "HeartStreamTestimonial",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "jigsaw-puzzle",
+      "name": "Jigsaw Puzzle",
+      "title": "Jigsaw Puzzle",
+      "description": "A photo, a playing video, or a live React component cut into die-cut cardboard jigsaw pieces. Scroll and the picture comes apart — every piece tumbles through 3D and settles face-up around the edge of the screen, casting its own shadow on the way. Scroll back and it reassembles. The interactive version keeps working while it is in pieces.",
+      "version": "1.0.1",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/jigsaw-puzzle/index.ts",
+          "target": "jigsaw-puzzle/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/jigsaw-puzzle/index.d.ts",
+          "target": "jigsaw-puzzle/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/jigsaw-puzzle/JigsawPuzzle.tsx",
+          "target": "jigsaw-puzzle/JigsawPuzzle.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/jigsaw-puzzle/JigsawPuzzle.d.ts",
+          "target": "jigsaw-puzzle/JigsawPuzzle.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/jigsaw-puzzle",
+      "previewUrl": "https://vectorvesper.dev/components/jigsaw-puzzle",
+      "entry": "jigsaw-puzzle/index.ts",
+      "exportName": "JigsawPuzzle",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "lookbook",
+      "name": "Lookbook",
+      "title": "Lookbook",
+      "description": "A printed sheet of images that unrolls from a spiral. Scroll, drag or arrow-key along it and the roll feeds out, images passing under a soft directional light with the paper's reverse showing through the curl. Stitches the whole set into one sheet, so there are no seams and no per-image loading as you travel.",
+      "version": "1.0.1",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/lookbook/index.ts",
+          "target": "lookbook/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/lookbook/index.d.ts",
+          "target": "lookbook/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/lookbook/Lookbook.tsx",
+          "target": "lookbook/Lookbook.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/lookbook/Lookbook.d.ts",
+          "target": "lookbook/Lookbook.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/lookbook",
+      "previewUrl": "https://vectorvesper.dev/components/lookbook",
+      "entry": "lookbook/index.ts",
+      "exportName": "Lookbook",
+      "usesTailwind": true,
       "draft": false
     },
     {
@@ -1170,8 +1500,8 @@
       "slug": "particle-morph-gallery",
       "name": "Particle Morph Gallery",
       "title": "Particle Morph Gallery",
-      "description": "Images dissolved into particle fields that morph between shots on scroll, rendered through React Three Fiber. Noise strength and a device-pixel-ratio cap are exposed so the effect can be dialled back on weaker hardware.",
-      "version": "1.1.0",
+      "description": "Images dissolved into particle fields that morph between shots on scroll, rendered through React Three Fiber. Strand count and a device-pixel-ratio cap are exposed so the effect can be dialled back on weaker hardware.",
+      "version": "2.0.0",
       "tier": "pro",
       "category": "gallery",
       "type": "vv:component",
@@ -1334,6 +1664,64 @@
       "draft": false
     },
     {
+      "slug": "playpause",
+      "name": "Play Pause",
+      "title": "Play Pause",
+      "description": "A column of posters travelling slowly upward between the words PLAY and PAUSE. Each one is rolled into a tube; as it reaches the middle it unrolls itself, holds long enough to be read, and rolls back. Hover any of them and the column stops for you. The whole ticker is one scene, so the poster count costs geometry rather than browser resources.",
+      "version": "1.1.0",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/playpause/index.ts",
+          "target": "playpause/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/playpause/index.d.ts",
+          "target": "playpause/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/playpause/PlayPause.tsx",
+          "target": "playpause/PlayPause.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/playpause/PlayPause.d.ts",
+          "target": "playpause/PlayPause.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "@vectorvesper/motion",
+        "gsap",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/playpause",
+      "previewUrl": "https://vectorvesper.dev/components/playpause",
+      "entry": "playpause/index.ts",
+      "exportName": "PlayPause",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "portal-peeler",
       "name": "Portal Peeler",
       "title": "Portal Peeler",
@@ -1388,11 +1776,65 @@
       "draft": false
     },
     {
+      "slug": "prism-testimonial",
+      "name": "Prism Testimonial",
+      "title": "Prism Testimonial",
+      "description": "Testimonial cards arranged as a hinged prism — the active quote faces you square on while its neighbours fold away at an angle. Drag, arrow-key or auto-rotate through them, with a spring carrying the turn and the whole assembly tilting slightly toward the pointer.",
+      "version": "1.0.2",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/prism-testimonial/index.ts",
+          "target": "prism-testimonial/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/prism-testimonial/index.d.ts",
+          "target": "prism-testimonial/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/prism-testimonial/PrismTestimonial.tsx",
+          "target": "prism-testimonial/PrismTestimonial.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/prism-testimonial/PrismTestimonial.d.ts",
+          "target": "prism-testimonial/PrismTestimonial.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/prism-testimonial",
+      "previewUrl": "https://vectorvesper.dev/components/prism-testimonial",
+      "entry": "prism-testimonial/index.ts",
+      "exportName": "PrismTestimonial",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "refractive-gallery",
       "name": "Refractive Gallery",
       "title": "Refractive Gallery",
       "description": "An infinite draggable gallery viewed through a refractive lens, with chromatic aberration, refraction strength, zoom and damping all exposed. Ships a small keyframe stylesheet alongside the component.",
-      "version": "1.1.0",
+      "version": "2.0.1",
       "tier": "pro",
       "category": "gallery",
       "type": "vv:component",
@@ -1447,11 +1889,119 @@
       "draft": false
     },
     {
+      "slug": "repel-me-text",
+      "name": "Repel Me Text",
+      "title": "Repel Me Text",
+      "description": "A headline whose letters flee the pointer in 3D — each glyph is its own spring, deflecting, tilting and lifting toward the camera as the cursor passes and settling back when it leaves. Three motion modes, four themes, and velocity casting that reads where the pointer is heading rather than where it is.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "text",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/repel-me-text/index.ts",
+          "target": "repel-me-text/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/repel-me-text/index.d.ts",
+          "target": "repel-me-text/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/repel-me-text/RepelMeText.tsx",
+          "target": "repel-me-text/RepelMeText.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/repel-me-text/RepelMeText.d.ts",
+          "target": "repel-me-text/RepelMeText.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/repel-me-text",
+      "previewUrl": "https://vectorvesper.dev/components/repel-me-text",
+      "entry": "repel-me-text/index.ts",
+      "exportName": "RepelMeText",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "ribbon-text",
+      "name": "Ribbon Text",
+      "title": "Ribbon Text",
+      "description": "Kinetic typography where each letter is extruded into stacked colour bands that lag behind the scroll, so the word stretches and springs like a ribbon. Five palettes ship with it, or pass your own — the array sets the band count. Finds its own scroll container, so it works on the page or inside a nested one.",
+      "version": "1.0.2",
+      "tier": "pro",
+      "category": "text",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/ribbon-text/index.ts",
+          "target": "ribbon-text/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/ribbon-text/index.d.ts",
+          "target": "ribbon-text/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/ribbon-text/RibbonText.tsx",
+          "target": "ribbon-text/RibbonText.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/ribbon-text/RibbonText.d.ts",
+          "target": "ribbon-text/RibbonText.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": false,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/ribbon-text",
+      "previewUrl": "https://vectorvesper.dev/components/ribbon-text",
+      "entry": "ribbon-text/index.ts",
+      "exportName": "RibbonText",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "svg-path-story",
       "name": "Svg Path Story",
       "title": "Svg Path Story",
       "description": "Scroll-scrubbed storytelling along an SVG path — cards attach to positions on the path and reveal as the scroll range passes through them, with the active range configurable at both ends.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "tier": "pro",
       "category": "scroll",
       "type": "vv:component",
@@ -1507,7 +2057,7 @@
       "name": "Text Trail",
       "title": "Text Trail",
       "description": "Characters from a supplied string spawn along the pointer's path and fade out behind it, with configurable size, spacing, lifetime, colour and glow. Self-contained — the trail hook ships inside the component.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "tier": "pro",
       "category": "text",
       "type": "vv:component",
@@ -1555,11 +2105,118 @@
       "draft": false
     },
     {
+      "slug": "tilt-transition",
+      "name": "Tilt Transition",
+      "title": "Tilt Transition",
+      "description": "A route-transition provider that tumbles the outgoing page away like a card. The incoming route renders underneath immediately while a clone of the old page tilts, spins and falls back through the viewport. Prefetches on hover. Next.js only.",
+      "version": "1.1.1",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next"
+      ],
+      "files": [
+        {
+          "path": "packages/components/tilt-transition/index.ts",
+          "target": "tilt-transition/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/tilt-transition/index.d.ts",
+          "target": "tilt-transition/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/tilt-transition/TiltTransition.tsx",
+          "target": "tilt-transition/TiltTransition.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/tilt-transition/TiltTransition.d.ts",
+          "target": "tilt-transition/TiltTransition.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": false,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/tilt-transition",
+      "previewUrl": "https://vectorvesper.dev/components/tilt-transition",
+      "entry": "tilt-transition/index.ts",
+      "exportName": "TiltTransitionProvider",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "trail-collector",
+      "name": "Trail Collector",
+      "title": "Trail Collector",
+      "description": "Images peel off the cursor as it moves and fly into empty frames scattered around the page, filling them one by one before fading to make room. The whole arrangement measures its container and scales to fit, so the frames hold together in a panel as well as full bleed. A pointer trail that leaves something behind rather than dissolving.",
+      "version": "1.1.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/trail-collector/index.ts",
+          "target": "trail-collector/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/trail-collector/index.d.ts",
+          "target": "trail-collector/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/trail-collector/TrailCollector.tsx",
+          "target": "trail-collector/TrailCollector.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/trail-collector/TrailCollector.d.ts",
+          "target": "trail-collector/TrailCollector.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/trail-collector",
+      "previewUrl": "https://vectorvesper.dev/components/trail-collector",
+      "entry": "trail-collector/index.ts",
+      "exportName": "TrailCollector",
+      "usesTailwind": true,
+      "draft": false
+    },
+    {
       "slug": "volumetric-light",
       "name": "Volumetric Light",
       "title": "Volumetric Light",
       "description": "A pointer-following light that casts real directional shadows from the elements beneath it - shadows lengthen, rotate and fade with distance, and text receives a matching text-shadow rather than a box shadow. Self-contained: the shadow-casting hook ships inside the component and is not separately importable.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "tier": "pro",
       "category": "interaction",
       "type": "vv:component",
@@ -1606,6 +2263,60 @@
       "entry": "volumetric-light/index.ts",
       "exportName": "default",
       "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "wind-scatter",
+      "name": "Wind Scatter",
+      "title": "Wind Scatter",
+      "description": "A deck of cards stacked at the centre that takes flight on hover — each card lifts into 3D, barrel-rolls through the air and settles around the edge of the viewport, leaving the middle clear. Scroll or click the background to call them back.",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/wind-scatter/index.ts",
+          "target": "wind-scatter/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/wind-scatter/index.d.ts",
+          "target": "wind-scatter/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/wind-scatter/WindGustScatter.tsx",
+          "target": "wind-scatter/WindGustScatter.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/wind-scatter/WindGustScatter.d.ts",
+          "target": "wind-scatter/WindGustScatter.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/wind-scatter",
+      "previewUrl": "https://vectorvesper.dev/components/wind-scatter",
+      "entry": "wind-scatter/index.ts",
+      "exportName": "WindGustScatter",
+      "usesTailwind": true,
       "draft": false
     }
   ]
