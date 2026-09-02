@@ -16,7 +16,7 @@
       "path": "packages/components/physics-buttons/index.ts",
       "target": "physics-buttons/index.ts",
       "type": "component",
-      "content": "export { default as SlimeButton } from \"./SlimeButton\";\nexport type { SlimeButtonProps } from \"./SlimeButton\";\n\nexport { default as ElasticButton } from \"./ElasticButton\";\nexport type { ElasticButtonProps } from \"./ElasticButton\";\n\nexport { default as ImpactButton } from \"./ImpactButton\";\nexport type { ImpactButtonProps } from \"./ImpactButton\";\n\nexport { default as JellyButton } from \"./JellyButton\";\nexport type { JellyButtonProps } from \"./JellyButton\";\n"
+      "content": "export { default as SlimeButton } from \"./SlimeButton\";\r\nexport type { SlimeButtonProps } from \"./SlimeButton\";\r\n\r\nexport { default as ElasticButton } from \"./ElasticButton\";\r\nexport type { ElasticButtonProps } from \"./ElasticButton\";\r\n\r\nexport { default as ImpactButton } from \"./ImpactButton\";\r\nexport type { ImpactButtonProps } from \"./ImpactButton\";\r\n\r\nexport { default as JellyButton } from \"./JellyButton\";\r\nexport type { JellyButtonProps } from \"./JellyButton\";\r\n"
     },
     {
       "path": "packages/components/physics-buttons/index.d.ts",

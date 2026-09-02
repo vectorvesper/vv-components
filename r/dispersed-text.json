@@ -16,7 +16,7 @@
       "path": "packages/components/dispersed-text/index.ts",
       "target": "dispersed-text/index.ts",
       "type": "component",
-      "content": "export { default as DispersedText } from \"./DispersedText\";\nexport type { DispersedTextProps } from \"./DispersedText\";\n"
+      "content": "export { default as DispersedText } from \"./DispersedText\";\r\nexport type { DispersedTextProps } from \"./DispersedText\";\r\n"
     },
     {
       "path": "packages/components/dispersed-text/index.d.ts",

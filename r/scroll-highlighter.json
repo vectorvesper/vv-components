@@ -16,7 +16,7 @@
       "path": "packages/components/scroll-highlighter/index.ts",
       "target": "scroll-highlighter/index.ts",
       "type": "component",
-      "content": "export { default } from \"./ScrollHighlighter\";\nexport * from \"./ScrollHighlighter\";\n"
+      "content": "export { default } from \"./ScrollHighlighter\";\r\nexport * from \"./ScrollHighlighter\";\r\n"
     },
     {
       "path": "packages/components/scroll-highlighter/index.d.ts",

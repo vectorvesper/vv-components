@@ -16,7 +16,7 @@
       "path": "packages/components/cinematic-text/index.ts",
       "target": "cinematic-text/index.ts",
       "type": "component",
-      "content": "export { default as WarpedVideoText } from \"./WarpedVideoText\";\nexport type { WarpedVideoTextProps } from \"./WarpedVideoText\";\n"
+      "content": "export { default as WarpedVideoText } from \"./WarpedVideoText\";\r\nexport type { WarpedVideoTextProps } from \"./WarpedVideoText\";\r\n"
     },
     {
       "path": "packages/components/cinematic-text/index.d.ts",
