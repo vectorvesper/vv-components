@@ -1,5 +1,13 @@
 "use client";
 
+/**
+ * Glass Gallery — Vector Vesper
+ * https://vectorvesper.dev/components
+ *
+ * Copyright (c) 2026 Vector Vesper
+ * Released under the MIT License. This notice must be retained in copies and
+ * substantial portions of the file. https://vectorvesper.dev/license
+ */
 import React, { useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, useProgress } from "@react-three/drei";
