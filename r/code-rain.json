@@ -3,7 +3,7 @@
   "name": "Code Rain",
   "title": "Code Rain",
   "description": "An interactive WebGL matrix digital rain canvas that reacts to mouse clicks and keypress typing bursts.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "tier": "free",
   "category": "canvas",
   "type": "vv:component",

@@ -11,7 +11,7 @@ export const imageTickerMetadata = {
   name: "Image Ticker",
   title: "Image Ticker",
   description: "A gorgeous, cinematic dual-ticker displaying rows of images rotating in opposite directions with built-in lightbox functionality.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "interaction",
   type: "vv:component",

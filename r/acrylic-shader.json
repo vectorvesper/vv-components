@@ -3,7 +3,7 @@
   "name": "Acrylic Shader",
   "title": "Acrylic Shader",
   "description": "A self-contained WebGL fluid-gradient background that reacts to pointer and touch with a soft swirl. Four built-in palettes, zero dependencies, no Tailwind required. Degrades to a static gradient without WebGL or under reduced-motion.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "tier": "free",
   "category": "webgl",
   "type": "vv:component",

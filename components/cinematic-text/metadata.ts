@@ -12,7 +12,7 @@ export const cinematicTextMetadata = {
   title: "Cinematic Text",
   description:
     "Cinematic typography that reveals a looping video through bold text, with cursor-driven SVG distortion shaders (liquid, prism, glitch, wave, melt) and optional 3D tilt. Dependency-free.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "text",
   type: "vv:component",

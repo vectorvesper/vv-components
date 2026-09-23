@@ -11,7 +11,7 @@ export const mediaShaderMetadata = {
   name: "Media Shader",
   title: "Media Shader",
   description: "An ultra-premium WebGL-based media distortion component that creates beautiful interactive liquid chromatic ripples, wave physics, and refractions on images or videos on hover.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "visual",
   type: "vv:component",

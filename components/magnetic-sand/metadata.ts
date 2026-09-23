@@ -11,7 +11,7 @@ export const magneticSandMetadata = {
   name: "Magnetic Sand",
   title: "Magnetic Sand",
   description: "An interactive WebGL sand canvas particle field that deforms dynamically on pointer movement using React Three Fiber.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "canvas",
   type: "vv:component",

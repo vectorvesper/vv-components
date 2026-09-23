@@ -12,7 +12,7 @@ export const videoCardMetadata = {
   title: "Video Card",
   description:
     "A cinematic video-player card — an autoplaying looped video wrapped in a glassy HUD with play/mute/volume controls, a segmented seek bar, live timecode, corner brackets, and a spring-driven 3D tilt on hover.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "media",
   type: "vv:component",

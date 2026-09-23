@@ -12,7 +12,7 @@ export const liquidTransitionMetadata = {
   title: "Liquid Transition",
   description:
     "A full-screen scroll- and swipe-driven page transition: a liquid S-curve wave curtain sweeps across the screen, swaps the content behind the cover, then peels away to reveal the next screen. Directional per step, boundary-locked (no looping), wheel and touch driven. Dependency-free.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "interaction",
   type: "vv:component",

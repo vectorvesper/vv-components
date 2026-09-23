@@ -11,7 +11,7 @@ export const scrollHighlighterMetadata = {
   name: "Scroll Highlighter",
   title: "Scroll Highlighter",
   description: "A premium typography scroll-highlighter that highlights text word-by-word with solid, wavy, or dotted styles based on page scroll or custom motion values.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "interaction",
   type: "vv:component",

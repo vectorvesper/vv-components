@@ -11,7 +11,7 @@ export const glassGalleryMetadata = {
   name: "Glass Gallery",
   title: "Glass Gallery",
   description: "An immersive 3D glass-morphic photo gallery cube that disassembles into a flat responsive image collage on scroll.",
-  version: "1.0.0",
+  version: "1.0.1",
   tier: "free",
   category: "gallery",
   type: "vv:component",
