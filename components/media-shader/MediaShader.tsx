@@ -626,7 +626,34 @@ class MediaShaderScene {
     e.preventDefault();
     this.contextLost = true;
     for (const plane of this.planes) plane.el.style.opacity = plane.prevOpacity;
-    console.warn("vv-motion: WebGL context lost — showing plain media until restored.");
+    console.warn("vv-motion: WebGL context lost — showing plain media while the effect rebuilds.");
+    // Rebuild on a fresh canvas instead of waiting for this one to come back.
+    // A browser that cannot restore the context never says so, and the effect
+    // was gone for the rest of the visit; Chrome evicting the oldest context
+    // when a page holds too many is one way to get there. A task later, so
+    // every listener for this loss has run first. The restore listener stays
+    // as the fallback for when a new context cannot be had either.
+    setTimeout(this.rebuild, 0);
+  };
+
+  private rebuild = (): void => {
+    if (!this.contextLost || this.planes.length === 0) return;
+    const canvas = createOverlayCanvas();
+    const gl = createGL(canvas);
+    if (!gl) {
+      // No context to be had right now. Stay on plain media; a restore on the
+      // old canvas can still bring the effect back.
+      canvas.remove();
+      return;
+    }
+    this.canvas.removeEventListener("webglcontextlost", this.onContextLost);
+    this.canvas.removeEventListener("webglcontextrestored", this.onContextRestored);
+    this.canvas.remove();
+    this.canvas = canvas;
+    this.gl = gl;
+    canvas.addEventListener("webglcontextlost", this.onContextLost);
+    canvas.addEventListener("webglcontextrestored", this.onContextRestored);
+    this.onContextRestored();
   };
 
   private onContextRestored = (): void => {
@@ -745,12 +772,17 @@ const INACTIVE_HANDLE: MediaShaderHandle = {
   destroy: () => {},
 };
 
-function createScene(): MediaShaderScene | null {
+function createOverlayCanvas(): HTMLCanvasElement {
   const canvas = document.createElement("canvas");
   canvas.setAttribute("aria-hidden", "true");
   canvas.style.cssText =
     "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;";
   document.body.appendChild(canvas);
+  return canvas;
+}
+
+function createScene(): MediaShaderScene | null {
+  const canvas = createOverlayCanvas();
   const gl = createGL(canvas);
   if (!gl) {
     canvas.remove();
