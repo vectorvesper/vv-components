@@ -2216,7 +2216,7 @@
       "name": "Volumetric Light",
       "title": "Volumetric Light",
       "description": "",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "tier": "pro",
       "category": "interaction",
       "type": "vv:component",
