@@ -673,6 +673,115 @@
       "usesTailwind": true
     },
     {
+      "slug": "accretion-disc",
+      "name": "Accretion Disc",
+      "title": "Accretion Disc",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/accretion-disc/index.ts",
+          "target": "accretion-disc/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/accretion-disc/index.d.ts",
+          "target": "accretion-disc/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/accretion-disc/AccretionDisc.tsx",
+          "target": "accretion-disc/AccretionDisc.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/accretion-disc/AccretionDisc.d.ts",
+          "target": "accretion-disc/AccretionDisc.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/accretion-disc",
+      "previewUrl": "https://vectorvesper.dev/components/accretion-disc",
+      "entry": "accretion-disc/index.ts",
+      "exportName": "AccretionDisc",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "big-bang-grid",
+      "name": "Big Bang Grid",
+      "title": "Big Bang Grid",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/big-bang-grid/index.ts",
+          "target": "big-bang-grid/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/big-bang-grid/index.d.ts",
+          "target": "big-bang-grid/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/big-bang-grid/BigBangGrid.tsx",
+          "target": "big-bang-grid/BigBangGrid.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/big-bang-grid/BigBangGrid.d.ts",
+          "target": "big-bang-grid/BigBangGrid.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/big-bang-grid",
+      "previewUrl": "https://vectorvesper.dev/components/big-bang-grid",
+      "entry": "big-bang-grid/index.ts",
+      "exportName": "BigBangGrid",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "blur-transition",
       "name": "Blur Transition",
       "title": "Blur Transition",
@@ -896,6 +1005,61 @@
       "draft": false
     },
     {
+      "slug": "cosmic-web",
+      "name": "Cosmic Web",
+      "title": "Cosmic Web",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/cosmic-web/index.ts",
+          "target": "cosmic-web/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/cosmic-web/index.d.ts",
+          "target": "cosmic-web/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/cosmic-web/CosmicWeb.tsx",
+          "target": "cosmic-web/CosmicWeb.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/cosmic-web/CosmicWeb.d.ts",
+          "target": "cosmic-web/CosmicWeb.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/cosmic-web",
+      "previewUrl": "https://vectorvesper.dev/components/cosmic-web",
+      "entry": "cosmic-web/index.ts",
+      "exportName": "CosmicWeb",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "cube-scroll-menu",
       "name": "Cube Scroll Menu",
       "title": "Cube Scroll Menu",
@@ -948,6 +1112,169 @@
       "entry": "cube-scroll-menu/index.ts",
       "exportName": "default",
       "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "eclipse-loader",
+      "name": "Eclipse Loader",
+      "title": "Eclipse Loader",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/eclipse-loader/index.ts",
+          "target": "eclipse-loader/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/eclipse-loader/index.d.ts",
+          "target": "eclipse-loader/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/eclipse-loader/EclipseLoader.tsx",
+          "target": "eclipse-loader/EclipseLoader.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/eclipse-loader/EclipseLoader.d.ts",
+          "target": "eclipse-loader/EclipseLoader.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/eclipse-loader",
+      "previewUrl": "https://vectorvesper.dev/components/eclipse-loader",
+      "entry": "eclipse-loader/index.ts",
+      "exportName": "EclipseLoader",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "energy-burst",
+      "name": "Energy Burst",
+      "title": "Energy Burst",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/energy-burst/index.ts",
+          "target": "energy-burst/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/energy-burst/index.d.ts",
+          "target": "energy-burst/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/energy-burst/EnergyBurst.tsx",
+          "target": "energy-burst/EnergyBurst.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/energy-burst/EnergyBurst.d.ts",
+          "target": "energy-burst/EnergyBurst.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/energy-burst",
+      "previewUrl": "https://vectorvesper.dev/components/energy-burst",
+      "entry": "energy-burst/index.ts",
+      "exportName": "EnergyBurst",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "event-horizon",
+      "name": "Event Horizon",
+      "title": "Event Horizon",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/event-horizon/index.ts",
+          "target": "event-horizon/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/event-horizon/index.d.ts",
+          "target": "event-horizon/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/event-horizon/EventHorizon.tsx",
+          "target": "event-horizon/EventHorizon.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/event-horizon/EventHorizon.d.ts",
+          "target": "event-horizon/EventHorizon.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": false,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/event-horizon",
+      "previewUrl": "https://vectorvesper.dev/components/event-horizon",
+      "entry": "event-horizon/index.ts",
+      "exportName": "EventHorizonProvider",
+      "usesTailwind": false,
       "draft": false
     },
     {
@@ -1223,6 +1550,171 @@
       "draft": false
     },
     {
+      "slug": "gravitational-orb",
+      "name": "Gravitational Orb",
+      "title": "Gravitational Orb",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/gravitational-orb/GravitationalOrb.tsx",
+          "target": "gravitational-orb/GravitationalOrb.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/gravitational-orb/GravitationalOrb.d.ts",
+          "target": "gravitational-orb/GravitationalOrb.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/gravitational-orb/index.ts",
+          "target": "gravitational-orb/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/gravitational-orb/index.d.ts",
+          "target": "gravitational-orb/index.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/gravitational-orb",
+      "previewUrl": "https://vectorvesper.dev/components/gravitational-orb",
+      "entry": "gravitational-orb/index.ts",
+      "exportName": "GravitationalOrb",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "gravity-headline",
+      "name": "Gravity Headline",
+      "title": "Gravity Headline",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "text",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/gravity-headline/index.ts",
+          "target": "gravity-headline/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/gravity-headline/index.d.ts",
+          "target": "gravity-headline/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/gravity-headline/GravityHeadline.tsx",
+          "target": "gravity-headline/GravityHeadline.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/gravity-headline/GravityHeadline.d.ts",
+          "target": "gravity-headline/GravityHeadline.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/gravity-headline",
+      "previewUrl": "https://vectorvesper.dev/components/gravity-headline",
+      "entry": "gravity-headline/index.ts",
+      "exportName": "GravityHeadline",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "gravity-well",
+      "name": "Gravity Well",
+      "title": "Gravity Well",
+      "description": "",
+      "version": "1.0.1",
+      "tier": "pro",
+      "category": "gallery",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/gravity-well/index.ts",
+          "target": "gravity-well/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/gravity-well/index.d.ts",
+          "target": "gravity-well/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/gravity-well/GravityWell.tsx",
+          "target": "gravity-well/GravityWell.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/gravity-well/GravityWell.d.ts",
+          "target": "gravity-well/GravityWell.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/gravity-well",
+      "previewUrl": "https://vectorvesper.dev/components/gravity-well",
+      "entry": "gravity-well/index.ts",
+      "exportName": "GravityWell",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "halo-cursor",
       "name": "Halo Cursor",
       "title": "Halo Cursor",
@@ -1329,6 +1821,116 @@
       "entry": "heart-stream/index.ts",
       "exportName": "HeartStreamTestimonial",
       "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "inner-galaxy",
+      "name": "Inner Galaxy",
+      "title": "Inner Galaxy",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/inner-galaxy/index.ts",
+          "target": "inner-galaxy/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/inner-galaxy/index.d.ts",
+          "target": "inner-galaxy/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/inner-galaxy/InnerGalaxy.tsx",
+          "target": "inner-galaxy/InnerGalaxy.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/inner-galaxy/InnerGalaxy.d.ts",
+          "target": "inner-galaxy/InnerGalaxy.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/inner-galaxy",
+      "previewUrl": "https://vectorvesper.dev/components/inner-galaxy",
+      "entry": "inner-galaxy/index.ts",
+      "exportName": "InnerGalaxy",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "jelly-stars",
+      "name": "Jelly Stars",
+      "title": "Jelly Stars",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/jelly-stars/index.ts",
+          "target": "jelly-stars/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/jelly-stars/index.d.ts",
+          "target": "jelly-stars/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/jelly-stars/JellyStars.tsx",
+          "target": "jelly-stars/JellyStars.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/jelly-stars/JellyStars.d.ts",
+          "target": "jelly-stars/JellyStars.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/jelly-stars",
+      "previewUrl": "https://vectorvesper.dev/components/jelly-stars",
+      "entry": "jelly-stars/index.ts",
+      "exportName": "JellyStars",
+      "usesTailwind": false,
       "draft": false
     },
     {
@@ -1553,6 +2155,116 @@
       "entry": "particle-morph-gallery/index.ts",
       "exportName": "default",
       "usesTailwind": true,
+      "draft": false
+    },
+    {
+      "slug": "photo-vortex",
+      "name": "Photo Vortex",
+      "title": "Photo Vortex",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/photo-vortex/index.ts",
+          "target": "photo-vortex/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/photo-vortex/index.d.ts",
+          "target": "photo-vortex/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/photo-vortex/PhotoVortex.tsx",
+          "target": "photo-vortex/PhotoVortex.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/photo-vortex/PhotoVortex.d.ts",
+          "target": "photo-vortex/PhotoVortex.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/photo-vortex",
+      "previewUrl": "https://vectorvesper.dev/components/photo-vortex",
+      "entry": "photo-vortex/index.ts",
+      "exportName": "PhotoVortex",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "photon-cube",
+      "name": "Photon Cube",
+      "title": "Photon Cube",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/photon-cube/index.ts",
+          "target": "photon-cube/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/photon-cube/index.d.ts",
+          "target": "photon-cube/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/photon-cube/PhotonCube.tsx",
+          "target": "photon-cube/PhotonCube.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/photon-cube/PhotonCube.d.ts",
+          "target": "photon-cube/PhotonCube.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/photon-cube",
+      "previewUrl": "https://vectorvesper.dev/components/photon-cube",
+      "entry": "photon-cube/index.ts",
+      "exportName": "PhotonCube",
+      "usesTailwind": false,
       "draft": false
     },
     {
@@ -1997,6 +2709,236 @@
       "draft": false
     },
     {
+      "slug": "roche-limit",
+      "name": "Roche Limit",
+      "title": "Roche Limit",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "interaction",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/roche-limit/index.ts",
+          "target": "roche-limit/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/roche-limit/index.d.ts",
+          "target": "roche-limit/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/roche-limit/RocheLimit.tsx",
+          "target": "roche-limit/RocheLimit.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/roche-limit/RocheLimit.d.ts",
+          "target": "roche-limit/RocheLimit.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/roche-limit/stone.ts",
+          "target": "roche-limit/stone.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/roche-limit/stone.d.ts",
+          "target": "roche-limit/stone.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/roche-limit",
+      "previewUrl": "https://vectorvesper.dev/components/roche-limit",
+      "entry": "roche-limit/index.ts",
+      "exportName": "RocheLimit",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "slingshot",
+      "name": "Slingshot",
+      "title": "Slingshot",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "transition",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/slingshot/index.ts",
+          "target": "slingshot/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/slingshot/index.d.ts",
+          "target": "slingshot/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/slingshot/Slingshot.tsx",
+          "target": "slingshot/Slingshot.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/slingshot/Slingshot.d.ts",
+          "target": "slingshot/Slingshot.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/slingshot",
+      "previewUrl": "https://vectorvesper.dev/components/slingshot",
+      "entry": "slingshot/index.ts",
+      "exportName": "Slingshot",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "stardust-image",
+      "name": "Stardust Image",
+      "title": "Stardust Image",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/stardust-image/index.ts",
+          "target": "stardust-image/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/stardust-image/index.d.ts",
+          "target": "stardust-image/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/stardust-image/StardustImage.tsx",
+          "target": "stardust-image/StardustImage.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/stardust-image/StardustImage.d.ts",
+          "target": "stardust-image/StardustImage.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/stardust-image",
+      "previewUrl": "https://vectorvesper.dev/components/stardust-image",
+      "entry": "stardust-image/index.ts",
+      "exportName": "StardustImage",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "starlight-river",
+      "name": "Starlight River",
+      "title": "Starlight River",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/starlight-river/index.ts",
+          "target": "starlight-river/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/starlight-river/index.d.ts",
+          "target": "starlight-river/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/starlight-river/StarlightRiver.tsx",
+          "target": "starlight-river/StarlightRiver.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/starlight-river/StarlightRiver.d.ts",
+          "target": "starlight-river/StarlightRiver.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/starlight-river",
+      "previewUrl": "https://vectorvesper.dev/components/starlight-river",
+      "entry": "starlight-river/index.ts",
+      "exportName": "StarlightRiver",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "svg-path-story",
       "name": "Svg Path Story",
       "title": "Svg Path Story",
@@ -2158,6 +3100,61 @@
       "draft": false
     },
     {
+      "slug": "time-tunnel",
+      "name": "Time Tunnel",
+      "title": "Time Tunnel",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "scroll",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/time-tunnel/index.ts",
+          "target": "time-tunnel/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/time-tunnel/index.d.ts",
+          "target": "time-tunnel/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/time-tunnel/TimeTunnel.tsx",
+          "target": "time-tunnel/TimeTunnel.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/time-tunnel/TimeTunnel.d.ts",
+          "target": "time-tunnel/TimeTunnel.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/time-tunnel",
+      "previewUrl": "https://vectorvesper.dev/components/time-tunnel",
+      "entry": "time-tunnel/index.ts",
+      "exportName": "TimeTunnel",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "trail-collector",
       "name": "Trail Collector",
       "title": "Trail Collector",
@@ -2212,6 +3209,71 @@
       "draft": false
     },
     {
+      "slug": "visor-reel",
+      "name": "Visor Reel",
+      "title": "Visor Reel",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/visor-reel/index.ts",
+          "target": "visor-reel/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/visor-reel/index.d.ts",
+          "target": "visor-reel/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/visor-reel/VisorReel.tsx",
+          "target": "visor-reel/VisorReel.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/visor-reel/VisorReel.d.ts",
+          "target": "visor-reel/VisorReel.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/visor-reel/helmet.ts",
+          "target": "visor-reel/helmet.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/visor-reel/helmet.d.ts",
+          "target": "visor-reel/helmet.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/visor-reel",
+      "previewUrl": "https://vectorvesper.dev/components/visor-reel",
+      "entry": "visor-reel/index.ts",
+      "exportName": "VisorReel",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "volumetric-light",
       "name": "Volumetric Light",
       "title": "Volumetric Light",
@@ -2262,6 +3324,61 @@
       "previewUrl": "https://vectorvesper.dev/components/volumetric-light",
       "entry": "volumetric-light/index.ts",
       "exportName": "default",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
+      "slug": "warp-field",
+      "name": "Warp Field",
+      "title": "Warp Field",
+      "description": "",
+      "version": "1.0.0",
+      "tier": "pro",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/warp-field/index.ts",
+          "target": "warp-field/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/warp-field/index.d.ts",
+          "target": "warp-field/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/warp-field/WarpField.tsx",
+          "target": "warp-field/WarpField.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/warp-field/WarpField.d.ts",
+          "target": "warp-field/WarpField.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/warp-field",
+      "previewUrl": "https://vectorvesper.dev/components/warp-field",
+      "entry": "warp-field/index.ts",
+      "exportName": "WarpField",
       "usesTailwind": false,
       "draft": false
     },
