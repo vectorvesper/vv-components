@@ -310,6 +310,61 @@
       "draft": false
     },
     {
+      "slug": "exploded-orbit",
+      "name": "Exploded Orbit",
+      "title": "Exploded Orbit",
+      "description": "A pinned product section. Scroll, and your 3D model comes apart along its own axis like an exploded drawing, then its parts swing out to orbit the core, each with a label. Takes a .glb, a model built in three.js, or a stack of images. Lists the parts under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "models",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/exploded-orbit/index.ts",
+          "target": "exploded-orbit/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/exploded-orbit/index.d.ts",
+          "target": "exploded-orbit/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/exploded-orbit/ExplodedOrbit.tsx",
+          "target": "exploded-orbit/ExplodedOrbit.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/exploded-orbit/ExplodedOrbit.d.ts",
+          "target": "exploded-orbit/ExplodedOrbit.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": false,
+      "usesScroll": true,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/exploded-orbit",
+      "previewUrl": "https://vectorvesper.dev/components/exploded-orbit",
+      "entry": "exploded-orbit/index.ts",
+      "exportName": "ExplodedOrbit",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "glass-gallery",
       "name": "Glass Gallery",
       "title": "Glass Gallery",
@@ -592,6 +647,61 @@
       "entry": "media-shader/index.ts",
       "exportName": "ShaderImage",
       "usesTailwind": true
+    },
+    {
+      "slug": "meteoroid",
+      "name": "Meteoroid",
+      "title": "Meteoroid",
+      "description": "A cratered, hollow stone lit by one hard sun, with a second light inside shining out through holes in the craters. It turns slowly on its own, and a drag turns it, a flick throws it. Each seed makes a different rock. Shows a poster under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "models",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/meteoroid/index.ts",
+          "target": "meteoroid/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/meteoroid/index.d.ts",
+          "target": "meteoroid/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/meteoroid/Meteoroid.tsx",
+          "target": "meteoroid/Meteoroid.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/meteoroid/Meteoroid.d.ts",
+          "target": "meteoroid/Meteoroid.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/meteoroid",
+      "previewUrl": "https://vectorvesper.dev/components/meteoroid",
+      "entry": "meteoroid/index.ts",
+      "exportName": "Meteoroid",
+      "usesTailwind": false,
+      "draft": false
     },
     {
       "slug": "physics-buttons",
