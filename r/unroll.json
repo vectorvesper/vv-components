@@ -1,0 +1,59 @@
+{
+  "slug": "unroll",
+  "name": "Unroll",
+  "title": "Unroll",
+  "description": "An image rolled up like a scroll, in grey. Point at it, or tap it, and it unrolls flat as its colour comes in; move away and it rolls back up. Shows the plain image under reduced motion.",
+  "version": "1.0.0",
+  "tier": "free",
+  "category": "media",
+  "type": "vv:component",
+  "frameworks": [
+    "next",
+    "vite"
+  ],
+  "files": [
+    {
+      "path": "packages/components/unroll/index.ts",
+      "target": "unroll/index.ts",
+      "type": "component",
+      "content": "/**\n * Unroll — Vector Vesper\n * https://vectorvesper.dev/components\n *\n * Copyright (c) 2026 Vector Vesper\n * Released under the MIT License. This notice must be retained in copies and\n * substantial portions of the file. https://vectorvesper.dev/license\n */\nexport * from \"./Unroll\";\nexport { default } from \"./Unroll\";\n"
+    },
+    {
+      "path": "packages/components/unroll/index.d.ts",
+      "target": "unroll/index.d.ts",
+      "type": "types",
+      "content": "/**\n * Unroll — Vector Vesper\n * https://vectorvesper.dev/components\n *\n * Copyright (c) 2026 Vector Vesper\n * Released under the MIT License. This notice must be retained in copies and\n * substantial portions of the file. https://vectorvesper.dev/license\n */\nexport * from \"./Unroll\";\nexport { default } from \"./Unroll\";"
+    },
+    {
+      "path": "packages/components/unroll/Unroll.tsx",
+      "target": "unroll/Unroll.tsx",
+      "type": "component",
+      "content": "\"use client\";\n\n/**\n * Unroll — Vector Vesper\n * https://vectorvesper.dev/components\n *\n * Copyright (c) 2026 Vector Vesper\n * Released under the MIT License. This notice must be retained in copies and\n * substantial portions of the file. https://vectorvesper.dev/license\n */\n/**\n * Unroll: an image rolled up like a scroll, in grey. Point at it, or tap it,\n * and it unrolls flat as its colour comes in; move away and it rolls back up.\n *\n * Runs on the Vector Vesper runtime: it stops drawing off screen, drops its\n * resolution on a slow device, comes back after a lost graphics context, and\n * shows the plain image under reduced motion.\n */\n\nimport { getSensorBus } from \"@vectorvesper/motion\";\nimport { useThreeScene } from \"@vectorvesper/motion/three\";\nimport React, { useLayoutEffect, useRef } from \"react\";\nimport * as THREE from \"three\";\n\nexport interface UnrollProps {\n  /** The image. */\n  src: string;\n  /** What the image shows, for screen readers. */\n  alt: string;\n  /** How many times the image wraps round when rolled. Default 2. */\n  turns?: number;\n  /** How thick the roll is, as a share of the image's width. Default 0.17. */\n  radius?: number;\n  /** How quickly it unrolls and rolls back. Default 2. */\n  speed?: number;\n  /** Rolled up, the image is grey, and its colour comes in as it opens. Default true. */\n  grayscale?: boolean;\n  /** How far open it rests, 0 rolled to 1 flat. Default 0. */\n  rest?: number;\n  /** Sizes the area. The image fits inside it, whole. Without a height it is 100svh tall. */\n  className?: string;\n  style?: React.CSSProperties;\n}\n\nconst FOV = 40;\nconst DISTANCE = 5;\n// Room left round the image for the roll\nconst MARGIN = 0.86;\n// Along the image only; it never bends the other way\nconst SEGMENTS = 160;\n\nconst VERTEX = /* glsl */ `\n  uniform vec2 uSize;\n  uniform float uProgress;\n  uniform float uRadius;\n  uniform float uTurns;\n  varying vec2 vUv;\n  varying float vShade;\n\n  const float PI = 3.14159265359;\n\n  void main() {\n    vUv = uv;\n    vec3 flatPos = vec3((uv.x - 0.5) * uSize.x, (uv.y - 0.5) * uSize.y, 0.0);\n\n    // Rolled, the strip winds inward along its length\n    float r = uRadius * uSize.x * (1.0 - uv.x * 0.8);\n    float a = uv.x * PI * 2.0 * uTurns;\n    vec3 rolled = vec3(r * cos(a), flatPos.y, r * sin(a));\n\n    // The side of the roll facing away from the light is darker\n    vShade = mix(0.62 + 0.38 * (0.5 + 0.5 * sin(a)), 1.0, uProgress);\n\n    gl_Position = projectionMatrix * modelViewMatrix * vec4(mix(rolled, flatPos, uProgress), 1.0);\n  }\n`;\n\nconst FRAGMENT = /* glsl */ `\n  uniform sampler2D uImage;\n  uniform float uProgress;\n  uniform float uGray;\n  uniform float uReady;\n  varying vec2 vUv;\n  varying float vShade;\n\n  void main() {\n    vec3 col = texture2D(uImage, vUv).rgb;\n    float gray = dot(col, vec3(0.299, 0.587, 0.114));\n    col = mix(col, mix(vec3(gray), col, uProgress), uGray);\n    col *= vShade;\n    // The back of the paper is dark\n    if (!gl_FrontFacing) col *= 0.3;\n    gl_FragColor = vec4(col, uReady);\n  }\n`;\n\nexport function Unroll({\n  src,\n  alt,\n  turns = 2,\n  radius = 0.17,\n  speed = 2,\n  grayscale = true,\n  rest = 0,\n  className = \"\",\n  style,\n}: UnrollProps) {\n  const rootRef = useRef<HTMLDivElement>(null);\n  const place = useRef({ left: 0, top: 0 });\n  // Read each frame, so changing a prop never rebuilds the scene\n  const props = useRef({ turns, radius, speed, grayscale, rest });\n  useLayoutEffect(() => {\n    props.current = { turns, radius, speed, grayscale, rest };\n  });\n\n  // Where the area sits on the page, so the shared pointer can be read against it\n  useLayoutEffect(() => {\n    const root = rootRef.current;\n    if (!root) return;\n    const measure = () => {\n      const r = root.getBoundingClientRect();\n      place.current = { left: r.left + window.scrollX, top: r.top + window.scrollY };\n    };\n    measure();\n    const ro = new ResizeObserver(measure);\n    ro.observe(root);\n    ro.observe(document.documentElement);\n    return () => ro.disconnect();\n  }, []);\n\n  const { ref, mounted } = useThreeScene({\n    label: \"Unroll\",\n    cost: \"light\",\n    renderer: () => {\n      const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: \"high-performance\" });\n      r.setClearColor(0x000000, 0);\n      return r;\n    },\n    setup() {\n      // The shared sensors only listen while someone holds them\n      const releaseSensors = getSensorBus().retain();\n\n      let imageAspect = 0;\n      const texture = new THREE.TextureLoader().load(src, (tex) => {\n        const img = tex.image as HTMLImageElement;\n        imageAspect = img.width / Math.max(1, img.height);\n        uniforms.uReady.value = 1;\n      });\n      // Drawn as stored, so the image keeps its own colours\n      texture.colorSpace = THREE.NoColorSpace;\n      texture.anisotropy = 4;\n\n      const uniforms = {\n        uImage: { value: texture },\n        uSize: { value: new THREE.Vector2(1, 1) },\n        uProgress: { value: props.current.rest },\n        uRadius: { value: 0.17 },\n        uTurns: { value: 2 },\n        uGray: { value: 1 },\n        uReady: { value: 0 },\n      };\n      const material = new THREE.ShaderMaterial({\n        vertexShader: VERTEX,\n        fragmentShader: FRAGMENT,\n        uniforms,\n        side: THREE.DoubleSide,\n        transparent: true,\n      });\n      const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, SEGMENTS, 1), material);\n      // The shader moves every vertex, so the plane's own bounds mean nothing\n      mesh.frustumCulled = false;\n      const scene = new THREE.Scene();\n      scene.add(mesh);\n      const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 50);\n      camera.position.z = DISTANCE;\n\n      return {\n        scene,\n        camera,\n        dispose() {\n          releaseSensors();\n          texture.dispose();\n        },\n        update(frame) {\n          const p = props.current;\n          const dt = Math.min(frame.dt, 1 / 20);\n          uniforms.uRadius.value = p.radius;\n          uniforms.uTurns.value = p.turns;\n          uniforms.uGray.value = p.grayscale ? 1 : 0;\n\n          // Fit the image inside the view, whole\n          const fullH = 2 * DISTANCE * Math.tan(THREE.MathUtils.degToRad(FOV / 2));\n          const aspect = frame.width / Math.max(1, frame.height);\n          if (imageAspect) {\n            const h = Math.min(fullH * MARGIN, (fullH * MARGIN * aspect) / imageAspect);\n            uniforms.uSize.value.set(h * imageAspect, h);\n          }\n\n          // Open while the pointer is over the image itself, measured flat\n          const pxPerUnit = frame.height / fullH;\n          const halfW = (uniforms.uSize.value.x * pxPerUnit) / 2;\n          const halfH = (uniforms.uSize.value.y * pxPerUnit) / 2;\n          const bus = getSensorBus().state;\n          const x = bus.pointer.x - (place.current.left - bus.scroll.x) - frame.width / 2;\n          const y = bus.pointer.y - (place.current.top - bus.scroll.y) - frame.height / 2;\n          const over = imageAspect > 0 && bus.pointer.seen && Math.abs(x) <= halfW && Math.abs(y) <= halfH;\n          const target = over ? 1 : p.rest;\n          uniforms.uProgress.value += (target - uniforms.uProgress.value) * (1 - Math.exp(-dt * p.speed * 1.6));\n        },\n      };\n    },\n  });\n\n  return (\n    <div\n      ref={rootRef}\n      className={`vv-unroll ${className}`}\n      role=\"img\"\n      aria-label={alt}\n      data-live={mounted ? \"\" : undefined}\n      style={{ \"--vv-ur-image\": `url(\"${src}\")`, ...style } as React.CSSProperties}\n    >\n      <style>{STYLES}</style>\n      <div ref={ref} className=\"vv-ur-scene\" aria-hidden=\"true\" />\n    </div>\n  );\n}\n\nexport default Unroll;\n\nconst STYLES = `\n/* Zero specificity, so a class that sizes the component wins. */\n:where(.vv-unroll) { position: relative; min-height: 100svh; }\n/* The plain image shows until the scene is drawn, and in its place under reduced motion. */\n.vv-unroll { background: var(--vv-ur-image) center / auto 86% no-repeat; }\n.vv-unroll[data-live] { background: none; }\n.vv-ur-scene { position: absolute; inset: 0; }\n`;\n"
+    },
+    {
+      "path": "packages/components/unroll/Unroll.d.ts",
+      "target": "unroll/Unroll.d.ts",
+      "type": "types",
+      "content": "import React from \"react\";\nexport interface UnrollProps {\n    /** The image. */\n    src: string;\n    /** What the image shows, for screen readers. */\n    alt: string;\n    /** How many times the image wraps round when rolled. Default 2. */\n    turns?: number;\n    /** How thick the roll is, as a share of the image's width. Default 0.17. */\n    radius?: number;\n    /** How quickly it unrolls and rolls back. Default 2. */\n    speed?: number;\n    /** Rolled up, the image is grey, and its colour comes in as it opens. Default true. */\n    grayscale?: boolean;\n    /** How far open it rests, 0 rolled to 1 flat. Default 0. */\n    rest?: number;\n    /** Sizes the area. The image fits inside it, whole. Without a height it is 100svh tall. */\n    className?: string;\n    style?: React.CSSProperties;\n}\nexport declare function Unroll({ src, alt, turns, radius, speed, grayscale, rest, className, style, }: UnrollProps): any;\nexport default Unroll;"
+    }
+  ],
+  "dependencies": [
+    "@vectorvesper/motion",
+    "three"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "requiresClient": true,
+  "supportsReducedMotion": true,
+  "usesWebGL": true,
+  "usesPointer": true,
+  "usesScroll": false,
+  "fallbacks": [],
+  "recipes": [],
+  "docsUrl": "https://vectorvesper.dev/components/unroll",
+  "previewUrl": "https://vectorvesper.dev/components/unroll",
+  "entry": "unroll/index.ts",
+  "exportName": "Unroll",
+  "usesTailwind": false,
+  "draft": false
+}

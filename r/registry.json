@@ -104,6 +104,61 @@
       "usesTailwind": true
     },
     {
+      "slug": "cloud-reveal",
+      "name": "Cloud Reveal",
+      "title": "Cloud Reveal",
+      "description": "An image hidden under drifting mist. The pointer clears a soft hole that grows while it stays and closes again when it leaves. Shows the plain image under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/cloud-reveal/index.ts",
+          "target": "cloud-reveal/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/cloud-reveal/index.d.ts",
+          "target": "cloud-reveal/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/cloud-reveal/CloudReveal.tsx",
+          "target": "cloud-reveal/CloudReveal.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/cloud-reveal/CloudReveal.d.ts",
+          "target": "cloud-reveal/CloudReveal.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/cloud-reveal",
+      "previewUrl": "https://vectorvesper.dev/components/cloud-reveal",
+      "entry": "cloud-reveal/index.ts",
+      "exportName": "CloudReveal",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "code-rain",
       "name": "Code Rain",
       "title": "Code Rain",
@@ -198,6 +253,61 @@
       "entry": "dispersed-text/index.ts",
       "exportName": "DispersedText",
       "usesTailwind": false
+    },
+    {
+      "slug": "energy-web",
+      "name": "Energy Web",
+      "title": "Energy Web",
+      "description": "Threads of light that branch out from a corner and crackle where the pointer goes, on a dark or light ground. Set the colours, thread count, spread and glow for a hero background. Holds still under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/energy-web/index.ts",
+          "target": "energy-web/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/energy-web/index.d.ts",
+          "target": "energy-web/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/energy-web/EnergyWeb.tsx",
+          "target": "energy-web/EnergyWeb.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/energy-web/EnergyWeb.d.ts",
+          "target": "energy-web/EnergyWeb.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/energy-web",
+      "previewUrl": "https://vectorvesper.dev/components/energy-web",
+      "entry": "energy-web/index.ts",
+      "exportName": "EnergyWeb",
+      "usesTailwind": false,
+      "draft": false
     },
     {
       "slug": "glass-gallery",
@@ -568,6 +678,61 @@
       "usesTailwind": true
     },
     {
+      "slug": "prismatic-triangles",
+      "name": "Prismatic Triangles",
+      "title": "Prismatic Triangles",
+      "description": "Your image seen through a wall of faceted glass. Each triangle bends the picture at its own angle and splits the colour at its edges, and the facets lean toward the pointer as it passes. Shows the plain image under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/prismatic-triangles/index.ts",
+          "target": "prismatic-triangles/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/prismatic-triangles/index.d.ts",
+          "target": "prismatic-triangles/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/prismatic-triangles/PrismaticTriangles.tsx",
+          "target": "prismatic-triangles/PrismaticTriangles.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/prismatic-triangles/PrismaticTriangles.d.ts",
+          "target": "prismatic-triangles/PrismaticTriangles.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/prismatic-triangles",
+      "previewUrl": "https://vectorvesper.dev/components/prismatic-triangles",
+      "entry": "prismatic-triangles/index.ts",
+      "exportName": "PrismaticTriangles",
+      "usesTailwind": false,
+      "draft": false
+    },
+    {
       "slug": "scroll-highlighter",
       "name": "Scroll Highlighter",
       "title": "Scroll Highlighter",
@@ -618,6 +783,61 @@
       "previewUrl": "https://vectorvesper.dev/components/scroll-highlighter",
       "entry": "scroll-highlighter/index.ts",
       "exportName": "default"
+    },
+    {
+      "slug": "unroll",
+      "name": "Unroll",
+      "title": "Unroll",
+      "description": "An image rolled up like a scroll, in grey. Point at it, or tap it, and it unrolls flat as its colour comes in; move away and it rolls back up. Shows the plain image under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "media",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/unroll/index.ts",
+          "target": "unroll/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/unroll/index.d.ts",
+          "target": "unroll/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/unroll/Unroll.tsx",
+          "target": "unroll/Unroll.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/unroll/Unroll.d.ts",
+          "target": "unroll/Unroll.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/unroll",
+      "previewUrl": "https://vectorvesper.dev/components/unroll",
+      "entry": "unroll/index.ts",
+      "exportName": "Unroll",
+      "usesTailwind": false,
+      "draft": false
     },
     {
       "slug": "video-card",
@@ -671,6 +891,61 @@
       "entry": "video-card/index.ts",
       "exportName": "VideoCard",
       "usesTailwind": true
+    },
+    {
+      "slug": "wavy-grid",
+      "name": "Wavy Grid",
+      "title": "Wavy Grid",
+      "description": "A grid of fine lines rolling in slow, layered waves, with a soft swell that follows the pointer. Works on a light or dark ground. Shows a still grid under reduced motion.",
+      "version": "1.0.0",
+      "tier": "free",
+      "category": "background",
+      "type": "vv:component",
+      "frameworks": [
+        "next",
+        "vite"
+      ],
+      "files": [
+        {
+          "path": "packages/components/wavy-grid/index.ts",
+          "target": "wavy-grid/index.ts",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/wavy-grid/index.d.ts",
+          "target": "wavy-grid/index.d.ts",
+          "type": "types"
+        },
+        {
+          "path": "packages/components/wavy-grid/WavyGrid.tsx",
+          "target": "wavy-grid/WavyGrid.tsx",
+          "type": "component"
+        },
+        {
+          "path": "packages/components/wavy-grid/WavyGrid.d.ts",
+          "target": "wavy-grid/WavyGrid.d.ts",
+          "type": "types"
+        }
+      ],
+      "dependencies": [
+        "@vectorvesper/motion",
+        "three"
+      ],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "requiresClient": true,
+      "supportsReducedMotion": true,
+      "usesWebGL": true,
+      "usesPointer": true,
+      "usesScroll": false,
+      "fallbacks": [],
+      "recipes": [],
+      "docsUrl": "https://vectorvesper.dev/components/wavy-grid",
+      "previewUrl": "https://vectorvesper.dev/components/wavy-grid",
+      "entry": "wavy-grid/index.ts",
+      "exportName": "WavyGrid",
+      "usesTailwind": false,
+      "draft": false
     },
     {
       "slug": "accretion-disc",
